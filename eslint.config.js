@@ -30,6 +30,3 @@ export default tseslint.config(
 
 
 
-
-
-
