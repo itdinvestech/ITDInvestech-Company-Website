@@ -1,10 +1,6 @@
-import { FormEvent, useRef, useState } from 'react'
-import { Loader2, Mail, MapPin } from 'lucide-react'
+import { FormEvent, useState } from 'react'
+import { Loader2, Mail, MapPin, Phone } from 'lucide-react'
 import { submitContactForm } from '@/lib/contactApi'
-import { useInView } from '@/hooks/useInView'
-import { cn } from '@/lib/utils'
-
-const SUPPORT_EMAIL = 'support@itdinvestech.co.za'
 
 const initialForm = {
   name: '',
@@ -16,8 +12,6 @@ const initialForm = {
 }
 
 export default function Contact() {
-  const ref = useRef<HTMLElement>(null)
-  const visible = useInView(ref)
   const [form, setForm] = useState(initialForm)
   const [submitting, setSubmitting] = useState(false)
   const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; message: string } | null>(null)
@@ -44,7 +38,7 @@ export default function Contact() {
       setForm(initialForm)
       setFeedback({
         type: 'success',
-        message: `Thanks — your message was sent. We will reply from ${SUPPORT_EMAIL}.`,
+        message: 'Thanks — your message was sent to our team. We will reply from support@itdinvestech.co.za.',
       })
     } catch (error) {
       setFeedback({
@@ -57,21 +51,26 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" ref={ref} className="section-band py-20">
+    <section id="contact" className="py-20">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className={cn('fade-section', visible && 'fade-section--visible')}>
-          <p className="eyebrow">Contact</p>
-          <h2 className="section-title mt-3">Tell us about your project</h2>
-          <p className="section-copy">Send us a message and our team will get back to you shortly.</p>
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary">Contact</p>
+          <h2 className="section-title mt-2">Tell us about your project</h2>
+          <p className="section-copy">
+            Messages are delivered securely through our platform email service to
+            {' '}support@itdinvestech.co.za.
+          </p>
           <ul className="mt-8 space-y-4 text-sm text-muted-foreground">
-            <li className="flex items-start gap-3 rounded-2xl border border-border/80 bg-white/80 p-4 shadow-sm">
-              <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#667eea]" />
-              <a href={`mailto:${SUPPORT_EMAIL}`} className="font-medium text-foreground hover:text-primary">
-                {SUPPORT_EMAIL}
-              </a>
+            <li className="flex items-start gap-3">
+              <Mail className="mt-0.5 h-4 w-4 text-primary" />
+              <span>support@itdinvestech.co.za</span>
             </li>
-            <li className="flex items-start gap-3 rounded-2xl border border-border/80 bg-white/80 p-4 shadow-sm">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#667eea]" />
+            <li className="flex items-start gap-3">
+              <Phone className="mt-0.5 h-4 w-4 text-primary" />
+              <span>South Africa</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <MapPin className="mt-0.5 h-4 w-4 text-primary" />
               <span>Remote-first team serving clients across Africa</span>
             </li>
           </ul>
@@ -79,8 +78,7 @@ export default function Contact() {
 
         <form
           onSubmit={onSubmit}
-          className={cn('contact-form fade-section', visible && 'fade-section--visible')}
-          style={{ transitionDelay: '100ms' }}>
+          className="rounded-2xl border border-border bg-white p-6 shadow-sm">
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="block sm:col-span-1">
               <span className="mb-1 block text-sm font-medium">Name</span>
