@@ -29,7 +29,7 @@ export function TransformShowcase() {
       <div className="container relative z-10 mx-auto px-4">
         <div className="grid items-start gap-8 xl:grid-cols-[1.15fr_0.85fr] xl:gap-10">
           <div className="relative space-y-6">
-            <div className="relative z-10 text-center xl:pl-24 xl:text-left">
+            <div className="relative z-10 text-center xl:text-left">
               <h3 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 Ready to Transform Your Business?
               </h3>
