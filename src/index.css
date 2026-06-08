@@ -4,22 +4,22 @@
 
 @layer base {
   :root {
-    --background: 220 20% 98%;
-    --foreground: 228 35% 15%;
+    --background: 228 33% 97%;
+    --foreground: 228 35% 14%;
     --card: 0 0% 100%;
-    --card-foreground: 228 35% 15%;
+    --card-foreground: 228 35% 14%;
     --primary: 228 26% 26%;
     --primary-foreground: 0 0% 100%;
     --secondary: 220 16% 92%;
     --secondary-foreground: 228 26% 26%;
-    --muted: 220 14% 94%;
-    --muted-foreground: 220 9% 46%;
-    --accent: 214 100% 97%;
+    --muted: 220 18% 94%;
+    --muted-foreground: 220 9% 42%;
+    --accent: 234 89% 96%;
     --accent-foreground: 228 26% 26%;
-    --border: 220 13% 88%;
-    --input: 220 13% 88%;
-    --ring: 228 26% 26%;
-    --radius: 0.75rem;
+    --border: 220 16% 88%;
+    --input: 220 16% 88%;
+    --ring: 234 80% 70%;
+    --radius: 0.9rem;
   }
 
   * {
@@ -28,6 +28,9 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(102, 126, 234, 0.08), transparent 28%),
+      radial-gradient(circle at top right, rgba(118, 75, 162, 0.06), transparent 24%);
   }
 
   html {
@@ -48,15 +51,126 @@
     @apply mt-4 max-w-2xl text-base leading-7 text-muted-foreground;
   }
 
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.22em] text-[#667eea];
+  }
+
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60;
+    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#667eea] to-[#764ba2] px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[#667eea]/25 transition hover:scale-[1.02] hover:shadow-[#667eea]/40 disabled:cursor-not-allowed disabled:opacity-60;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-lg border border-border bg-white px-5 py-2.5 text-sm font-semibold text-foreground transition hover:bg-muted;
+    @apply inline-flex items-center justify-center rounded-full border border-border bg-white px-5 py-2.5 text-sm font-semibold text-foreground transition hover:bg-muted hover:border-[#667eea]/30;
   }
 
   .input-field {
-    @apply w-full rounded-lg border border-input bg-white px-3 py-2 text-sm outline-none ring-primary transition focus:ring-2;
+    @apply w-full rounded-xl border border-input bg-white/90 px-3.5 py-2.5 text-sm outline-none transition focus:border-[#667eea]/40 focus:ring-2 focus:ring-[#667eea]/20;
+  }
+
+  .hero-shell {
+    background:
+      radial-gradient(circle at 18% 22%, rgba(102, 126, 234, 0.14), transparent 34%),
+      radial-gradient(circle at 82% 8%, rgba(118, 75, 162, 0.1), transparent 30%),
+      linear-gradient(180deg, #ffffff 0%, #f3f5fb 55%, #eef1f8 100%);
+  }
+
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(48, 57, 86, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(48, 57, 86, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to bottom, black, transparent 92%);
+  }
+
+  .hero-orb {
+    @apply absolute rounded-full blur-3xl;
+    animation: float 10s ease-in-out infinite;
+  }
+
+  .hero-orb--one {
+    top: 8%;
+    right: 10%;
+    width: 220px;
+    height: 220px;
+    background: rgba(102, 126, 234, 0.18);
+  }
+
+  .hero-orb--two {
+    bottom: 10%;
+    left: 8%;
+    width: 180px;
+    height: 180px;
+    background: rgba(118, 75, 162, 0.14);
+    animation-delay: -3s;
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-border/80 bg-white/80 p-5 shadow-sm backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[#667eea]/25 hover:shadow-lg hover:shadow-[#667eea]/10;
+  }
+
+  .feature-card {
+    @apply rounded-2xl border border-border/80 bg-white/80 p-5 shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-[#667eea]/25 hover:shadow-lg hover:shadow-[#667eea]/10;
+  }
+
+  .service-card {
+    @apply rounded-3xl border border-border/80 bg-white/85 p-6 shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1.5 hover:border-[#667eea]/25 hover:shadow-xl hover:shadow-[#667eea]/10;
+  }
+
+  .section-band {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.95)),
+      radial-gradient(circle at top, rgba(102, 126, 234, 0.08), transparent 55%);
+  }
+
+  .contact-form {
+    @apply rounded-3xl border border-border/80 bg-white/90 p-6 shadow-xl shadow-[#303956]/5 backdrop-blur sm:p-8;
+  }
+
+  .fade-section {
+    @apply translate-y-6 opacity-0 transition duration-700 ease-out;
+  }
+
+  .fade-section--visible {
+    @apply translate-y-0 opacity-100;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.8s ease-out both;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-up,
+  .fade-section,
+  .hero-orb {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
