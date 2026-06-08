@@ -5,32 +5,44 @@ const CAPABILITIES = [
   {
     icon: Cloud,
     title: 'Cloud-native delivery',
-    description: 'Automated CI/CD to S3, CloudFront, and containerized APIs with zero-downtime rollouts.',
+    description: 'CI/CD to S3, CloudFront, and containerized APIs.',
+    fullDescription:
+      'Automated CI/CD to S3, CloudFront, and containerized APIs with zero-downtime rollouts.',
   },
   {
     icon: Server,
     title: 'GraphQL platforms',
-    description: 'Unified APIs powering LMS, billing, analytics, and multi-tenant SaaS products.',
+    description: 'Unified APIs for LMS, billing, and multi-tenant SaaS.',
+    fullDescription:
+      'Unified APIs powering LMS, billing, analytics, and multi-tenant SaaS products.',
   },
   {
     icon: BrainCircuit,
     title: 'Intelligent systems',
-    description: 'Data pipelines, dashboards, and automation that turn operations into insight.',
+    description: 'Dashboards and automation that turn data into insight.',
+    fullDescription:
+      'Data pipelines, dashboards, and automation that turn operations into insight.',
   },
   {
     icon: Lock,
     title: 'Enterprise security',
-    description: 'Role-based access, audit trails, encrypted transport, and production-grade hardening.',
+    description: 'RBAC, audit trails, and production-grade hardening.',
+    fullDescription:
+      'Role-based access, audit trails, encrypted transport, and production-grade hardening.',
   },
   {
     icon: Workflow,
     title: 'Custom workflows',
-    description: 'School, medical, inventory, and real-estate platforms built around your processes.',
+    description: 'Platforms shaped around your industry processes.',
+    fullDescription:
+      'School, medical, inventory, and real-estate platforms built around your processes.',
   },
   {
     icon: Rocket,
     title: 'Scale with confidence',
-    description: 'Performance tuning, observability, and architecture designed for growth.',
+    description: 'Observability and architecture built for growth.',
+    fullDescription:
+      'Performance tuning, observability, and architecture designed for growth.',
   },
 ]
 
@@ -39,29 +51,52 @@ type TechCapabilitiesProps = {
 }
 
 export function TechCapabilities({ embedded = false }: TechCapabilitiesProps) {
-  return (
-    <section className={cn('relative', !embedded && 'py-16 sm:py-20')}>
-      {!embedded && (
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-blue-50/40 to-transparent dark:via-blue-950/20" />
-      )}
+  if (embedded) {
+    return (
+      <section className="relative">
+        <div className="mb-4 xl:text-left">
+          <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Engineering excellence</h2>
+          <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+            Modern stacks, automated delivery, and enterprise polish.
+          </p>
+        </div>
 
-      <div className={cn(!embedded && 'container mx-auto px-4')}>
-        <div
-          className={cn(
-            'mx-auto mb-10 max-w-3xl text-center',
-            embedded && 'mb-8 xl:text-left',
-          )}
-        >
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Engineering excellence
-          </h2>
+        <div className="grid gap-2 sm:grid-cols-2">
+          {CAPABILITIES.map((item) => (
+            <article
+              key={item.title}
+              className="group flex items-start gap-2.5 rounded-lg border border-border/60 bg-background/60 px-2.5 py-2 transition-colors hover:border-primary/30 hover:bg-background/90"
+            >
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                <item.icon className="h-3.5 w-3.5" />
+              </div>
+              <div className="min-w-0">
+                <h3 className="text-xs font-semibold sm:text-sm">{item.title}</h3>
+                <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground sm:text-xs">
+                  {item.description}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  return (
+    <section className="relative py-16 sm:py-20">
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-blue-50/40 to-transparent dark:via-blue-950/20" />
+
+      <div className="container mx-auto px-4">
+        <div className="mx-auto mb-10 max-w-3xl text-center">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Engineering excellence</h2>
           <p className="mt-4 text-lg text-muted-foreground">
             We ship production systems with modern stacks, automated delivery, and the kind of polish
             enterprises expect from advanced software teams.
           </p>
         </div>
 
-        <div className={cn('grid gap-4', embedded ? 'md:grid-cols-2' : 'md:grid-cols-2 xl:grid-cols-3')}>
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {CAPABILITIES.map((item) => (
             <article
               key={item.title}
@@ -74,7 +109,7 @@ export function TechCapabilities({ embedded = false }: TechCapabilitiesProps) {
                 </div>
                 <h3 className="text-lg font-semibold">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
+                  {item.fullDescription}
                 </p>
               </div>
             </article>

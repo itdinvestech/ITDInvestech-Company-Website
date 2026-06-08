@@ -12,19 +12,23 @@ const TERMINAL_LINES = [
 ]
 
 const METRICS = [
-  { label: 'API latency', value: '< 180ms' },
-  { label: 'Uptime SLA', value: '99.9%' },
-  { label: 'Edge regions', value: '12+' },
+  { label: 'Latency', value: '<180ms' },
+  { label: 'Uptime', value: '99.9%' },
+  { label: 'Edge', value: '12+' },
   { label: 'Stack', value: 'React · GraphQL · AWS' },
 ]
 
 const toneClass = {
-  command: 'text-sky-300',
-  success: 'text-emerald-300',
-  highlight: 'text-violet-300 font-semibold',
+  command: 'text-blue-700 dark:text-blue-300',
+  success: 'text-emerald-700 dark:text-emerald-300',
+  highlight: 'text-primary font-medium',
 }
 
-export function LiveTerminal() {
+type LiveTerminalProps = {
+  className?: string
+}
+
+export function LiveTerminal({ className }: LiveTerminalProps) {
   const [visibleLines, setVisibleLines] = useState(1)
   const [cursorOn, setCursorOn] = useState(true)
 
@@ -47,37 +51,38 @@ export function LiveTerminal() {
   }, [visibleLines])
 
   return (
-    <div className="relative">
-      <div className="absolute -inset-4 rounded-[1.75rem] bg-gradient-to-br from-blue-500/20 via-indigo-500/10 to-violet-500/20 blur-2xl" />
-
-      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b1220]/95 shadow-2xl shadow-blue-950/30 backdrop-blur-md">
-        <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
-          <span className="h-3 w-3 rounded-full bg-red-400/90" />
-          <span className="h-3 w-3 rounded-full bg-amber-400/90" />
-          <span className="h-3 w-3 rounded-full bg-emerald-400/90" />
-          <span className="ml-2 text-xs font-medium text-slate-400">itd-deploy — zsh</span>
+    <div className={cn('relative', className)}>
+      <div className="relative overflow-hidden rounded-xl border border-border/70 bg-background/75 shadow-sm backdrop-blur-sm">
+        <div className="flex items-center gap-1.5 border-b border-border/60 bg-muted/30 px-3 py-2">
+          <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+          <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
+          <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
+          <span className="ml-1.5 text-[10px] font-medium text-muted-foreground">itd-deploy</span>
         </div>
 
-        <div className="space-y-1.5 px-4 py-4 font-mono text-[11px] leading-relaxed sm:text-xs md:text-sm">
+        <div className="space-y-1 px-3 py-3 font-mono text-[10px] leading-relaxed sm:text-[11px]">
           {TERMINAL_LINES.slice(0, visibleLines).map((line, index) => (
             <div key={`${line.text}-${index}`} className={cn('animate-fade-in', toneClass[line.tone])}>
               {line.text}
             </div>
           ))}
           {visibleLines < TERMINAL_LINES.length && (
-            <span className={cn('inline-block h-4 w-2 bg-sky-300', cursorOn ? 'opacity-100' : 'opacity-0')} />
+            <span
+              className={cn(
+                'inline-block h-3.5 w-1.5 rounded-sm bg-primary/70',
+                cursorOn ? 'opacity-100' : 'opacity-0',
+              )}
+            />
           )}
         </div>
 
-        <div className="grid grid-cols-2 gap-2 border-t border-white/10 bg-white/[0.03] p-3 sm:grid-cols-4">
-          {METRICS.map((metric) => (
-            <div
-              key={metric.label}
-              className="rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 transition-colors hover:border-sky-400/40 hover:bg-sky-400/10"
-            >
-              <div className="text-[10px] uppercase tracking-wider text-slate-400">{metric.label}</div>
-              <div className="mt-1 text-sm font-semibold text-white">{metric.value}</div>
-            </div>
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-border/60 bg-muted/20 px-3 py-2 text-[10px] text-muted-foreground">
+          {METRICS.map((metric, index) => (
+            <span key={metric.label} className="inline-flex items-center gap-1">
+              {index > 0 && <span className="text-border">·</span>}
+              <span>{metric.label}</span>
+              <span className="font-medium text-foreground">{metric.value}</span>
+            </span>
           ))}
         </div>
       </div>
