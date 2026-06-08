@@ -1,4 +1,7 @@
+import { useRef } from 'react'
 import { BookOpen, Cloud, Code2, Mail } from 'lucide-react'
+import { useInView } from '@/hooks/useInView'
+import { cn } from '@/lib/utils'
 
 const services = [
   {
@@ -24,18 +27,26 @@ const services = [
 ]
 
 export default function Services() {
+  const ref = useRef<HTMLElement>(null)
+  const visible = useInView(ref)
+
   return (
-    <section id="services" className="bg-muted/40 py-20">
+    <section id="services" ref={ref} className="py-20">
       <div className="section-shell">
-        <p className="text-sm font-semibold uppercase tracking-wide text-primary">Services</p>
-        <h2 className="section-title mt-2">What we deliver</h2>
-        <p className="section-copy">
-          End-to-end product engineering — from discovery and design through deployment and support.
-        </p>
+        <div className={cn('fade-section max-w-2xl', visible && 'fade-section--visible')}>
+          <p className="eyebrow">Services</p>
+          <h2 className="section-title mt-3">What we deliver</h2>
+          <p className="section-copy">
+            End-to-end product engineering — from discovery and design through deployment and support.
+          </p>
+        </div>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {services.map(({ icon: Icon, title, description }) => (
-            <article key={title} className="rounded-2xl border border-border bg-white p-6 shadow-sm">
-              <div className="mb-4 inline-flex rounded-xl bg-accent p-3 text-primary">
+          {services.map(({ icon: Icon, title, description }, index) => (
+            <article
+              key={title}
+              className={cn('service-card fade-section', visible && 'fade-section--visible')}
+              style={{ transitionDelay: `${index * 90}ms` }}>
+              <div className="mb-4 inline-flex rounded-xl bg-[#667eea]/10 p-3 text-[#667eea]">
                 <Icon className="h-5 w-5" />
               </div>
               <h3 className="text-lg font-semibold">{title}</h3>
