@@ -116,6 +116,35 @@ Edit the CSS variables in `src/index.css` to customize the color scheme.
 - Change stats in `src/components/Hero.tsx`
 - Update contact details in `src/components/Contact.tsx`
 
+## Deployment (S3 + CloudFront)
+
+Pushes to **`main`** run **Deploy website to S3 and CloudFront** (same pattern as `lms_front`).
+
+### GitHub secrets
+
+| Secret | Description |
+|--------|-------------|
+| `AWS_ACCESS_KEY_ID` | IAM user for deploy |
+| `AWS_SECRET_ACCESS_KEY` | IAM secret |
+| `AWS_REGION` | e.g. `af-south-1` |
+| `WEBSITE_S3_BUCKET` | S3 bucket for static site (or reuse `S3_BUCKET`) |
+| `WEBSITE_CLOUDFRONT_DISTRIBUTION_ID` | CloudFront distribution ID for the company site |
+
+See [`.github/aws-deploy-iam-policy.example.json`](.github/aws-deploy-iam-policy.example.json) for minimum IAM permissions.
+
+### Contact form email
+
+The contact form posts to **`submitWebsiteContact`** on the LMS API (`VITE_GRAPHQL_ENDPOINT`), which sends mail through the platform Zoho SMTP setup to **`support@itdinvestech.co.za`**.
+
+Local dev:
+
+```bash
+# .env.development
+VITE_GRAPHQL_ENDPOINT=http://127.0.0.1:8001/graphql/
+```
+
+Production build uses `.env.production` → `https://lms-api.itdinvestech.co.za/graphql/`.
+
 ## License
 
 This project is licensed under the MIT License.
