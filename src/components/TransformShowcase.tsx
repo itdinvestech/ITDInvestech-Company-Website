@@ -16,19 +16,24 @@ export function TransformShowcase() {
   }
 
   return (
-    <section className="relative overflow-hidden py-20 sm:py-28">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-950 via-[#0f172a] to-blue-950" />
-      <div className="absolute inset-0 -z-10 grid-pattern opacity-20" />
+    <section className="relative overflow-hidden py-20 sm:py-32">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-pink-50/50 dark:from-blue-950/20 dark:via-purple-950/10 dark:to-pink-950/20" />
+        <div className="absolute inset-0 dot-pattern opacity-40" />
+        <div className="absolute top-20 left-10 h-64 w-64 animate-float-slower rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-2xl" />
+        <div className="absolute bottom-20 right-10 h-80 w-80 animate-float-slow rounded-full bg-gradient-to-br from-blue-500/10 to-transparent blur-2xl" />
+      </div>
+
       <RocketLaunch />
 
       <div className="container relative z-10 mx-auto px-4">
         <div className="grid items-start gap-12 xl:grid-cols-2 xl:gap-14">
-          <div className="space-y-8">
-            <div className="text-center xl:text-left">
-              <h3 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <div className="relative space-y-8">
+            <div className="relative z-10 text-center xl:pl-28 xl:text-left">
+              <h3 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
                 Ready to Transform Your Business?
               </h3>
-              <p className="mt-4 text-lg leading-relaxed text-slate-300">
+              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                 Let&apos;s discuss how we can create a tailored management software solution for your
                 specific business needs. Our team has the experience and expertise to bring your vision
                 to life.
@@ -42,17 +47,17 @@ export function TransformShowcase() {
                   onClick={scrollToContact}
                   size="lg"
                   variant="outline"
-                  className="rounded-full border-white/20 bg-white/5 px-8 text-lg text-white hover:bg-white/10 hover:text-white"
+                  className="rounded-full px-8 text-lg"
                 >
                   View Pricing
                 </Button>
               </div>
-              <p className="mt-6 text-sm text-slate-400">
+              <p className="mt-6 text-sm text-muted-foreground">
                 ✓ Free Consultation &nbsp; ✓ Custom Solutions &nbsp; ✓ Ongoing Support
               </p>
             </div>
 
-            <div className="relative mx-auto w-full max-w-xl xl:max-w-none">
+            <div className="relative z-10 mx-auto w-full max-w-xl xl:max-w-none">
               <LiveTerminal />
             </div>
           </div>
