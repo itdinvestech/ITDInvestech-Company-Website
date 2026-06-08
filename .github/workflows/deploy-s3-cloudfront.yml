@@ -53,11 +53,24 @@ jobs:
           aws s3 sync dist/ "s3://${BUCKET}/" \
             --delete \
             --cache-control "public,max-age=31536000,immutable" \
-            --exclude "index.html"
+            --exclude "index.html" \
+            --exclude "vite.svg" \
+            --exclude "favicon.svg" \
+            --exclude "logo.svg"
 
           aws s3 cp dist/index.html "s3://${BUCKET}/index.html" \
             --cache-control "public,max-age=0,must-revalidate" \
             --content-type "text/html"
+
+          if [ -f dist/vite.svg ]; then
+            aws s3 cp dist/vite.svg "s3://${BUCKET}/vite.svg" \
+              --cache-control "public,max-age=0,must-revalidate" \
+              --content-type "image/svg+xml"
+          fi
+
+          # Remove assets from the polished UI deploy so browsers cannot keep using them.
+          aws s3 rm "s3://${BUCKET}/favicon.svg" || true
+          aws s3 rm "s3://${BUCKET}/logo.svg" || true
 
       - name: Invalidate CloudFront cache
         env:
