@@ -74,7 +74,7 @@ export function Header() {
             className="rounded-lg outline-none ring-offset-background transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             aria-label="Go to home"
           >
-            <BrandLogo />
+            <BrandLogo iconSize={36} compact />
           </button>
 
           <nav

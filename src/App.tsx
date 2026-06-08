@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header"
 import { Hero } from "@/components/Hero"
+import { TechCapabilities } from "@/components/TechCapabilities"
 import { About } from "@/components/About"
 import { Services } from "@/components/Services"
 import { ManagementSoftware } from "@/components/ManagementSoftware"
@@ -16,6 +17,7 @@ function App() {
       <Header />
       <main className="relative overflow-hidden">
         <Hero />
+        <TechCapabilities />
         <About />
         <Services />
         <ManagementSoftware />

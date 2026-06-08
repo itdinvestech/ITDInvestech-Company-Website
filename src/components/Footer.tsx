@@ -1,4 +1,5 @@
 import { Separator } from "@/components/ui/separator"
+import BrandLogo from "@/components/BrandLogo"
 import { Github, Twitter, Linkedin, Facebook } from "lucide-react"
 
 export function Footer() {
@@ -18,11 +19,8 @@ export function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <span className="text-lg font-bold text-primary-foreground">ITD</span>
-              </div>
-              <span className="text-xl font-bold">ITDInvestech</span>
+            <div className="mb-4">
+              <BrandLogo iconSize={40} />
             </div>
             <p className="text-sm text-muted-foreground">
               Transforming businesses through innovative technology solutions.
