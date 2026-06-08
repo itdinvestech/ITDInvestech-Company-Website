@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ITD Investech">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ITD">
   <rect width="32" height="32" rx="8" fill="#303956"/>
-  <path d="M8 10h4.5v12H8V10zm11.5 0H24v2.2h-4.5V15H23v2.1h-3.5v4.9h-4.5V10z" fill="#fff"/>
-  <circle cx="24" cy="8" r="3" fill="#667eea"/>
+  <text
+    x="16"
+    y="21"
+    text-anchor="middle"
+    fill="#ffffff"
+    font-family="Segoe UI, system-ui, sans-serif"
+    font-size="11"
+    font-weight="800"
+    letter-spacing="0.04em">ITD</text>
 </svg>
