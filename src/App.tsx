@@ -1,9 +1,9 @@
 import { Header } from "@/components/Header"
 import { Hero } from "@/components/Hero"
-import { TechCapabilities } from "@/components/TechCapabilities"
 import { About } from "@/components/About"
 import { Services } from "@/components/Services"
 import { ManagementSoftware } from "@/components/ManagementSoftware"
+import { TransformShowcase } from "@/components/TransformShowcase"
 import { Contact } from "@/components/Contact"
 import { Footer } from "@/components/Footer"
 import { FloatingNav } from "@/components/FloatingNav"
@@ -17,10 +17,10 @@ function App() {
       <Header />
       <main className="relative overflow-hidden">
         <Hero />
-        <TechCapabilities />
         <About />
         <Services />
         <ManagementSoftware />
+        <TransformShowcase />
         <Contact />
       </main>
       <Footer />

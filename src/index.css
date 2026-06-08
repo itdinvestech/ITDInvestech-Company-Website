@@ -291,5 +291,67 @@
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
     animation: shimmer 3s infinite;
   }
+
+  .rocket-ship {
+    animation: rocketLaunch 8s ease-in-out infinite;
+    filter: drop-shadow(0 0 18px rgba(56, 189, 248, 0.35));
+  }
+
+  .rocket-exhaust {
+    animation: rocketExhaust 8s ease-in-out infinite;
+  }
+
+  .rocket-pad-glow {
+    animation: rocketPadGlow 8s ease-in-out infinite;
+  }
+
+  .rocket-star {
+    animation: rocketStar 8s ease-in-out infinite;
+  }
+
+  @keyframes rocketLaunch {
+    0%, 100% {
+      transform: translate(-50%, 0) rotate(-2deg);
+    }
+    45% {
+      transform: translate(-50%, -120px) rotate(2deg);
+    }
+    55% {
+      transform: translate(-50%, -120px) rotate(2deg);
+    }
+  }
+
+  @keyframes rocketExhaust {
+    0%, 100% {
+      opacity: 0.35;
+      transform: translateX(-50%) scaleY(0.7);
+    }
+    45%, 55% {
+      opacity: 1;
+      transform: translateX(-50%) scaleY(1.15);
+    }
+  }
+
+  @keyframes rocketPadGlow {
+    0%, 100% {
+      opacity: 0.35;
+      transform: translateX(-50%) scale(0.85);
+    }
+    45%, 55% {
+      opacity: 0.9;
+      transform: translateX(-50%) scale(1.2);
+    }
+  }
+
+  @keyframes rocketStar {
+    0%, 100% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    40%, 60% {
+      opacity: 0.8;
+      transform: translateY(-80px);
+    }
+  }
 }
 

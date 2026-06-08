@@ -1,6 +1,4 @@
 import { Button } from '@/components/ui/button'
-import { LiveTerminal } from '@/components/LiveTerminal'
-import { NetworkCanvas } from '@/components/NetworkCanvas'
 import { ArrowRight, Sparkles } from 'lucide-react'
 
 const HEADER_OFFSET = 72
@@ -31,88 +29,58 @@ export function Hero() {
       </div>
 
       <div className="container mx-auto px-4">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 xl:gap-14">
-          <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:text-left">
-            <div className="mb-8 inline-flex animate-fade-in items-center rounded-full border bg-background/50 px-4 py-1.5 text-sm backdrop-blur-sm transition-all duration-300 hover:bg-background/80">
-              <Sparkles className="mr-2 h-4 w-4 animate-pulse text-primary" />
-              <span>Engineering the future of business software</span>
-            </div>
-
-            <h1 className="animate-slide-up mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
-              Transform Your Business with{' '}
-              <span className="animate-gradient inline-block bg-gradient-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Custom Management Software
-              </span>
-            </h1>
-
-            <p className="animate-slide-up stagger-1 mb-10 text-lg text-muted-foreground sm:text-xl">
-              We build production-grade platforms — from{' '}
-              <span className="font-semibold text-foreground">School Management Systems</span> and{' '}
-              <span className="font-semibold text-foreground">Medical Practice Software</span> to{' '}
-              <span className="font-semibold text-foreground">Inventory</span> and{' '}
-              <span className="font-semibold text-foreground">Real Estate</span> solutions — with
-              cloud delivery, GraphQL APIs, and enterprise polish.
-            </p>
-
-            <div className="animate-slide-up stagger-2 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
-              <Button size="lg" onClick={() => scrollToSection('contact')} className="group relative overflow-hidden">
-                <span className="relative z-10">Get Started</span>
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary to-blue-600 opacity-0 transition-opacity group-hover:opacity-100" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => scrollToSection('services')}
-                className="transition-all duration-300 hover:border-primary hover:text-primary"
-              >
-                Explore Services
-              </Button>
-            </div>
-
-            <div className="animate-fade-in stagger-3 mt-14 grid grid-cols-2 gap-6 sm:grid-cols-4 lg:gap-8">
-              {[
-                { value: '25+', label: 'Projects Completed' },
-                { value: '100%', label: 'Client Satisfaction' },
-                { value: '6', label: 'Team Members' },
-                { value: '🇿🇦→🇳🇱', label: 'SA to NL' },
-              ].map((stat) => (
-                <div key={stat.label} className="group cursor-default transition-transform duration-300 hover:scale-105">
-                  <div className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl">
-                    {stat.value}
-                  </div>
-                  <div className="mt-1 text-xs text-muted-foreground sm:text-sm">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="mb-8 inline-flex animate-fade-in items-center rounded-full border bg-background/50 px-4 py-1.5 text-sm backdrop-blur-sm transition-all duration-300 hover:bg-background/80">
+            <Sparkles className="mr-2 h-4 w-4 animate-pulse text-primary" />
+            <span>Engineering the future of business software</span>
           </div>
 
-          <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
-            <div className="absolute inset-0 -z-10 overflow-hidden rounded-[2rem]">
-              <NetworkCanvas className="opacity-90" />
-            </div>
+          <h1 className="animate-slide-up mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
+            Transform Your Business with{' '}
+            <span className="animate-gradient inline-block bg-gradient-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Custom Management Software
+            </span>
+          </h1>
 
-            <div className="animate-slide-in-right relative p-2 sm:p-4">
-              <LiveTerminal />
-            </div>
+          <p className="animate-slide-up stagger-1 mx-auto mb-10 max-w-3xl text-lg text-muted-foreground sm:text-xl">
+            We build production-grade platforms — from{' '}
+            <span className="font-semibold text-foreground">School Management Systems</span> and{' '}
+            <span className="font-semibold text-foreground">Medical Practice Software</span> to{' '}
+            <span className="font-semibold text-foreground">Inventory</span> and{' '}
+            <span className="font-semibold text-foreground">Real Estate</span> solutions — with
+            cloud delivery, GraphQL APIs, and enterprise polish.
+          </p>
 
-            <div className="pointer-events-none absolute -left-4 top-8 hidden rounded-2xl border border-white/20 bg-background/80 px-4 py-3 shadow-lg backdrop-blur-md lg:block animate-float-slow">
-              <div className="text-xs font-medium text-muted-foreground">Live stack</div>
-              <div className="mt-1 text-sm font-semibold">React · GraphQL · AWS</div>
-            </div>
-
-            <div
-              className="pointer-events-none absolute -right-2 bottom-10 hidden rounded-2xl border border-emerald-200/60 bg-emerald-50/90 px-4 py-3 shadow-lg backdrop-blur-md lg:block animate-float-slower"
-              style={{ animationDelay: '1.5s' }}
+          <div className="animate-slide-up stagger-2 flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <Button size="lg" onClick={() => scrollToSection('contact')} className="group relative overflow-hidden">
+              <span className="relative z-10">Get Started</span>
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-blue-600 opacity-0 transition-opacity group-hover:opacity-100" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => scrollToSection('services')}
+              className="transition-all duration-300 hover:border-primary hover:text-primary"
             >
-              <div className="flex items-center gap-2">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
-                </span>
-                <span className="text-sm font-semibold text-emerald-800">Systems operational</span>
+              Explore Services
+            </Button>
+          </div>
+
+          <div className="animate-fade-in stagger-3 mt-14 grid grid-cols-2 gap-6 sm:grid-cols-4 lg:gap-8">
+            {[
+              { value: '25+', label: 'Projects Completed' },
+              { value: '100%', label: 'Client Satisfaction' },
+              { value: '6', label: 'Team Members' },
+              { value: '🇿🇦→🇳🇱', label: 'SA to NL' },
+            ].map((stat) => (
+              <div key={stat.label} className="group cursor-default transition-transform duration-300 hover:scale-105">
+                <div className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl">
+                  {stat.value}
+                </div>
+                <div className="mt-1 text-xs text-muted-foreground sm:text-sm">{stat.label}</div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

@@ -391,42 +391,6 @@ export function ManagementSoftware() {
             )}
           </DialogContent>
         </Dialog>
-
-        {/* Bottom CTA */}
-        <div className="mt-24">
-          <div className="py-32 px-6">
-            <div className="max-w-3xl mx-auto text-center">
-              <h3 className="text-4xl font-bold mb-4">
-                Ready to Transform Your Business?
-              </h3>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Let's discuss how we can create a tailored management software solution for your specific business needs. 
-                Our team has the experience and expertise to bring your vision to life.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  onClick={scrollToContact}
-                  size="lg"
-                  className="text-lg px-8 py-6"
-                >
-                  Schedule a Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button 
-                  onClick={scrollToContact}
-                  size="lg"
-                  variant="outline"
-                  className="text-lg px-8 py-6"
-                >
-                  View Pricing
-                </Button>
-              </div>
-              <p className="mt-6 text-sm text-muted-foreground">
-                ✓ Free Consultation  ✓ Custom Solutions  ✓ Ongoing Support
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )
