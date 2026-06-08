@@ -1,10 +1,6 @@
-import { FormEvent, useRef, useState } from 'react'
-import { Loader2, Mail, MapPin } from 'lucide-react'
+import { FormEvent, useState } from 'react'
+import { Loader2, Mail, MapPin, Phone } from 'lucide-react'
 import { submitContactForm } from '@/lib/contactApi'
-import { useInView } from '@/hooks/useInView'
-import { cn } from '@/lib/utils'
-
-const SUPPORT_EMAIL = 'support@itdinvestech.co.za'
 
 const initialForm = {
   name: '',
@@ -16,8 +12,6 @@ const initialForm = {
 }
 
 export default function Contact() {
-  const ref = useRef<HTMLElement>(null)
-  const visible = useInView(ref)
   const [form, setForm] = useState(initialForm)
   const [submitting, setSubmitting] = useState(false)
   const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; message: string } | null>(null)
@@ -44,7 +38,7 @@ export default function Contact() {
       setForm(initialForm)
       setFeedback({
         type: 'success',
-        message: `Thanks — your message was sent. We will reply from ${SUPPORT_EMAIL}.`,
+        message: 'Thanks — your message was sent to our team. We will reply from support@itdinvestech.co.za.',
       })
     } catch (error) {
       setFeedback({
@@ -57,55 +51,37 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" ref={ref} className="py-24">
-      <div className="section-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-        <div className={cn('reveal', visible && 'reveal--visible')}>
-          <p className="eyebrow">Contact</p>
-          <h2 className="section-title mt-3">Tell us about your project</h2>
+    <section id="contact" className="py-20">
+      <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary">Contact</p>
+          <h2 className="section-title mt-2">Tell us about your project</h2>
           <p className="section-copy">
-            Send us a message and our team will get back to you shortly.
+            Messages are delivered securely through our platform email service to
+            {' '}support@itdinvestech.co.za.
           </p>
-
-          <div className="mt-8 space-y-4">
-            <a
-              href={`mailto:${SUPPORT_EMAIL}`}
-              className="contact-chip group">
-              <span className="contact-chip__icon">
-                <Mail className="h-4 w-4" />
-              </span>
-              <span>
-                <span className="block text-xs uppercase tracking-wide text-muted-foreground">
-                  Email
-                </span>
-                <span className="block font-medium text-foreground group-hover:text-[#667eea]">
-                  {SUPPORT_EMAIL}
-                </span>
-              </span>
-            </a>
-
-            <div className="contact-chip">
-              <span className="contact-chip__icon">
-                <MapPin className="h-4 w-4" />
-              </span>
-              <span>
-                <span className="block text-xs uppercase tracking-wide text-muted-foreground">
-                  Location
-                </span>
-                <span className="block font-medium text-foreground">
-                  Remote-first team serving clients across Africa
-                </span>
-              </span>
-            </div>
-          </div>
+          <ul className="mt-8 space-y-4 text-sm text-muted-foreground">
+            <li className="flex items-start gap-3">
+              <Mail className="mt-0.5 h-4 w-4 text-primary" />
+              <span>support@itdinvestech.co.za</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <Phone className="mt-0.5 h-4 w-4 text-primary" />
+              <span>South Africa</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <MapPin className="mt-0.5 h-4 w-4 text-primary" />
+              <span>Remote-first team serving clients across Africa</span>
+            </li>
+          </ul>
         </div>
 
         <form
           onSubmit={onSubmit}
-          className={cn('contact-form reveal', visible && 'reveal--visible')}
-          style={{ transitionDelay: '120ms' }}>
+          className="rounded-2xl border border-border bg-white p-6 shadow-sm">
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="block sm:col-span-1">
-              <span className="mb-1.5 block text-sm font-medium">Name</span>
+              <span className="mb-1 block text-sm font-medium">Name</span>
               <input
                 required
                 className="input-field"
@@ -114,7 +90,7 @@ export default function Contact() {
               />
             </label>
             <label className="block sm:col-span-1">
-              <span className="mb-1.5 block text-sm font-medium">Email</span>
+              <span className="mb-1 block text-sm font-medium">Email</span>
               <input
                 required
                 type="email"
@@ -124,7 +100,7 @@ export default function Contact() {
               />
             </label>
             <label className="block sm:col-span-2">
-              <span className="mb-1.5 block text-sm font-medium">Company</span>
+              <span className="mb-1 block text-sm font-medium">Company</span>
               <input
                 className="input-field"
                 value={form.company}
@@ -132,7 +108,7 @@ export default function Contact() {
               />
             </label>
             <label className="block sm:col-span-2">
-              <span className="mb-1.5 block text-sm font-medium">Subject</span>
+              <span className="mb-1 block text-sm font-medium">Subject</span>
               <input
                 required
                 className="input-field"
@@ -141,7 +117,7 @@ export default function Contact() {
               />
             </label>
             <label className="block sm:col-span-2">
-              <span className="mb-1.5 block text-sm font-medium">Message</span>
+              <span className="mb-1 block text-sm font-medium">Message</span>
               <textarea
                 required
                 rows={5}
@@ -163,17 +139,16 @@ export default function Contact() {
 
           {feedback ? (
             <p
-              className={cn(
-                'mt-4 rounded-xl px-3 py-2.5 text-sm',
+              className={`mt-4 rounded-lg px-3 py-2 text-sm ${
                 feedback.type === 'success'
-                  ? 'bg-emerald-50 text-emerald-800'
-                  : 'bg-red-50 text-red-800',
-              )}>
+                  ? 'bg-green-50 text-green-800'
+                  : 'bg-red-50 text-red-800'
+              }`}>
               {feedback.message}
             </p>
           ) : null}
 
-          <button type="submit" className="btn-glow mt-6 w-full sm:w-auto" disabled={submitting}>
+          <button type="submit" className="btn-primary mt-6 w-full sm:w-auto" disabled={submitting}>
             {submitting ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
