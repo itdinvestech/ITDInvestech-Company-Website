@@ -37,7 +37,14 @@ export function TransformShowcase() {
                 Let&apos;s discuss how we can create a tailored management software solution for your
                 specific business needs.
               </p>
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center xl:justify-start">
+            </div>
+
+            <div className="relative z-10 mx-auto w-full max-w-lg xl:max-w-none">
+              <LiveTerminal />
+            </div>
+
+            <div className="relative z-10 text-center xl:text-left">
+              <div className="flex flex-col gap-3 sm:flex-row sm:justify-center xl:justify-start">
                 <Button onClick={scrollToContact} className="rounded-full px-6">
                   Schedule a Consultation
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -49,10 +56,6 @@ export function TransformShowcase() {
               <p className="mt-4 text-xs text-muted-foreground sm:text-sm">
                 ✓ Free Consultation · ✓ Custom Solutions · ✓ Ongoing Support
               </p>
-            </div>
-
-            <div className="relative z-10 mx-auto w-full max-w-lg xl:max-w-none">
-              <LiveTerminal />
             </div>
           </div>
 

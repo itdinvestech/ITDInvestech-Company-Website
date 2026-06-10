@@ -26,26 +26,26 @@ export function BrandMark({ className, size = 36 }: BrandMarkProps) {
         </linearGradient>
       </defs>
       <rect width="32" height="32" rx="8" fill={`url(#${gradientId})`} />
-      <path
-        d="M10 11.5 7 16l3 4.5M22 11.5 25 16l-3 4.5"
-        fill="none"
-        stroke="#93c5fd"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
       <text
         x="16"
-        y="21.5"
+        y="20.5"
         textAnchor="middle"
         fill="#ffffff"
         fontFamily="Segoe UI, system-ui, sans-serif"
-        fontSize="8.5"
+        fontSize="8"
         fontWeight="800"
-        letterSpacing="0.06em"
+        letterSpacing="0.08em"
       >
         ITD
       </text>
+      <path
+        d="M9.25 17.25 6.75 19.75 9.25 22.25M22.75 17.25 25.25 19.75 22.75 22.25"
+        fill="none"
+        stroke="#93c5fd"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   )
 }
