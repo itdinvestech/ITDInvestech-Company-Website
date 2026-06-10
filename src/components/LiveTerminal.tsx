@@ -60,20 +60,28 @@ export function LiveTerminal({ className }: LiveTerminalProps) {
           <span className="ml-1.5 text-[10px] font-medium text-muted-foreground">itd-deploy</span>
         </div>
 
-        <div className="space-y-1 px-3 py-3 font-mono text-[10px] leading-relaxed sm:text-[11px]">
-          {TERMINAL_LINES.slice(0, visibleLines).map((line, index) => (
-            <div key={`${line.text}-${index}`} className={cn('animate-fade-in', toneClass[line.tone])}>
+        <div className="h-[11.5rem] px-3 py-3 font-mono text-[10px] leading-5 sm:text-[11px] sm:leading-5">
+          {TERMINAL_LINES.map((line, index) => (
+            <div
+              key={`${line.text}-${index}`}
+              className={cn(
+                'h-5 transition-opacity duration-200',
+                index < visibleLines ? cn('animate-fade-in opacity-100', toneClass[line.tone]) : 'opacity-0',
+              )}
+            >
               {line.text}
             </div>
           ))}
-          {visibleLines < TERMINAL_LINES.length && (
-            <span
-              className={cn(
-                'inline-block h-3.5 w-1.5 rounded-sm bg-primary/70',
-                cursorOn ? 'opacity-100' : 'opacity-0',
-              )}
-            />
-          )}
+          <div className="flex h-5 items-center">
+            {visibleLines < TERMINAL_LINES.length && (
+              <span
+                className={cn(
+                  'inline-block h-3.5 w-1.5 rounded-sm bg-primary/70',
+                  cursorOn ? 'opacity-100' : 'opacity-0',
+                )}
+              />
+            )}
+          </div>
         </div>
 
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-border/60 bg-muted/20 px-3 py-2 text-[10px] text-muted-foreground">

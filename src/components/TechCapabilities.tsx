@@ -54,27 +54,31 @@ export function TechCapabilities({ embedded = false }: TechCapabilitiesProps) {
   if (embedded) {
     return (
       <section className="relative">
-        <div className="mb-4 xl:text-left">
-          <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Engineering excellence</h2>
-          <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-            Modern stacks, automated delivery, and enterprise polish.
+        <div className="mb-6 xl:text-left">
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Engineering excellence</h2>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            We ship production systems with modern stacks, automated delivery, and the polish
+            enterprises expect from advanced software teams.
           </p>
         </div>
 
-        <div className="grid gap-2 sm:grid-cols-2">
+        <div className="space-y-3">
           {CAPABILITIES.map((item) => (
             <article
               key={item.title}
-              className="group flex items-start gap-2.5 rounded-lg border border-border/60 bg-background/60 px-2.5 py-2 transition-colors hover:border-primary/30 hover:bg-background/90"
+              className="group relative overflow-hidden rounded-xl border border-border/70 bg-background/80 p-4 shadow-sm transition-all duration-300 hover:border-primary/35 hover:shadow-md"
             >
-              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                <item.icon className="h-3.5 w-3.5" />
-              </div>
-              <div className="min-w-0">
-                <h3 className="text-xs font-semibold sm:text-sm">{item.title}</h3>
-                <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground sm:text-xs">
-                  {item.description}
-                </p>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/0 to-blue-500/0 opacity-0 transition-opacity duration-300 group-hover:from-primary/5 group-hover:to-blue-500/5 group-hover:opacity-100" />
+              <div className="relative flex items-start gap-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105">
+                  <item.icon className="h-5 w-5" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-base font-semibold tracking-tight">{item.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                    {item.fullDescription}
+                  </p>
+                </div>
               </div>
             </article>
           ))}
