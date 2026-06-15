@@ -19,7 +19,7 @@ export default function BrandLogo({
       <BrandMark size={iconSize} className="rounded-lg shadow-sm ring-1 ring-black/5" />
       {showWordmark && (
         <span className={cn('flex flex-col leading-none text-left', compact && 'hidden min-[420px]:flex')}>
-          <span className="text-lg font-extrabold tracking-tight text-[#303956] sm:text-xl">
+          <span className="text-lg font-extrabold tracking-tight text-foreground sm:text-xl">
             ITD
             <span className="bg-gradient-to-r from-[#1e40af] to-[#6366f1] bg-clip-text text-transparent">
               Investech

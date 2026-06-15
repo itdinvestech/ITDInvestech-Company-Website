@@ -248,7 +248,7 @@ export function ManagementSoftware() {
             return (
               <Card 
                 key={index} 
-                className="bg-white border-2 border-blue-200 hover:border-blue-500 transition-all duration-300 hover:shadow-xl hover:transform hover:-translate-y-2 overflow-hidden group flex flex-col"
+                className="bg-card border-2 border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:transform hover:-translate-y-2 overflow-hidden group flex flex-col"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 
@@ -285,7 +285,7 @@ export function ManagementSoftware() {
 
         {/* Modal Dialog */}
         <Dialog open={selectedSolution !== null} onOpenChange={() => setSelectedSolution(null)}>
-          <DialogContent className="bg-white">
+          <DialogContent>
             {selectedSolution !== null && (
               <>
                 <DialogHeader>
@@ -340,7 +340,7 @@ export function ManagementSoftware() {
                         return (
                           <div 
                             key={i}
-                            className="p-4 rounded-xl bg-white border-2 border-blue-200"
+                            className="p-4 rounded-xl bg-muted/50 border-2 border-border"
                           >
                             <div className="flex items-center gap-3 mb-2">
                               <div className="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center">

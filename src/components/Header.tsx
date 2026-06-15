@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import BrandLogo from '@/components/BrandLogo'
+import { ThemeToggle } from '@/components/ThemeToggle'
 import { cn, scrollToSection as navigateToSection } from '@/lib/utils'
 import { Menu, X } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
@@ -94,13 +95,16 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2">
+            <ThemeToggle />
             <Button onClick={() => scrollToSection('contact')} size="sm" className="rounded-full px-5">
               Get Started
             </Button>
           </div>
 
-          <button
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
+            <button
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background text-foreground shadow-sm transition-colors hover:bg-muted lg:hidden"
             onClick={() => setMobileOpen((open) => !open)}
@@ -110,6 +114,7 @@ export function Header() {
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
+          </div>
         </div>
       </header>
 
@@ -160,7 +165,11 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="border-t p-4">
+        <div className="border-t p-4 space-y-3">
+          <div className="flex items-center justify-between rounded-xl border border-border px-4 py-3">
+            <span className="text-sm font-medium">Theme</span>
+            <ThemeToggle />
+          </div>
           <Button onClick={() => scrollToSection('contact')} className="w-full rounded-full" size="lg">
             Get Started
           </Button>
