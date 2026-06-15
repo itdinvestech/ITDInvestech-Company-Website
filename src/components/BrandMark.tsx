@@ -38,14 +38,6 @@ export function BrandMark({ className, size = 36 }: BrandMarkProps) {
       >
         ITD
       </text>
-      <path
-        d="M9.25 17.25 6.75 19.75 9.25 22.25M22.75 17.25 25.25 19.75 22.75 22.25"
-        fill="none"
-        stroke="#93c5fd"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
     </svg>
   )
 }

@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import BrandLogo from '@/components/BrandLogo'
-import { cn } from '@/lib/utils'
+import { cn, scrollToSection as navigateToSection } from '@/lib/utils'
 import { Menu, X } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
 
@@ -20,11 +20,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false)
 
   const scrollToSection = useCallback((sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (!element) return
-
-    const offset = element.getBoundingClientRect().top + window.scrollY - HEADER_HEIGHT
-    window.scrollTo({ top: offset, behavior: 'smooth' })
+    navigateToSection(sectionId)
     setMobileOpen(false)
   }, [])
 

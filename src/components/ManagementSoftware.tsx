@@ -4,23 +4,10 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { GraduationCap, Stethoscope, Store, Building2, Check, ArrowRight, Users, BookOpen, Calendar, MessageSquare, FileText, DollarSign, ClipboardList, BarChart3, Package, ShoppingCart, TrendingUp, Home, Key, Wrench, Receipt } from "lucide-react"
 import { useState } from "react"
+import { scrollToSection } from "@/lib/utils"
 
 export function ManagementSoftware() {
   const [selectedSolution, setSelectedSolution] = useState<number | null>(null)
-
-  const scrollToContact = () => {
-    const element = document.getElementById('contact')
-    if (element) {
-      const headerOffset = 64 // Height of sticky header
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-      const offsetPosition = elementPosition - headerOffset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
-    }
-  }
 
   const solutions = [
     {
@@ -377,7 +364,7 @@ export function ManagementSoftware() {
                     <Button 
                       onClick={() => {
                         setSelectedSolution(null)
-                        scrollToContact()
+                        scrollToSection('contact')
                       }}
                       size="lg"
                       className="group/btn"

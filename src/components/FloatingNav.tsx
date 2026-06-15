@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { ChevronUp, ChevronDown } from "lucide-react"
 import { useState, useEffect } from "react"
+import { scrollToSection } from "@/lib/utils"
 
 export function FloatingNav() {
   const [currentSection, setCurrentSection] = useState(0)
@@ -27,33 +28,13 @@ export function FloatingNav() {
 
   const navigateUp = () => {
     if (currentSection > 0) {
-      const element = document.getElementById(sections[currentSection - 1])
-      if (element) {
-        const headerOffset = 72
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-        const offsetPosition = elementPosition - headerOffset
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        })
-      }
+      scrollToSection(sections[currentSection - 1])
     }
   }
 
   const navigateDown = () => {
     if (currentSection < sections.length - 1) {
-      const element = document.getElementById(sections[currentSection + 1])
-      if (element) {
-        const headerOffset = 72
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-        const offsetPosition = elementPosition - headerOffset
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        })
-      }
+      scrollToSection(sections[currentSection + 1])
     }
   }
 

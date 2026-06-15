@@ -1,9 +1,15 @@
 import { Separator } from "@/components/ui/separator"
 import BrandLogo from "@/components/BrandLogo"
 import { Github, Twitter, Linkedin, Facebook } from "lucide-react"
+import { scrollToSection } from "@/lib/utils"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
+
+  const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    event.preventDefault()
+    scrollToSection(sectionId)
+  }
 
   return (
     <footer className="border-t relative overflow-hidden">
@@ -32,22 +38,38 @@ export function Footer() {
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#home" className="text-muted-foreground hover:text-primary transition-colors">
+                <a
+                  href="#home"
+                  onClick={(e) => handleNavClick(e, 'home')}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Home
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">
+                <a
+                  href="#about"
+                  onClick={(e) => handleNavClick(e, 'about')}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-muted-foreground hover:text-primary transition-colors">
+                <a
+                  href="#services"
+                  onClick={(e) => handleNavClick(e, 'services')}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Services
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">
+                <a
+                  href="#contact"
+                  onClick={(e) => handleNavClick(e, 'contact')}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   Contact
                 </a>
               </li>

@@ -21,7 +21,7 @@ export function RocketLaunch() {
       </div>
 
       {/* Rocket + flames — centered, larger */}
-      <div className="rocket-launch-unit absolute bottom-[9%] left-1/2 z-[1] -translate-x-1/2">
+      <div className="rocket-launch-unit absolute bottom-[9%] left-1/2 z-[1]">
         <div className="relative">
           <div className="rocket-flame-glow absolute left-1/2 top-[calc(100%-8px)] h-40 w-32 -translate-x-1/2" />
 
@@ -69,7 +69,6 @@ export function RocketLaunch() {
           key={i}
           className="rocket-smoke-puff absolute bottom-[7%] left-1/2"
           style={{
-            animationDelay: `${i * 0.25}s`,
             marginLeft: `${(i - 2) * 48}px`,
           }}
         />

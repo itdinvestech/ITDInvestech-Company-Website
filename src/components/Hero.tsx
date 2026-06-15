@@ -1,17 +1,8 @@
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Sparkles } from 'lucide-react'
-
-const HEADER_OFFSET = 72
+import { scrollToSection } from '@/lib/utils'
 
 export function Hero() {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (!element) return
-
-    const offset = element.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET
-    window.scrollTo({ top: offset, behavior: 'smooth' })
-  }
-
   return (
     <section id="home" className="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-24 lg:pb-28">
       <div className="absolute inset-0 -z-10">

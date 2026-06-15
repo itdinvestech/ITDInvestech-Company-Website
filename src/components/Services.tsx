@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Code, Smartphone, Cloud, Database, Zap } from "lucide-react"
+import { Code, Smartphone, Cloud, BrainCircuit, Zap } from "lucide-react"
 
 export function Services() {
   const services = [
@@ -20,8 +20,14 @@ export function Services() {
     {
       icon: Cloud,
       title: "Cloud Solutions",
-      description: "Scalable cloud infrastructure and migration services to optimize costs and improve reliability.",
-      features: ["AWS & Azure", "Cloud Migration", "DevOps", "Serverless Architecture"]
+      description: "Scalable cloud infrastructure with seamless integration into your existing systems, plus migration services to optimize costs and reliability.",
+      features: ["AWS & Azure", "Cloud Integration", "Cloud Migration", "DevOps"]
+    },
+    {
+      icon: BrainCircuit,
+      title: "AI Automation Systems",
+      description: "Intelligent automation that streamlines business processes, reduces manual work, and helps your team focus on what matters most.",
+      features: ["Workflow Automation", "AI-Powered Insights", "Process Optimization", "Business Intelligence"]
     },
     {
       icon: Zap,
@@ -30,20 +36,6 @@ export function Services() {
       features: ["Strategy Consulting", "Process Automation", "Legacy Modernization", "Change Management"]
     }
   ]
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      const headerOffset = 64 // Height of sticky header
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-      const offsetPosition = elementPosition - headerOffset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
-    }
-  }
 
   return (
     <section id="services" className="py-20 sm:py-32 relative overflow-hidden">
@@ -76,7 +68,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-12">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
