@@ -66,14 +66,21 @@ export function Footer() {
             <h3 className="mb-4 font-semibold">Connect With Us</h3>
             <div className="flex flex-wrap gap-3">
               {[
-                { icon: Twitter, label: 'Twitter' },
-                { icon: Linkedin, label: 'LinkedIn' },
-                { icon: Github, label: 'GitHub' },
-                { icon: Facebook, label: 'Facebook' },
-              ].map(({ icon: Icon, label }) => (
+                { icon: Twitter, label: 'Twitter', href: '#' },
+                {
+                  icon: Linkedin,
+                  label: 'LinkedIn',
+                  href: 'https://www.linkedin.com/company/itdinvestech/about',
+                },
+                { icon: Github, label: 'GitHub', href: '#' },
+                { icon: Facebook, label: 'Facebook', href: '#' },
+              ].map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  {...(href.startsWith('http')
+                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                    : {})}
                   className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
                   aria-label={label}
                 >

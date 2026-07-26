@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { GraduationCap, Stethoscope, Store, Building2, Check, ArrowRight, Users, BookOpen, Calendar, MessageSquare, FileText, DollarSign, ClipboardList, BarChart3, Package, ShoppingCart, TrendingUp, Home, Key, Wrench, Receipt, UserSearch, Briefcase, Target, ClipboardCheck } from "lucide-react"
+import { GraduationCap, Stethoscope, Store, Building2, Check, ArrowRight, Users, BookOpen, Calendar, MessageSquare, FileText, DollarSign, ClipboardList, BarChart3, Package, ShoppingCart, TrendingUp, Home, Key, Wrench, Receipt, UserSearch, Briefcase, Target, ClipboardCheck, Sparkles, FileSearch } from "lucide-react"
 import { useState } from "react"
 import { scrollToSection } from "@/lib/utils"
 
@@ -205,46 +205,46 @@ export function ManagementSoftware() {
     {
       icon: UserSearch,
       title: "Recruitment & Talent Platform",
-      subtitle: "Complete Hiring & Talent Sourcing Solution",
-      description: "Help recruiters and companies find the right talent faster. Our platform brings candidate sourcing, screening, and hiring workflows together, whether you are filling permanent roles, project teams, or staffing short-term activities and events.",
-      longDescription: "Our Recruitment & Talent Platform connects companies with the people they need through a searchable talent pool, skills-based matching, and structured hiring pipelines. Recruiters can post roles or activities, review candidate profiles and portfolios, shortlist and schedule interviews, and keep every stakeholder aligned from first application to signed offer, all in one place.",
+      subtitle: "AI-Powered Hiring & Talent Sourcing",
+      description: "An AI-powered recruitment platform that helps recruiters and companies find the right talent faster. Automate CV scoring, candidate ranking, and skills matching while keeping full control of your hiring pipeline for permanent roles, projects, and short-term activities.",
+      longDescription: "Our Recruitment & Talent Platform uses AI to take the heavy lifting out of hiring. Upload CVs and the system scores them against role requirements, ranks candidates by fit, and surfaces the strongest matches with clear explanations. Recruiters still stay in control — posting roles or activities, reviewing AI shortlists, scheduling interviews, and moving candidates through structured pipelines from first application to signed offer.",
       benefits: [
-        "Fill roles faster with skills-based candidate matching",
-        "Build a searchable talent pool you can reuse for future openings",
-        "Keep every application organised with structured hiring pipelines",
-        "Reduce back-and-forth with built-in messaging and interview scheduling",
-        "Staff short-term activities and events as easily as permanent roles"
+        "Score and rank CVs automatically against each role’s requirements",
+        "Cut screening time with AI shortlists and fit explanations you can trust",
+        "Match candidates to jobs using skills, experience, and availability signals",
+        "Reduce bias and missed talent with consistent, data-driven evaluation",
+        "Staff permanent roles, projects, and short-term activities from one AI-assisted pipeline"
       ],
       features: [
         {
-          icon: UserSearch,
-          name: "Talent Database & Search",
-          details: "Searchable candidate database with rich profiles, CV and portfolio uploads, skills and certification tagging, experience and location filters, availability status, saved searches, talent pools by specialisation, and candidate bookmarking for future roles."
+          icon: Sparkles,
+          name: "AI CV Scoring & Ranking",
+          details: "Automatically analyse uploaded CVs and portfolios against job criteria, score candidates on skills, experience, and role fit, highlight strengths and gaps, and generate ranked shortlists so recruiters focus on the strongest applicants first."
+        },
+        {
+          icon: FileSearch,
+          name: "Intelligent CV Parsing",
+          details: "Extract skills, work history, education, certifications, and contact details from CVs in seconds, normalise profiles into a searchable talent database, and keep candidate records accurate without manual data entry."
+        },
+        {
+          icon: Target,
+          name: "AI Candidate Matching",
+          details: "Match candidates to openings using AI-driven skills and experience signals, with ranked recommendations, match-score explanations, suggested candidates for each posting, and recommended openings for people already in your talent pool."
         },
         {
           icon: Briefcase,
           name: "Job & Activity Postings",
-          details: "Create postings for permanent roles, contract work, projects, events, and short-term activities with role requirements, screening questions, salary or rate ranges, application deadlines, multi-channel publishing, and reusable posting templates."
-        },
-        {
-          icon: Target,
-          name: "Skills-Based Matching",
-          details: "Automatic candidate-to-role matching based on skills, experience, availability, and location, with ranked shortlists, match scoring explanations, recommended candidates for each posting, and suggested openings for candidates already in your database."
+          details: "Create postings for permanent roles, contract work, projects, events, and short-term activities with role requirements that feed the AI scoring engine, screening questions, salary or rate ranges, deadlines, and reusable templates."
         },
         {
           icon: ClipboardCheck,
           name: "Application Tracking",
-          details: "Configurable hiring pipelines with drag-and-drop stages, applicant screening and scoring, interview feedback and scorecards, collaborative notes for hiring teams, rejection and offer workflows, and full activity history per candidate."
-        },
-        {
-          icon: Calendar,
-          name: "Interview Scheduling & Messaging",
-          details: "Interview scheduling with recruiter and candidate availability, calendar sync, automated invitations and reminders, video interview link support, in-platform recruiter-candidate messaging, and bulk email templates for candidate updates."
+          details: "Configurable hiring pipelines with drag-and-drop stages, AI-assisted screening scores alongside recruiter feedback, interview scorecards, collaborative notes, rejection and offer workflows, and full activity history per candidate."
         },
         {
           icon: BarChart3,
           name: "Recruiter Dashboards & Analytics",
-          details: "Company and recruiter dashboards covering open roles, pipeline health, time-to-hire, source effectiveness, candidate conversion rates per stage, recruiter workload and placement performance, plus exportable reports for clients and stakeholders."
+          details: "Dashboards for open roles, pipeline health, time-to-hire, AI screening throughput, source effectiveness, conversion by stage, recruiter performance, and exportable reports for clients and stakeholders."
         }
       ],
       color: "from-cyan-500/20 to-teal-500/20",
