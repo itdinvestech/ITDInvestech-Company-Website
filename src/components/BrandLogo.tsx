@@ -16,12 +16,12 @@ export default function BrandLogo({
 }: BrandLogoProps) {
   return (
     <span className={cn('inline-flex items-center gap-3', className)}>
-      <BrandMark size={iconSize} className="rounded-lg shadow-sm ring-1 ring-black/5" />
+      <BrandMark size={iconSize} className="rounded-lg shadow-sm ring-1 ring-border/60" />
       {showWordmark && (
         <span className={cn('flex flex-col leading-none text-left', compact && 'hidden min-[420px]:flex')}>
           <span className="text-lg font-extrabold tracking-tight text-foreground sm:text-xl">
             ITD
-            <span className="bg-gradient-to-r from-[#1e40af] to-[#6366f1] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
               Investech
             </span>
           </span>

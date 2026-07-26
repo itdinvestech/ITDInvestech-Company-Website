@@ -1,5 +1,4 @@
 import { BrainCircuit, Cloud, Lock, Rocket, Server, Workflow } from 'lucide-react'
-import { cn } from '@/lib/utils'
 
 const CAPABILITIES = [
   {
@@ -54,9 +53,9 @@ export function TechCapabilities({ embedded = false }: TechCapabilitiesProps) {
   if (embedded) {
     return (
       <section className="relative">
-        <div className="mb-6 xl:text-left">
+        <div className="mb-6 text-center xl:text-left">
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Engineering excellence</h2>
-          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
             We ship production systems with modern stacks, automated delivery, and the polish
             enterprises expect from advanced software teams.
           </p>
@@ -66,16 +65,15 @@ export function TechCapabilities({ embedded = false }: TechCapabilitiesProps) {
           {CAPABILITIES.map((item) => (
             <article
               key={item.title}
-              className="group relative overflow-hidden rounded-xl border border-border/70 bg-background/80 p-4 shadow-sm transition-all duration-300 hover:border-primary/35 hover:shadow-md"
+              className="group relative overflow-hidden rounded-xl border border-border/80 bg-card p-4 shadow-sm transition-all duration-300 hover:border-primary/35 hover:shadow-md"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/0 to-blue-500/0 opacity-0 transition-opacity duration-300 group-hover:from-primary/5 group-hover:to-blue-500/5 group-hover:opacity-100" />
-              <div className="relative flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105">
+              <div className="relative flex items-start gap-3 sm:gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105 sm:h-11 sm:w-11">
                   <item.icon className="h-5 w-5" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h3 className="text-base font-semibold tracking-tight">{item.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                  <h3 className="text-sm font-semibold tracking-tight sm:text-base">{item.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                     {item.fullDescription}
                   </p>
                 </div>

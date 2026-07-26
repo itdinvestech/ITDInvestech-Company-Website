@@ -69,42 +69,38 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="pt-20 pb-20 sm:pt-24 sm:pb-32 relative overflow-hidden">
+    <section id="contact" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/60 via-purple-50/40 to-pink-50/60 dark:from-indigo-950/20 dark:via-purple-950/10 dark:to-pink-950/20" />
-        <div className="absolute inset-0 dot-pattern opacity-30" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/20 via-primary/5 to-transparent blur-2xl animate-pulse-slow" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-blue-500/20 via-purple-500/10 to-transparent blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-0 w-80 h-80 bg-gradient-to-br from-purple-500/15 to-transparent blur-2xl animate-float-slower" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent" />
+        <div className="absolute inset-0 dot-pattern opacity-25 dark:opacity-10" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="mx-auto max-w-3xl text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-4">
+      <div className="container relative z-10 mx-auto px-4">
+        <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Get in Touch
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
             Have a project in mind? Let&apos;s discuss how we can help you achieve your goals.
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-3">
-          <div className="space-y-6">
-            <Card className="hover-lift group border-2 hover:border-primary/50 transition-all duration-300">
-              <CardHeader>
-                <div className="relative inline-block">
-                  <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full group-hover:bg-primary/30 transition-all duration-300" />
-                  <Mail className="h-6 w-6 text-primary mb-2 relative z-10 group-hover:scale-110 transition-transform" />
+        <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
+          <div className="space-y-4 sm:space-y-6">
+            <Card className="border border-border/80 bg-card transition-all duration-300 hover:border-primary/40 hover:shadow-lg">
+              <CardHeader className="p-5 sm:p-6">
+                <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Mail className="h-5 w-5" />
                 </div>
-                <CardTitle className="text-lg group-hover:text-primary transition-colors">Email</CardTitle>
+                <CardTitle className="text-lg">Email</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-2">
+              <CardContent className="space-y-2 px-5 pb-5 sm:px-6 sm:pb-6">
                 {EMAIL_ADDRESSES.map((entry) => (
-                  <CardDescription key={entry.address} className="text-base block">
+                  <CardDescription key={entry.address} className="block text-sm sm:text-base">
                     <span className="text-muted-foreground">{entry.label}: </span>
                     <a
                       href={`mailto:${entry.address}`}
-                      className="text-foreground hover:text-primary transition-colors"
+                      className="break-all text-foreground transition-colors hover:text-primary"
                     >
                       {entry.address}
                     </a>
@@ -113,17 +109,16 @@ export function Contact() {
               </CardContent>
             </Card>
 
-            <Card className="hover-lift group border-2 hover:border-primary/50 transition-all duration-300">
-              <CardHeader>
-                <div className="relative inline-block">
-                  <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full group-hover:bg-primary/30 transition-all duration-300" />
-                  <Phone className="h-6 w-6 text-primary mb-2 relative z-10 group-hover:scale-110 transition-transform" />
+            <Card className="border border-border/80 bg-card transition-all duration-300 hover:border-primary/40 hover:shadow-lg">
+              <CardHeader className="p-5 sm:p-6">
+                <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Phone className="h-5 w-5" />
                 </div>
-                <CardTitle className="text-lg group-hover:text-primary transition-colors">Phone</CardTitle>
+                <CardTitle className="text-lg">Phone</CardTitle>
               </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base">
-                  <a href="tel:+27647848610" className="hover:text-primary transition-colors">
+              <CardContent className="px-5 pb-5 sm:px-6 sm:pb-6">
+                <CardDescription className="text-sm sm:text-base">
+                  <a href="tel:+27647848610" className="text-foreground transition-colors hover:text-primary">
                     +27 64 784 8610
                   </a>
                   <br />
@@ -133,15 +128,14 @@ export function Contact() {
             </Card>
           </div>
 
-          <Card className="lg:col-span-2 border-2 hover:border-primary/50 transition-all duration-300 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <CardHeader className="relative z-10 pb-4">
+          <Card className="border border-border/80 bg-card lg:col-span-2">
+            <CardHeader className="p-5 pb-4 sm:p-6">
               <CardTitle>Send us a Message</CardTitle>
               <CardDescription>
                 Fill out the form below and we&apos;ll get back to you as soon as possible.
               </CardDescription>
             </CardHeader>
-            <CardContent className="relative z-10 pt-0">
+            <CardContent className="px-5 pb-5 sm:px-6 sm:pb-6">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <input
                   type="text"
@@ -233,10 +227,10 @@ export function Contact() {
 
                 {feedback && (
                   <p
-                    className={`text-sm rounded-lg px-3 py-2 ${
+                    className={`rounded-lg border px-3 py-2 text-sm ${
                       feedback.type === 'success'
-                        ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
-                        : 'bg-red-50 text-red-800 border border-red-200'
+                        ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300'
+                        : 'border-destructive/30 bg-destructive/10 text-destructive'
                     }`}
                     role="status"
                   >

@@ -1,105 +1,91 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Target, Users, Lightbulb, Award } from "lucide-react"
 
+const VALUES = [
+  {
+    icon: Target,
+    title: "Our Mission",
+    description:
+      "To empower businesses with innovative technology solutions that drive measurable results and sustainable growth.",
+  },
+  {
+    icon: Users,
+    title: "Our Team",
+    description:
+      "A diverse group of experts in software development, design, and business strategy working together.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Innovation",
+    description:
+      "We stay ahead of the curve by embracing emerging technologies and creative problem-solving approaches.",
+  },
+  {
+    icon: Award,
+    title: "Excellence",
+    description:
+      "Committed to delivering the highest quality solutions that exceed expectations and industry standards.",
+  },
+]
+
 export function About() {
   return (
-    <section id="about" className="py-20 sm:py-32 relative overflow-hidden">
-      {/* Animated background */}
+    <section id="about" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-pink-50/50 dark:from-blue-950/20 dark:via-purple-950/10 dark:to-pink-950/20" />
-        <div className="absolute inset-0 dot-pattern opacity-40" />
-        
-        {/* Floating accent shapes */}
-        <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-2xl animate-float-slower" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full blur-2xl animate-float-slow" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/40 to-transparent dark:via-muted/20" />
+        <div className="absolute inset-0 dot-pattern opacity-30 dark:opacity-15" />
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="mx-auto max-w-3xl text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-4">
+      <div className="container relative z-10 mx-auto px-4">
+        <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             About ITDInvestech
           </h2>
-          <p className="text-lg text-muted-foreground">
-            We're a team of passionate technologists specializing in <span className="font-semibold text-foreground">Custom Management Software Development</span>. 
-            Helping businesses across education, healthcare, retail, and real estate thrive with tailored digital solutions.
+          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+            We&apos;re a team of passionate technologists specializing in{' '}
+            <span className="font-semibold text-foreground">Custom Management Software Development</span>.
+            Helping businesses across education, healthcare, retail, real estate, and recruitment thrive
+            with tailored digital solutions.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-16">
-          <Card className="hover-lift group border-2 hover:border-primary/50 transition-all duration-300">
-            <CardHeader>
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full group-hover:bg-primary/30 transition-all duration-300" />
-                <Target className="h-10 w-10 text-primary mb-2 relative z-10 group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <CardTitle className="group-hover:text-primary transition-colors">Our Mission</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-base">
-                To empower businesses with innovative technology solutions that drive 
-                measurable results and sustainable growth.
-              </CardDescription>
-            </CardContent>
-          </Card>
-
-          <Card className="hover-lift group border-2 hover:border-primary/50 transition-all duration-300">
-            <CardHeader>
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full group-hover:bg-primary/30 transition-all duration-300" />
-                <Users className="h-10 w-10 text-primary mb-2 relative z-10 group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <CardTitle className="group-hover:text-primary transition-colors">Our Team</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-base">
-                A diverse group of experts in software development, design, and 
-                business strategy working together.
-              </CardDescription>
-            </CardContent>
-          </Card>
-
-          <Card className="hover-lift group border-2 hover:border-primary/50 transition-all duration-300">
-            <CardHeader>
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full group-hover:bg-primary/30 transition-all duration-300" />
-                <Lightbulb className="h-10 w-10 text-primary mb-2 relative z-10 group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <CardTitle className="group-hover:text-primary transition-colors">Innovation</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-base">
-                We stay ahead of the curve by embracing emerging technologies and 
-                creative problem-solving approaches.
-              </CardDescription>
-            </CardContent>
-          </Card>
-
-          <Card className="hover-lift group border-2 hover:border-primary/50 transition-all duration-300">
-            <CardHeader>
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full group-hover:bg-primary/30 transition-all duration-300" />
-                <Award className="h-10 w-10 text-primary mb-2 relative z-10 group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <CardTitle className="group-hover:text-primary transition-colors">Excellence</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-base">
-                Committed to delivering the highest quality solutions that exceed 
-                expectations and industry standards.
-              </CardDescription>
-            </CardContent>
-          </Card>
+        <div className="mb-10 grid gap-5 sm:mb-12 sm:gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {VALUES.map((item) => {
+            const Icon = item.icon
+            return (
+              <Card
+                key={item.title}
+                className="group border border-border/80 bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+              >
+                <CardHeader className="p-5 sm:p-6">
+                  <div className="mb-2 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <CardTitle className="text-lg transition-colors group-hover:text-primary">
+                    {item.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="px-5 pb-5 sm:px-6 sm:pb-6">
+                  <CardDescription className="text-sm leading-relaxed">
+                    {item.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            )
+          })}
         </div>
 
         <div className="mx-auto max-w-3xl">
-          <Card className="border-2 hover:border-primary/50 transition-all duration-500 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <CardContent className="pt-6 relative z-10">
-              <p className="text-center text-lg leading-relaxed">
-                Founded in 2019, our journey has been marked by a relentless 
-                pursuit of excellence and an unwavering commitment to our clients' success. 
-                With <strong>international reach extending to the Netherlands</strong>, we serve businesses across various industries, 
-                helping them navigate the complexities of digital transformation with confidence.
+          <Card className="border border-border/80 bg-card">
+            <CardContent className="p-5 sm:p-8">
+              <p className="text-center text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Founded in 2019, our journey has been marked by a relentless pursuit of excellence and an
+                unwavering commitment to our clients&apos; success. With{' '}
+                <strong className="font-semibold text-foreground">
+                  international reach extending to the Netherlands
+                </strong>
+                , we serve businesses across various industries, helping them navigate digital
+                transformation with confidence.
               </p>
             </CardContent>
           </Card>
@@ -108,4 +94,3 @@ export function About() {
     </section>
   )
 }
-

@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { GraduationCap, Stethoscope, Store, Building2, Check, ArrowRight, Users, BookOpen, Calendar, MessageSquare, FileText, DollarSign, ClipboardList, BarChart3, Package, ShoppingCart, TrendingUp, Home, Key, Wrench, Receipt } from "lucide-react"
+import { GraduationCap, Stethoscope, Store, Building2, Check, ArrowRight, Users, BookOpen, Calendar, MessageSquare, FileText, DollarSign, ClipboardList, BarChart3, Package, ShoppingCart, TrendingUp, Home, Key, Wrench, Receipt, UserSearch, Briefcase, Target, ClipboardCheck } from "lucide-react"
 import { useState } from "react"
 import { scrollToSection } from "@/lib/utils"
 
@@ -201,81 +201,116 @@ export function ManagementSoftware() {
       ],
       color: "from-orange-500/20 to-red-500/20",
       accentColor: "orange"
+    },
+    {
+      icon: UserSearch,
+      title: "Recruitment & Talent Platform",
+      subtitle: "Complete Hiring & Talent Sourcing Solution",
+      description: "Help recruiters and companies find the right talent faster. Our platform brings candidate sourcing, screening, and hiring workflows together, whether you are filling permanent roles, project teams, or staffing short-term activities and events.",
+      longDescription: "Our Recruitment & Talent Platform connects companies with the people they need through a searchable talent pool, skills-based matching, and structured hiring pipelines. Recruiters can post roles or activities, review candidate profiles and portfolios, shortlist and schedule interviews, and keep every stakeholder aligned from first application to signed offer, all in one place.",
+      benefits: [
+        "Fill roles faster with skills-based candidate matching",
+        "Build a searchable talent pool you can reuse for future openings",
+        "Keep every application organised with structured hiring pipelines",
+        "Reduce back-and-forth with built-in messaging and interview scheduling",
+        "Staff short-term activities and events as easily as permanent roles"
+      ],
+      features: [
+        {
+          icon: UserSearch,
+          name: "Talent Database & Search",
+          details: "Searchable candidate database with rich profiles, CV and portfolio uploads, skills and certification tagging, experience and location filters, availability status, saved searches, talent pools by specialisation, and candidate bookmarking for future roles."
+        },
+        {
+          icon: Briefcase,
+          name: "Job & Activity Postings",
+          details: "Create postings for permanent roles, contract work, projects, events, and short-term activities with role requirements, screening questions, salary or rate ranges, application deadlines, multi-channel publishing, and reusable posting templates."
+        },
+        {
+          icon: Target,
+          name: "Skills-Based Matching",
+          details: "Automatic candidate-to-role matching based on skills, experience, availability, and location, with ranked shortlists, match scoring explanations, recommended candidates for each posting, and suggested openings for candidates already in your database."
+        },
+        {
+          icon: ClipboardCheck,
+          name: "Application Tracking",
+          details: "Configurable hiring pipelines with drag-and-drop stages, applicant screening and scoring, interview feedback and scorecards, collaborative notes for hiring teams, rejection and offer workflows, and full activity history per candidate."
+        },
+        {
+          icon: Calendar,
+          name: "Interview Scheduling & Messaging",
+          details: "Interview scheduling with recruiter and candidate availability, calendar sync, automated invitations and reminders, video interview link support, in-platform recruiter-candidate messaging, and bulk email templates for candidate updates."
+        },
+        {
+          icon: BarChart3,
+          name: "Recruiter Dashboards & Analytics",
+          details: "Company and recruiter dashboards covering open roles, pipeline health, time-to-hire, source effectiveness, candidate conversion rates per stage, recruiter workload and placement performance, plus exportable reports for clients and stakeholders."
+        }
+      ],
+      color: "from-cyan-500/20 to-teal-500/20",
+      accentColor: "cyan"
     }
   ]
 
   return (
-    <section id="solutions" className="py-20 sm:py-32 relative overflow-hidden">
-      {/* Vibrant animated background */}
+    <section id="solutions" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
       <div className="absolute inset-0 -z-10">
-        {/* Multi-layer gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-100/80 via-purple-100/60 to-pink-100/80 dark:from-indigo-950/30 dark:via-purple-950/20 dark:to-pink-950/30" />
-        <div className="absolute inset-0 mesh-gradient-subtle opacity-60" />
-        
-        {/* Grid overlay */}
-        <div className="absolute inset-0 grid-pattern opacity-30" />
-        
-        {/* Dynamic gradient orbs */}
-        <div className="absolute -top-40 left-1/4 w-96 h-96 bg-gradient-to-br from-indigo-400/30 via-purple-400/20 to-transparent rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-gradient-to-br from-pink-400/30 via-purple-400/20 to-transparent rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
-        <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-gradient-to-br from-blue-400/25 via-indigo-400/15 to-transparent rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '0.5s' }} />
-        <div className="absolute -bottom-40 right-1/4 w-80 h-80 bg-gradient-to-br from-purple-400/20 via-pink-400/10 to-transparent rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
-        
-        {/* Floating geometric accents */}
-        <div className="absolute top-40 right-1/4 w-40 h-40 border border-primary/10 rounded-full animate-float-slow" />
-        <div className="absolute bottom-40 left-1/3 w-32 h-32 border border-purple-500/10 rotate-45 animate-float-slower" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-primary/[0.04]" />
+        <div className="absolute inset-0 grid-pattern opacity-20 dark:opacity-10" />
+        <div className="absolute -top-24 left-1/4 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Header */}
-        <div className="mx-auto max-w-4xl text-center mb-20">
-          <Badge className="mb-4 bg-primary text-primary-foreground px-6 py-2 text-base">
-            ⭐ Our Core Specialization
-          </Badge>
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl mb-6">
-            Management Software <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">Solutions</span>
+      <div className="container relative z-10 mx-auto px-4">
+        <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
+          <Badge className="mb-4 px-4 py-1.5">Our Core Specialization</Badge>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            Management Software{' '}
+            <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
+              Solutions
+            </span>
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            We specialize in creating powerful, custom management software tailored to your industry's unique needs. 
-            Our proven solutions are already transforming businesses across education, healthcare, retail, and real estate sectors.
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Custom management platforms tailored to your industry — already transforming education,
+            healthcare, retail, real estate, and recruitment.
           </p>
         </div>
 
-        {/* Solutions Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:gap-6 md:grid-cols-2 xl:grid-cols-3">
           {solutions.map((solution, index) => {
             const Icon = solution.icon
             return (
-              <Card 
-                key={index} 
-                className="bg-card border-2 border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:transform hover:-translate-y-2 overflow-hidden group flex flex-col"
+              <Card
+                key={solution.title}
+                className="group relative flex flex-col overflow-hidden border border-border/80 bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                
-                <CardHeader className="relative z-10 text-center flex-1">
-                  <div className="relative inline-block mx-auto mb-4">
-                    <div className="absolute inset-0 bg-blue-400/40 blur-3xl rounded-full animate-pulse-slow" />
-                    <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center border-2 border-blue-400 transition-all duration-300 shadow-lg group-hover:scale-110 group-hover:rotate-6">
-                      <Icon className="h-10 w-10 text-white" />
-                    </div>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                <CardHeader className="relative z-10 flex-1 space-y-3 p-5 sm:p-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm transition-transform duration-300 group-hover:scale-105">
+                    <Icon className="h-6 w-6" />
                   </div>
-                  <CardTitle className="text-xl mb-2 group-hover:text-blue-600 transition-colors">
-                    {solution.title}
-                  </CardTitle>
-                  <Badge variant="secondary" className="mb-3 text-xs">{solution.subtitle}</Badge>
-                  <CardDescription className="text-sm leading-relaxed">
+                  <div>
+                    <CardTitle className="text-lg transition-colors group-hover:text-primary sm:text-xl">
+                      {solution.title}
+                    </CardTitle>
+                    <Badge variant="secondary" className="mt-2 text-xs font-normal">
+                      {solution.subtitle}
+                    </Badge>
+                  </div>
+                  <CardDescription className="line-clamp-4 text-sm leading-relaxed sm:line-clamp-5">
                     {solution.description}
                   </CardDescription>
                 </CardHeader>
-                
-                <CardContent className="relative z-10 pt-0 pb-6">
-                  <Button 
+
+                <CardContent className="relative z-10 pt-0 pb-5 sm:pb-6">
+                  <Button
                     onClick={() => setSelectedSolution(index)}
-                    className="w-full group/btn bg-blue-600 hover:bg-blue-700"
+                    className="w-full group/btn"
                     size="sm"
                   >
                     More Info
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </Button>
                 </CardContent>
               </Card>
@@ -283,74 +318,70 @@ export function ManagementSoftware() {
           })}
         </div>
 
-        {/* Modal Dialog */}
         <Dialog open={selectedSolution !== null} onOpenChange={() => setSelectedSolution(null)}>
           <DialogContent>
             {selectedSolution !== null && (
               <>
                 <DialogHeader>
-                  <div className="flex items-center gap-4 mb-4">
+                  <div className="mb-3 flex items-start gap-3 sm:mb-4 sm:items-center sm:gap-4">
                     {(() => {
                       const Icon = solutions[selectedSolution].icon
                       return (
-                        <div className="relative">
-                          <div className="absolute inset-0 bg-blue-400/40 blur-3xl rounded-full" />
-                          <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center border-2 border-blue-400 shadow-lg">
-                            <Icon className="h-8 w-8 text-white" />
-                          </div>
+                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm sm:h-14 sm:w-14">
+                          <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
                         </div>
                       )
                     })()}
-                    <div>
-                      <Badge variant="secondary" className="mb-2">{solutions[selectedSolution].subtitle}</Badge>
-                      <DialogTitle className="text-3xl text-blue-600">{solutions[selectedSolution].title}</DialogTitle>
+                    <div className="min-w-0 pr-6 text-left">
+                      <Badge variant="secondary" className="mb-2 text-xs">
+                        {solutions[selectedSolution].subtitle}
+                      </Badge>
+                      <DialogTitle className="text-xl text-foreground sm:text-2xl lg:text-3xl">
+                        {solutions[selectedSolution].title}
+                      </DialogTitle>
                     </div>
                   </div>
-                  <p className="text-base text-muted-foreground leading-relaxed">
+                  <p className="text-left text-sm leading-relaxed text-muted-foreground sm:text-base">
                     {solutions[selectedSolution].description}
                   </p>
-                  <p className="text-base text-foreground/80 leading-relaxed mt-2">
+                  <p className="mt-2 text-left text-sm leading-relaxed text-foreground/90 sm:text-base">
                     {solutions[selectedSolution].longDescription}
                   </p>
                 </DialogHeader>
 
-                <div className="mt-6">
-                  {/* Key Benefits */}
-                  <div className="mb-8 p-6 rounded-xl bg-blue-50 border-2 border-blue-200">
-                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-blue-600">
-                      <Check className="h-5 w-5 text-blue-600" />
+                <div className="mt-4 sm:mt-6">
+                  <div className="mb-6 rounded-xl border border-primary/20 bg-primary/5 p-4 sm:mb-8 sm:p-6">
+                    <h3 className="mb-3 flex items-center gap-2 text-lg font-bold text-primary sm:mb-4 sm:text-xl">
+                      <Check className="h-5 w-5 shrink-0" />
                       Key Benefits
                     </h3>
-                    <ul className="grid gap-3 md:grid-cols-2">
-                      {solutions[selectedSolution].benefits.map((benefit, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <Check className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <ul className="grid gap-3 sm:grid-cols-2">
+                      {solutions[selectedSolution].benefits.map((benefit) => (
+                        <li key={benefit} className="flex items-start gap-3">
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary sm:h-5 sm:w-5" />
                           <span className="text-sm leading-relaxed">{benefit}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  {/* Features Grid */}
-                  <div className="mb-6">
-                    <h3 className="text-xl font-bold mb-6">Comprehensive Features</h3>
-                    <div className="grid gap-4 md:grid-cols-2">
-                      {solutions[selectedSolution].features.map((feature, i) => {
+                  <div className="mb-4 sm:mb-6">
+                    <h3 className="mb-4 text-lg font-bold sm:mb-6 sm:text-xl">Comprehensive Features</h3>
+                    <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
+                      {solutions[selectedSolution].features.map((feature) => {
                         const FeatureIcon = feature.icon
                         return (
-                          <div 
-                            key={i}
-                            className="p-4 rounded-xl bg-muted/50 border-2 border-border"
+                          <div
+                            key={feature.name}
+                            className="rounded-xl border border-border bg-card p-4"
                           >
-                            <div className="flex items-center gap-3 mb-2">
-                              <div className="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center">
-                                <FeatureIcon className="h-5 w-5 text-white" />
+                            <div className="mb-2 flex items-center gap-3">
+                              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground sm:h-10 sm:w-10">
+                                <FeatureIcon className="h-4 w-4 sm:h-5 sm:w-5" />
                               </div>
-                              <h4 className="font-semibold text-sm">
-                                {feature.name}
-                              </h4>
+                              <h4 className="text-sm font-semibold">{feature.name}</h4>
                             </div>
-                            <p className="text-xs text-muted-foreground leading-relaxed">
+                            <p className="text-xs leading-relaxed text-muted-foreground">
                               {feature.details}
                             </p>
                           </div>
@@ -359,18 +390,17 @@ export function ManagementSoftware() {
                     </div>
                   </div>
 
-                  {/* CTA */}
-                  <div className="flex justify-center pt-4">
-                    <Button 
+                  <div className="flex justify-center pt-2 sm:pt-4">
+                    <Button
                       onClick={() => {
                         setSelectedSolution(null)
                         scrollToSection('contact')
                       }}
                       size="lg"
-                      className="group/btn"
+                      className="w-full group/btn sm:w-auto"
                     >
                       Request a Demo
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                     </Button>
                   </div>
                 </div>

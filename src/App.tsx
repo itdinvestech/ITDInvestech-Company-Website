@@ -11,11 +11,10 @@ import { FloatingNav } from "@/components/FloatingNav"
 function App() {
   return (
     <div className="min-h-screen relative">
-      {/* Global background gradient */}
-      <div className="fixed inset-0 -z-50 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950" />
+      <div className="fixed inset-0 -z-50 bg-background" />
       
       <Header />
-      <main className="relative overflow-hidden">
+      <main className="relative overflow-x-hidden">
         <Hero />
         <About />
         <Services />
@@ -24,7 +23,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <FloatingNav />
       </div>
     </div>

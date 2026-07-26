@@ -17,7 +17,7 @@ const HEADER_HEIGHT = 72
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState<string>('home')
+  const [activeSection, setActiveSection] = useState<(typeof NAV_ITEMS)[number]['id']>('home')
   const [scrolled, setScrolled] = useState(false)
 
   const scrollToSection = useCallback((sectionId: string) => {
@@ -30,7 +30,7 @@ export function Header() {
       setScrolled(window.scrollY > 8)
 
       const marker = window.scrollY + HEADER_HEIGHT + 48
-      let current = NAV_ITEMS[0].id
+      let current: (typeof NAV_ITEMS)[number]['id'] = NAV_ITEMS[0].id
 
       for (const item of NAV_ITEMS) {
         const element = document.getElementById(item.id)
@@ -95,7 +95,7 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-3">
             <ThemeToggle />
             <Button onClick={() => scrollToSection('contact')} size="sm" className="rounded-full px-5">
               Get Started
@@ -105,15 +105,15 @@ export function Header() {
           <div className="flex items-center gap-2 lg:hidden">
             <ThemeToggle />
             <button
-            type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background text-foreground shadow-sm transition-colors hover:bg-muted lg:hidden"
-            onClick={() => setMobileOpen((open) => !open)}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-nav-panel"
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-          >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+              type="button"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background text-foreground shadow-sm transition-colors hover:bg-muted"
+              onClick={() => setMobileOpen((open) => !open)}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-nav-panel"
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            >
+              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
         </div>
       </header>
@@ -165,7 +165,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="border-t p-4 space-y-3">
+        <div className="space-y-3 border-t p-4">
           <div className="flex items-center justify-between rounded-xl border border-border px-4 py-3">
             <span className="text-sm font-medium">Theme</span>
             <ThemeToggle />
