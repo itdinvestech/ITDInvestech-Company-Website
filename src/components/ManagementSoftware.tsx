@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { GraduationCap, Stethoscope, Store, Building2, Check, ArrowRight, Users, BookOpen, Calendar, MessageSquare, FileText, DollarSign, ClipboardList, BarChart3, Package, ShoppingCart, TrendingUp, Home, Key, Wrench, Receipt, UserSearch, Briefcase, Target, ClipboardCheck, Sparkles, FileSearch } from "lucide-react"
+import { GraduationCap, Stethoscope, Store, Building2, Check, ArrowRight, Users, BookOpen, Calendar, MessageSquare, FileText, DollarSign, ClipboardList, BarChart3, Package, ShoppingCart, TrendingUp, Home, Key, Wrench, Receipt, UserSearch, Briefcase, Target, ClipboardCheck, Sparkles, FileSearch, ImageIcon } from "lucide-react"
 import { useState } from "react"
 import { scrollToSection } from "@/lib/utils"
 
@@ -285,17 +285,18 @@ export function ManagementSoftware() {
       <div className="container relative z-10 mx-auto px-4">
         <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-            Product
+            What we offer
           </p>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
-            Platforms with AI{' '}
+            Platforms we ship —{' '}
             <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
-              in the work
+              with AI in them
             </span>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            The LMS is the flagship. The same idea — intelligence inside the workflow — runs through
-            schools, clinics, retail, property, and hiring.
+            These are the products. Each one is a place we have already put AI integration to work.
+            The LMS is the clearest example: quizzes, lectures, student reports, video, and
+            rendering tools.
           </p>
         </div>
 
@@ -321,6 +322,16 @@ export function ManagementSoftware() {
                       {solution.subtitle}
                     </Badge>
                   </div>
+                  {index === 0 && (
+                    <div className="flex items-center gap-3 rounded-xl border border-dashed border-border bg-background/80 px-3 py-4">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <ImageIcon className="h-4 w-4" />
+                      </div>
+                      <p className="text-xs leading-relaxed text-muted-foreground">
+                        LMS screenshots coming soon — quizzes, lectures, reports, and video in the product.
+                      </p>
+                    </div>
+                  )}
                   <CardDescription className="line-clamp-4 text-sm leading-relaxed sm:line-clamp-5">
                     {solution.description}
                   </CardDescription>

@@ -17,10 +17,10 @@ const CAPABILITIES = [
   },
   {
     icon: BrainCircuit,
-    title: 'AI in the workflow',
-    description: 'Quizzes, lectures, student reports, and video in the LMS.',
+    title: 'AI integration',
+    description: 'Models wired into client software and the surrounding stack.',
     fullDescription:
-      'The LMS generates quizzes, authors lectures, reports weaknesses, fetches videos, and talks to rendering tools — the same AI pattern across products.',
+      'Generation, scoring, retrieval, and reporting inside the client’s product — plus hooks into APIs, files, and rendering tools.',
   },
   {
     icon: Lock,

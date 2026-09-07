@@ -17,11 +17,11 @@ export function TransformShowcase() {
           <div className="relative space-y-6">
             <div className="relative z-10 text-center xl:text-left">
               <h3 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-                Ready to put AI in the workflow?
+                Ready to integrate AI into your software?
               </h3>
               <p className="mt-3 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Start with the LMS — quizzes, lectures, analysis, video — or take the same pattern
-                into the rest of the stack.
+                Bring an existing system, or start a new platform. We build the software and wire
+                intelligence into the work.
               </p>
             </div>
 
@@ -44,7 +44,7 @@ export function TransformShowcase() {
                 </Button>
               </div>
               <p className="mt-4 text-xs text-muted-foreground sm:text-sm">
-                Free consultation · AI in the LMS · Ongoing support
+                Free consultation · AI integration · Ongoing support
               </p>
             </div>
           </div>

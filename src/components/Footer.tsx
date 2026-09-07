@@ -14,7 +14,7 @@ export function Footer() {
   const links = [
     { id: 'home', label: 'Home' },
     { id: 'ai', label: 'AI' },
-    { id: 'solutions', label: 'Product' },
+    { id: 'solutions', label: 'Offerings' },
     { id: 'services', label: 'Services' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' },
@@ -31,8 +31,7 @@ export function Footer() {
               <BrandLogo iconSize={40} />
             </div>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              AI inside the LMS and every workflow we ship — quizzes, lectures, analysis, video, and
-              the rest of the stack.
+              A software company that integrates AI into client projects and the platforms we ship.
             </p>
           </div>
 
@@ -56,9 +55,9 @@ export function Footer() {
           <div>
             <h3 className="mb-4 font-semibold">Services</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>AI in the workflow</li>
-              <li>LMS &amp; schools</li>
+              <li>AI integration</li>
               <li>Custom platforms</li>
+              <li>LMS &amp; industry systems</li>
               <li>Cloud delivery</li>
               <li>Digital transformation</li>
             </ul>

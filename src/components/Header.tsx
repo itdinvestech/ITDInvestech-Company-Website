@@ -7,7 +7,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 const NAV_ITEMS = [
   { id: 'ai', label: 'AI' },
-  { id: 'solutions', label: 'Product' },
+  { id: 'solutions', label: 'Offerings' },
   { id: 'services', label: 'Services' },
   { id: 'about', label: 'About' },
   { id: 'contact', label: 'Contact' },
@@ -76,7 +76,7 @@ export function Header() {
             </button>
             <span className="hidden items-center gap-1.5 rounded-full border border-border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground md:inline-flex">
               <Sparkles className="h-3 w-3 text-primary" />
-              AI-native
+              AI integration
             </span>
           </div>
 

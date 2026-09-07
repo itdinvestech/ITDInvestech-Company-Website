@@ -3,21 +3,21 @@ import { BrainCircuit, Cloud, Code, Smartphone, Zap } from 'lucide-react'
 const SERVICES = [
   {
     icon: BrainCircuit,
-    title: 'AI in the workflow',
+    title: 'AI integration',
     description:
-      'Quiz generation, lecture authoring, student analysis, video fetching, and hooks into rendering software — then the same AI pattern across hiring and operations.',
+      'Wire generation, scoring, retrieval, and reporting into the software a client already uses — or into the platform we build for them.',
   },
   {
     icon: Code,
     title: 'Custom platforms',
     description:
-      'LMS, school, clinic, inventory, property, and recruitment systems built on modern web stacks with APIs teams can actually extend.',
+      'LMS, clinic, inventory, property, recruitment, and other systems on modern stacks with APIs teams can extend.',
   },
   {
     icon: Smartphone,
     title: 'Mobile experiences',
     description:
-      'Student, parent, and operator apps that keep the same AI-backed workflows in someone’s pocket — iOS, Android, and the web.',
+      'Operator and customer apps that keep the same workflows — and the same integrations — in someone’s pocket.',
   },
   {
     icon: Cloud,
@@ -29,7 +29,7 @@ const SERVICES = [
     icon: Zap,
     title: 'Digital transformation',
     description:
-      'Replace paper, spreadsheets, and bolted-on tools with one system. We modernise the process, then put AI where the work already happens.',
+      'Replace paper, spreadsheets, and bolted-on tools with one system. Then put AI where the work already happens.',
   },
 ]
 
@@ -45,11 +45,11 @@ export function Services() {
             Services
           </p>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
-            Built around the AI, not bolted on
+            Build the system. Then make it think.
           </h2>
           <p className="mt-5 text-base text-muted-foreground sm:text-lg">
-            Engineering, cloud, and product — organised so intelligence can sit inside the LMS and
-            every other system we ship.
+            Engineering, cloud, and product — with AI integration as the capability we add to
+            client projects, not a product we sell on its own.
           </p>
         </div>
 

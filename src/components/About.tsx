@@ -1,18 +1,18 @@
 const POINTS = [
   {
-    title: 'It is already in the product',
+    title: 'We build the software',
     description:
-      'AI is not a demo or a chatbot overlay. It writes quizzes, lectures, reports, and media inside the LMS — then the same pattern lands in hiring, clinics, retail, and property.',
+      'Custom platforms for education, healthcare, retail, property, hiring, and whatever the client already runs. That is the company. AI is how those systems get sharper.',
   },
   {
-    title: 'It is built for operators',
+    title: 'We integrate into the work',
     description:
-      'Lecturers, recruiters, and ops teams keep their workflow. AI drafts, scores, and surfaces gaps. People approve, teach, and decide.',
+      'Models sit inside the client’s product and stack — drafting, scoring, fetching, reporting — not in a separate chat that staff have to remember to open.',
   },
   {
-    title: 'It ships as real software',
+    title: 'We ship it as production software',
     description:
-      'Since 2019 we have delivered production platforms from South Africa to the Netherlands — GraphQL APIs, cloud delivery, and the polish operators expect.',
+      'Since 2019 we have delivered platforms from South Africa to the Netherlands — APIs, cloud delivery, roles, and the polish operators expect.',
   },
 ]
 
@@ -30,8 +30,8 @@ export function About() {
             Three things you should know
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            We build custom management software. The difference is where the intelligence sits:
-            inside the lesson, the report, the hire — not in a tab nobody opens.
+            A software company first. AI integration is the capability we put into client projects
+            and the products we ship.
           </p>
         </div>
 

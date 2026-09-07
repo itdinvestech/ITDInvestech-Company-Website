@@ -81,8 +81,8 @@ export function Contact() {
             Talk to us
           </h2>
           <p className="mt-5 text-base text-muted-foreground sm:text-lg">
-            Want the LMS generating quizzes next term, or AI in another workflow? Tell us what you
-            run today.
+            Have a system that needs AI in the workflow — or a new platform to build? Tell us what
+            you run today.
           </p>
         </div>
 

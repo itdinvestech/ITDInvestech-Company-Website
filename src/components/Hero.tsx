@@ -3,9 +3,9 @@ import { ArrowRight } from 'lucide-react'
 import { scrollToSection } from '@/lib/utils'
 
 const STATS = [
-  { value: 'AI-first', label: 'In every product we ship' },
-  { value: 'LMS', label: 'Quizzes, lectures, reports' },
-  { value: '25+', label: 'Platforms in production' },
+  { value: 'Software', label: 'Platforms built for operators' },
+  { value: 'AI inside', label: 'Wired into client systems' },
+  { value: '25+', label: 'Projects in production' },
   { value: 'SA → NL', label: 'Built here, used abroad' },
 ]
 
@@ -21,20 +21,20 @@ export function Hero() {
         <div className="mx-auto max-w-[52rem] text-center">
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground backdrop-blur-sm sm:text-xs">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            AI-powered LMS · Workflows · Integrations
+            Custom software · AI integration
           </div>
 
           <h1 className="text-[2.35rem] font-extrabold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
-            The only AI workflow platform
+            Software that works.
             <span className="mt-2 block bg-gradient-to-r from-primary via-blue-600 to-blue-500 bg-clip-text text-transparent dark:via-blue-400 dark:to-blue-300">
-              you will ever need
+              AI that lives inside it.
             </span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-xl">
-            We put AI inside the work — generating quizzes, authoring lectures, spotting student
-            weaknesses, fetching videos, and talking to rendering software — then carry that same
-            pattern into schools, clinics, retail, property, and hiring.
+            ITDInvestech builds and modernises client software — then integrates AI into those
+            systems so teams generate, score, analyse, and connect tools without leaving the work
+            they already do.
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
@@ -52,7 +52,7 @@ export function Hero() {
               onClick={() => scrollToSection('ai')}
               className="h-12 w-full rounded-md px-7 text-sm font-semibold sm:w-auto"
             >
-              See AI in the LMS
+              What AI integration means
             </Button>
           </div>
         </div>
