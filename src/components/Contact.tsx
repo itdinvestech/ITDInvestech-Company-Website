@@ -69,25 +69,25 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
+    <section id="contact" className="section-pad relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent" />
         <div className="absolute inset-0 dot-pattern opacity-25 dark:opacity-10" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
+        <div className="section-intro mb-16 sm:mb-24">
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
             Talk to us
           </h2>
-          <p className="mt-5 text-base text-muted-foreground sm:text-lg">
+          <p className="mt-8 text-base leading-relaxed text-muted-foreground sm:text-lg">
             Have a system that needs AI in the workflow — or a new platform to build? Tell us what
             you run today.
           </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
-          <div className="space-y-4 sm:space-y-6">
+        <div className="grid gap-10 lg:grid-cols-3 lg:gap-14">
+          <div className="space-y-6 sm:space-y-8">
             <Card className="border border-border/80 bg-card transition-all duration-300 hover:border-primary/40 hover:shadow-lg">
               <CardHeader className="p-5 sm:p-6">
                 <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">

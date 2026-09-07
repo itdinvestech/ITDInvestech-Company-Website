@@ -22,10 +22,10 @@ export function IndustryMarquee() {
   const row = [...ITEMS, ...ITEMS]
 
   return (
-    <section aria-label="Industries we integrate into" className="relative overflow-hidden py-8">
+    <section aria-label="Industries we integrate into" className="relative overflow-hidden py-16 sm:py-20">
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent sm:w-24" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent sm:w-24" />
-      <p className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+      <p className="mb-8 text-center text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
         AI integrated into client software across
       </p>
       <div className="flex overflow-hidden">

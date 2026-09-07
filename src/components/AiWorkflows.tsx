@@ -1,10 +1,8 @@
 import { useState } from 'react'
 import {
   Check,
-  ImageIcon,
   Link2,
   ShieldCheck,
-  Sparkles,
   Timer,
   UserCheck,
   Workflow,
@@ -49,9 +47,7 @@ const MEANINGS = [
       'Shows up as actions in the workflow: draft, score, fetch, report',
     ],
     preview: {
-      kicker: 'Placeholder',
-      title: 'Integration in a client system',
-      caption: 'Screenshot of an in-product AI step — coming soon',
+      title: 'Client system',
     },
   },
   {
@@ -66,9 +62,7 @@ const MEANINGS = [
       'Surface gaps and next actions from the data already in the product',
     ],
     preview: {
-      kicker: 'Placeholder',
-      title: 'In-workflow AI action',
-      caption: 'Screenshot of generate / score / report — coming soon',
+      title: 'In the workflow',
     },
   },
   {
@@ -83,9 +77,7 @@ const MEANINGS = [
       'One source of truth instead of re-keying between apps',
     ],
     preview: {
-      kicker: 'Placeholder',
       title: 'Connected tools',
-      caption: 'Screenshot of integrations / publish path — coming soon',
     },
   },
   {
@@ -100,38 +92,27 @@ const MEANINGS = [
       'Outputs tied back to source records so they can be explained',
     ],
     preview: {
-      kicker: 'Placeholder',
       title: 'Review before publish',
-      caption: 'Screenshot of approval / edit step — coming soon',
     },
   },
 ] as const
 
 type MeaningId = (typeof MEANINGS)[number]['id']
 
-function ScreenshotPlaceholder({
-  kicker,
-  title,
-  caption,
-}: {
-  kicker: string
-  title: string
-  caption: string
-}) {
+function EmptyFrame({ title }: { title: string }) {
   return (
-    <div className="flex min-h-[17rem] flex-col overflow-hidden rounded-2xl border border-dashed border-border bg-background">
-      <div className="flex items-center justify-between border-b border-border/80 px-4 py-3">
-        <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">{kicker}</p>
-          <p className="mt-0.5 text-sm font-semibold">{title}</p>
-        </div>
-        <Sparkles className="h-4 w-4 text-primary" />
+    <div className="flex min-h-[17rem] flex-col overflow-hidden rounded-2xl border border-border bg-background">
+      <div className="flex items-center gap-2 border-b border-border px-4 py-3">
+        <span className="h-2 w-2 rounded-full bg-border" />
+        <span className="h-2 w-2 rounded-full bg-border" />
+        <span className="h-2 w-2 rounded-full bg-border" />
+        <span className="ml-2 text-xs text-muted-foreground">{title}</span>
       </div>
-      <div className="flex flex-1 flex-col items-center justify-center gap-3 px-6 py-10 text-center">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-          <ImageIcon className="h-6 w-6" />
-        </div>
-        <p className="max-w-[16rem] text-sm text-muted-foreground">{caption}</p>
+      <div className="flex flex-1 flex-col justify-end gap-3 p-5">
+        <div className="h-3 w-2/5 rounded-md bg-muted" />
+        <div className="h-24 rounded-xl bg-muted/70" />
+        <div className="h-3 w-4/5 rounded-md bg-muted" />
+        <div className="h-3 w-3/5 rounded-md bg-muted" />
       </div>
     </div>
   )
@@ -143,33 +124,33 @@ export function AiWorkflows() {
   const ActiveIcon = active.icon
 
   return (
-    <section id="ai" className="relative overflow-hidden py-20 sm:py-28 lg:py-32">
+    <section id="ai" className="section-pad relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
         <div className="absolute left-1/2 top-24 h-64 w-[42rem] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl dark:bg-primary/20" />
       </div>
 
       <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+        <div className="section-intro">
+          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             Finest capability
           </p>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
             AI integration into client software.
-            <span className="block text-muted-foreground">That is the work.</span>
+            <span className="mt-3 block text-muted-foreground">That is the work.</span>
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="mt-8 text-base leading-relaxed text-muted-foreground sm:text-lg">
             We are a software company. We build and extend platforms for clients, then put
             intelligence inside those systems so it drafts, scores, analyses, and talks to the rest
             of the stack — instead of sitting in a chat window nobody uses.
           </p>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-16 grid max-w-5xl gap-6 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {BENEFITS.map((item) => {
             const Icon = item.icon
             return (
-              <div key={item.title} className="rounded-2xl border border-border bg-card p-5">
+              <div key={item.title} className="rounded-2xl border border-border bg-card p-6 sm:p-7">
                 <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Icon className="h-4 w-4" />
                 </div>
@@ -180,7 +161,7 @@ export function AiWorkflows() {
           })}
         </div>
 
-        <div className="mt-12 overflow-hidden rounded-2xl border border-border bg-card shadow-sm lg:mt-16 lg:grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.35fr)]">
+        <div className="mt-16 overflow-hidden rounded-2xl border border-border bg-card shadow-sm sm:mt-24 lg:grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.35fr)]">
           <div className="border-b border-border lg:border-b-0 lg:border-r">
             <div className="hidden border-b border-border px-6 py-4 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground lg:block">
               What integration covers
@@ -236,11 +217,7 @@ export function AiWorkflows() {
               </Button>
             </div>
 
-            <ScreenshotPlaceholder
-              kicker={active.preview.kicker}
-              title={active.preview.title}
-              caption={active.preview.caption}
-            />
+            <EmptyFrame title={active.preview.title} />
           </div>
         </div>
       </div>

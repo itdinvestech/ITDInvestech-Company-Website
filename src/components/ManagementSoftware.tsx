@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { GraduationCap, Stethoscope, Store, Building2, Check, ArrowRight, Users, BookOpen, Calendar, MessageSquare, FileText, DollarSign, ClipboardList, BarChart3, Package, ShoppingCart, TrendingUp, Home, Key, Wrench, Receipt, UserSearch, Briefcase, Target, ClipboardCheck, Sparkles, FileSearch, ImageIcon } from "lucide-react"
+import { GraduationCap, Stethoscope, Store, Building2, Check, ArrowRight, Users, BookOpen, Calendar, MessageSquare, FileText, DollarSign, ClipboardList, BarChart3, Package, ShoppingCart, TrendingUp, Home, Key, Wrench, Receipt, UserSearch, Briefcase, Target, ClipboardCheck, Sparkles, FileSearch } from "lucide-react"
 import { useState } from "react"
 import { scrollToSection } from "@/lib/utils"
 
@@ -274,7 +274,7 @@ export function ManagementSoftware() {
   ]
 
   return (
-    <section id="solutions" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
+    <section id="solutions" className="section-pad relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-primary/[0.04]" />
         <div className="absolute inset-0 grid-pattern opacity-20 dark:opacity-10" />
@@ -283,8 +283,8 @@ export function ManagementSoftware() {
       </div>
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+        <div className="section-intro mb-16 sm:mb-24">
+          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             What we offer
           </p>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
@@ -293,14 +293,14 @@ export function ManagementSoftware() {
               with AI in them
             </span>
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="mt-8 text-base leading-relaxed text-muted-foreground sm:text-lg">
             These are the products. Each one is a place we have already put AI integration to work.
             The LMS is the clearest example: quizzes, lectures, student reports, video, and
             rendering tools.
           </p>
         </div>
 
-        <div className="grid gap-5 sm:gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3 xl:gap-10">
           {solutions.map((solution, index) => {
             const Icon = solution.icon
             return (
@@ -310,7 +310,7 @@ export function ManagementSoftware() {
               >
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                <CardHeader className="relative z-10 flex-1 space-y-3 p-5 sm:p-6">
+                <CardHeader className="relative z-10 flex-1 space-y-4 p-6 sm:p-8">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm transition-transform duration-300 group-hover:scale-105">
                     <Icon className="h-6 w-6" />
                   </div>
@@ -323,13 +323,17 @@ export function ManagementSoftware() {
                     </Badge>
                   </div>
                   {index === 0 && (
-                    <div className="flex items-center gap-3 rounded-xl border border-dashed border-border bg-background/80 px-3 py-4">
-                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <ImageIcon className="h-4 w-4" />
+                    <div className="overflow-hidden rounded-xl border border-border bg-background">
+                      <div className="flex items-center gap-1.5 border-b border-border px-3 py-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-border" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-border" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-border" />
                       </div>
-                      <p className="text-xs leading-relaxed text-muted-foreground">
-                        LMS screenshots coming soon — quizzes, lectures, reports, and video in the product.
-                      </p>
+                      <div className="space-y-2 p-3">
+                        <div className="h-2 w-1/3 rounded bg-muted" />
+                        <div className="h-16 rounded-lg bg-muted/70" />
+                        <div className="h-2 w-2/3 rounded bg-muted" />
+                      </div>
                     </div>
                   )}
                   <CardDescription className="line-clamp-4 text-sm leading-relaxed sm:line-clamp-5">
@@ -337,7 +341,7 @@ export function ManagementSoftware() {
                   </CardDescription>
                 </CardHeader>
 
-                <CardContent className="relative z-10 pt-0 pb-5 sm:pb-6">
+                <CardContent className="relative z-10 pt-0 pb-6 sm:pb-8">
                   <Button
                     onClick={() => setSelectedSolution(index)}
                     className="w-full group/btn"

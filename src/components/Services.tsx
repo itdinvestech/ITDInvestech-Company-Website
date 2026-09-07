@@ -35,29 +35,29 @@ const SERVICES = [
 
 export function Services() {
   return (
-    <section id="services" className="relative overflow-hidden py-20 sm:py-28 lg:py-32">
+    <section id="services" className="section-pad relative overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       <div className="absolute inset-0 -z-10 bg-muted/30 dark:bg-muted/10" />
 
       <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+        <div className="section-intro">
+          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             Services
           </p>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
             Build the system. Then make it think.
           </h2>
-          <p className="mt-5 text-base text-muted-foreground sm:text-lg">
+          <p className="mt-8 text-base leading-relaxed text-muted-foreground sm:text-lg">
             Engineering, cloud, and product — with AI integration as the capability we add to
             client projects, not a product we sell on its own.
           </p>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-5xl gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-16 grid max-w-5xl gap-6 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {SERVICES.map((service) => {
             const Icon = service.icon
             return (
-              <div key={service.title} className="bg-card p-6 sm:p-8">
+              <div key={service.title} className="rounded-2xl border border-border bg-card p-7 sm:p-8">
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Icon className="h-5 w-5" />
                 </div>

@@ -24,8 +24,8 @@ export function Footer() {
     <footer className="relative overflow-hidden border-t border-border">
       <div className="absolute inset-0 -z-10 bg-muted/40 dark:bg-muted/20" />
       
-      <div className="container relative z-10 mx-auto px-4 py-10 sm:py-12">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="container relative z-10 mx-auto px-4 py-16 sm:py-20">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="mb-4">
               <BrandLogo iconSize={40} />

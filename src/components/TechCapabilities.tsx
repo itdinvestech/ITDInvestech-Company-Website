@@ -53,7 +53,7 @@ export function TechCapabilities({ embedded = false }: TechCapabilitiesProps) {
   if (embedded) {
     return (
       <section className="relative">
-        <div className="mb-6 text-center xl:text-left">
+        <div className="mb-10 text-center xl:text-left">
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Engineering excellence</h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
             We ship production systems with modern stacks, automated delivery, and the polish
@@ -61,7 +61,7 @@ export function TechCapabilities({ embedded = false }: TechCapabilitiesProps) {
           </p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-5">
           {CAPABILITIES.map((item) => (
             <article
               key={item.title}

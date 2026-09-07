@@ -66,6 +66,16 @@
   }
 }
 
+@layer components {
+  .section-pad {
+    @apply py-24 sm:py-32 lg:py-40;
+  }
+
+  .section-intro {
+    @apply mx-auto max-w-2xl text-center;
+  }
+}
+
 @layer utilities {
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out;
