@@ -77,11 +77,12 @@ export function Contact() {
 
       <div className="container relative z-10 mx-auto px-4">
         <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Get in Touch
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
+            Talk to us
           </h2>
-          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-            Have a project in mind? Let&apos;s discuss how we can help you achieve your goals.
+          <p className="mt-5 text-base text-muted-foreground sm:text-lg">
+            Want the LMS generating quizzes next term, or AI in another workflow? Tell us what you
+            run today.
           </p>
         </div>
 

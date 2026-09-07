@@ -1,93 +1,71 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Code, Smartphone, Cloud, BrainCircuit, Zap } from "lucide-react"
+import { BrainCircuit, Cloud, Code, Smartphone, Zap } from 'lucide-react'
+
+const SERVICES = [
+  {
+    icon: BrainCircuit,
+    title: 'AI in the workflow',
+    description:
+      'Quiz generation, lecture authoring, student analysis, video fetching, and hooks into rendering software — then the same AI pattern across hiring and operations.',
+  },
+  {
+    icon: Code,
+    title: 'Custom platforms',
+    description:
+      'LMS, school, clinic, inventory, property, and recruitment systems built on modern web stacks with APIs teams can actually extend.',
+  },
+  {
+    icon: Smartphone,
+    title: 'Mobile experiences',
+    description:
+      'Student, parent, and operator apps that keep the same AI-backed workflows in someone’s pocket — iOS, Android, and the web.',
+  },
+  {
+    icon: Cloud,
+    title: 'Cloud delivery',
+    description:
+      'AWS and Azure infrastructure, GraphQL APIs, and migrations so platforms stay fast, private, and cheap enough to run.',
+  },
+  {
+    icon: Zap,
+    title: 'Digital transformation',
+    description:
+      'Replace paper, spreadsheets, and bolted-on tools with one system. We modernise the process, then put AI where the work already happens.',
+  },
+]
 
 export function Services() {
-  const services = [
-    {
-      icon: Code,
-      title: "Custom Web Development",
-      description: "Tailored web applications built with modern frameworks and best practices for optimal performance and scalability.",
-      features: ["React & Vue.js", "Node.js Backend", "Responsive Design", "PWA Support"]
-    },
-    {
-      icon: Smartphone,
-      title: "Mobile Development",
-      description: "Native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android.",
-      features: ["React Native", "Flutter", "Native iOS/Android", "App Store Optimization"]
-    },
-    {
-      icon: Cloud,
-      title: "Cloud Solutions",
-      description: "Scalable cloud infrastructure with seamless integration into your existing systems, plus migration services to optimize costs and reliability.",
-      features: ["AWS & Azure", "Cloud Integration", "Cloud Migration", "DevOps"]
-    },
-    {
-      icon: BrainCircuit,
-      title: "AI Automation Systems",
-      description: "Intelligent automation that streamlines business processes, reduces manual work, and helps your team focus on what matters most.",
-      features: ["Workflow Automation", "AI-Powered Insights", "Process Optimization", "Business Intelligence"]
-    },
-    {
-      icon: Zap,
-      title: "Digital Transformation",
-      description: "End-to-end digital transformation strategies to modernize your business operations and processes.",
-      features: ["Strategy Consulting", "Process Automation", "Legacy Modernization", "Change Management"]
-    }
-  ]
-
   return (
-    <section id="services" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent" />
-        <div className="absolute inset-0 grid-pattern opacity-20 dark:opacity-10" />
-      </div>
-      
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Our Services
+    <section id="services" className="relative overflow-hidden py-20 sm:py-28 lg:py-32">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="absolute inset-0 -z-10 bg-muted/30 dark:bg-muted/10" />
+
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+            Services
+          </p>
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
+            Built around the AI, not bolted on
           </h2>
-          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-            Comprehensive technology solutions tailored to your business needs
+          <p className="mt-5 text-base text-muted-foreground sm:text-lg">
+            Engineering, cloud, and product — organised so intelligence can sit inside the LMS and
+            every other system we ship.
           </p>
         </div>
 
-        <div className="grid gap-5 sm:gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service) => {
+        <div className="mx-auto mt-12 grid max-w-5xl gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          {SERVICES.map((service) => {
             const Icon = service.icon
             return (
-              <Card 
-                key={service.title} 
-                className="group relative overflow-hidden border border-border/80 bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                
-                <CardHeader className="relative z-10 p-5 sm:p-6">
-                  <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <CardTitle className="text-lg transition-colors group-hover:text-primary">
-                    {service.title}
-                  </CardTitle>
-                  <CardDescription className="text-sm leading-relaxed">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="relative z-10 px-5 pb-5 sm:px-6 sm:pb-6">
-                  <div className="flex flex-wrap gap-2">
-                    {service.features.map((feature) => (
-                      <Badge 
-                        key={feature} 
-                        variant="secondary"
-                        className="text-xs font-normal"
-                      >
-                        {feature}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              <div key={service.title} className="bg-card p-6 sm:p-8">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="text-lg font-bold">{service.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {service.description}
+                </p>
+              </div>
             )
           })}
         </div>

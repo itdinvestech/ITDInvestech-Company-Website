@@ -1,73 +1,69 @@
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { scrollToSection } from '@/lib/utils'
 
 const STATS = [
-  { value: '25+', label: 'Projects Completed' },
-  { value: '100%', label: 'Client Satisfaction' },
-  { value: '6', label: 'Team Members' },
-  { value: 'SA → NL', label: 'International Reach' },
+  { value: 'AI-first', label: 'In every product we ship' },
+  { value: 'LMS', label: 'Quizzes, lectures, reports' },
+  { value: '25+', label: 'Platforms in production' },
+  { value: 'SA → NL', label: 'Built here, used abroad' },
 ]
 
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden pt-8 pb-14 sm:pt-14 sm:pb-24 lg:pb-28">
+    <section id="home" className="relative overflow-hidden pb-16 pt-16 sm:pb-24 sm:pt-24 lg:pb-32 lg:pt-28">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.06] via-transparent to-transparent" />
-        <div className="absolute inset-0 grid-pattern opacity-30 dark:opacity-15" />
-        <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-primary/20 blur-3xl sm:h-96 sm:w-96" />
-        <div className="absolute right-0 top-1/4 h-64 w-64 rounded-full bg-blue-500/15 blur-3xl sm:h-80 sm:w-80" />
+        <div className="absolute inset-x-0 top-[38%] h-40 bg-gradient-to-r from-transparent via-primary/25 to-transparent blur-3xl dark:via-primary/35" />
+        <div className="absolute inset-0 grid-pattern opacity-20 dark:opacity-10" />
       </div>
 
       <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex animate-fade-in items-center rounded-full border border-border bg-card/80 px-3 py-1.5 text-xs backdrop-blur-sm sm:mb-8 sm:px-4 sm:text-sm">
-            <Sparkles className="mr-2 h-3.5 w-3.5 shrink-0 text-primary sm:h-4 sm:w-4" />
-            <span>Engineering the future of business software</span>
+        <div className="mx-auto max-w-[52rem] text-center">
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground backdrop-blur-sm sm:text-xs">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            AI-powered LMS · Workflows · Integrations
           </div>
 
-          <h1 className="animate-slide-up mb-5 text-3xl font-bold tracking-tight sm:mb-6 sm:text-5xl lg:text-6xl xl:text-7xl">
-            Transform Your Business with{' '}
-            <span className="inline-block bg-gradient-to-r from-primary via-blue-600 to-blue-500 bg-clip-text text-transparent dark:via-blue-400 dark:to-blue-300">
-              Custom Management Software
+          <h1 className="text-[2.35rem] font-extrabold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
+            The only AI workflow platform
+            <span className="mt-2 block bg-gradient-to-r from-primary via-blue-600 to-blue-500 bg-clip-text text-transparent dark:via-blue-400 dark:to-blue-300">
+              you will ever need
             </span>
           </h1>
 
-          <p className="animate-slide-up stagger-1 mx-auto mb-8 max-w-3xl text-base text-muted-foreground sm:mb-10 sm:text-xl">
-            We build production-grade platforms — from{' '}
-            <span className="font-semibold text-foreground">School Management Systems</span> and{' '}
-            <span className="font-semibold text-foreground">Medical Practice Software</span> to{' '}
-            <span className="font-semibold text-foreground">Inventory</span>,{' '}
-            <span className="font-semibold text-foreground">Real Estate</span>, and{' '}
-            <span className="font-semibold text-foreground">Recruitment</span> solutions — with
-            cloud delivery, GraphQL APIs, and enterprise polish.
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-xl">
+            We put AI inside the work — generating quizzes, authoring lectures, spotting student
+            weaknesses, fetching videos, and talking to rendering software — then carry that same
+            pattern into schools, clinics, retail, property, and hiring.
           </p>
 
-          <div className="animate-slide-up stagger-2 flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
-            <Button size="lg" onClick={() => scrollToSection('contact')} className="w-full sm:w-auto">
-              Get Started
-              <ArrowRight className="ml-2 h-4 w-4" />
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
+            <Button
+              size="lg"
+              onClick={() => scrollToSection('contact')}
+              className="h-12 w-full rounded-md px-7 text-sm font-semibold sm:w-auto"
+            >
+              Get started
+              <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              onClick={() => scrollToSection('services')}
-              className="w-full sm:w-auto"
+              onClick={() => scrollToSection('ai')}
+              className="h-12 w-full rounded-md px-7 text-sm font-semibold sm:w-auto"
             >
-              Explore Services
+              See AI in the LMS
             </Button>
           </div>
+        </div>
 
-          <div className="animate-fade-in stagger-3 mt-10 grid grid-cols-2 gap-4 sm:mt-14 sm:grid-cols-4 sm:gap-8">
-            {STATS.map((stat) => (
-              <div key={stat.label} className="rounded-xl border border-border/60 bg-card/50 px-3 py-4 sm:border-0 sm:bg-transparent sm:p-0">
-                <div className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl">
-                  {stat.value}
-                </div>
-                <div className="mt-1 text-xs text-muted-foreground sm:text-sm">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+        <div className="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:mt-20 sm:grid-cols-4">
+          {STATS.map((stat) => (
+            <div key={stat.label} className="bg-card px-4 py-5 text-center sm:py-6">
+              <div className="text-lg font-bold tracking-tight sm:text-xl">{stat.value}</div>
+              <div className="mt-1 text-xs text-muted-foreground sm:text-sm">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

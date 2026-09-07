@@ -12,18 +12,39 @@ export function ManagementSoftware() {
   const solutions = [
     {
       icon: GraduationCap,
-      title: "School Management System",
-      subtitle: "Complete Educational Institution Management",
-      description: "Transform your educational institution with our comprehensive school management platform. Built from real-world experience working with multiple schools, our system handles everything from student enrollment to graduation.",
-      longDescription: "Our School Management System is a complete end-to-end solution designed to streamline all aspects of school administration. We've successfully deployed this system across multiple educational institutions, helping them modernize their operations, improve parent-teacher communication, and enhance student outcomes through data-driven insights.",
+      title: "AI-Powered LMS",
+      subtitle: "Quizzes, lectures, analysis, and video — inside the course",
+      description: "The LMS is where our AI is most visible. It generates quizzes for students, authors lectures for teaching staff, returns weakness and improvement reports, fetches the right videos, and hands packs to rendering software — while still running enrolment, grades, and the school.",
+      longDescription: "This is a full school and LMS platform with AI sitting in the teaching loop. Lecturers start from a topic or week plan; the system drafts assessments and lectures, maps student gaps after they write, pulls supporting video, and can publish into production/rendering tools. Administration — students, attendance, fees, parent comms — stays in the same product.",
       benefits: [
-        "Reduce administrative workload by 60% with automated processes",
-        "Improve parent engagement with real-time updates and communication",
-        "Track student performance and identify areas needing attention",
-        "Generate comprehensive reports for stakeholders in seconds",
-        "Secure cloud-based system accessible from anywhere, anytime"
+        "AI-generated quizzes mapped to lesson outcomes",
+        "Lecture drafts, slides, and student recaps from a brief",
+        "Analysis reports on weaknesses and where to improve",
+        "Topic-matched videos fetched onto the lesson timeline",
+        "Exports into rendering and production software",
+        "Still a full SIS: enrolment, grades, attendance, fees"
       ],
       features: [
+        {
+          icon: Sparkles,
+          name: "AI quiz generation",
+          details: "Generate graded quizzes and practice sets from a lecture, chapter, or outcome. Lecturers review, edit, and publish. Items stay mapped to the week so analysis later is useful."
+        },
+        {
+          icon: BookOpen,
+          name: "AI lecture authoring",
+          details: "Turn a brief into a structured lecture: outline, talking points, slides, and student-facing summaries. Teaching staff stay in control of what ships."
+        },
+        {
+          icon: BarChart3,
+          name: "Weakness & improvement reports",
+          details: "After assessments, AI returns class heatmaps and per-student reports: where they struggle, what to practise next, and which follow-up quiz to assign."
+        },
+        {
+          icon: FileText,
+          name: "Video fetching for lessons",
+          details: "Fetch supporting and lecture videos for students and lecturers, filtered by topic and length, then pin them on the lesson instead of a shared drive."
+        },
         {
           icon: Users,
           name: "Student Information System",
@@ -46,8 +67,8 @@ export function ManagementSoftware() {
         },
         {
           icon: FileText,
-          name: "Staff Management",
-          details: "Complete teacher and staff management including profiles, qualifications, assignments, subject allocation, performance tracking, leave management, payroll integration, and attendance monitoring."
+          name: "Staff & rendering pipeline",
+          details: "Teacher and staff records, plus a publish path so generated lectures and media can move into rendering software and stay in sync with the LMS."
         },
         {
           icon: DollarSign,
@@ -263,16 +284,18 @@ export function ManagementSoftware() {
 
       <div className="container relative z-10 mx-auto px-4">
         <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
-          <Badge className="mb-4 px-4 py-1.5">Our Core Specialization</Badge>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Management Software{' '}
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+            Product
+          </p>
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
+            Platforms with AI{' '}
             <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
-              Solutions
+              in the work
             </span>
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Custom management platforms tailored to your industry — already transforming education,
-            healthcare, retail, real estate, and recruitment.
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            The LMS is the flagship. The same idea — intelligence inside the workflow — runs through
+            schools, clinics, retail, property, and hiring.
           </p>
         </div>
 

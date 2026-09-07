@@ -16,12 +16,12 @@ export function TransformShowcase() {
         <div className="grid items-start gap-10 xl:grid-cols-2 xl:gap-12">
           <div className="relative space-y-6">
             <div className="relative z-10 text-center xl:text-left">
-              <h3 className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
-                Ready to Transform Your Business?
+              <h3 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+                Ready to put AI in the workflow?
               </h3>
               <p className="mt-3 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Let&apos;s discuss how we can create a tailored management software solution for your
-                specific business needs.
+                Start with the LMS — quizzes, lectures, analysis, video — or take the same pattern
+                into the rest of the stack.
               </p>
             </div>
 
@@ -44,7 +44,7 @@ export function TransformShowcase() {
                 </Button>
               </div>
               <p className="mt-4 text-xs text-muted-foreground sm:text-sm">
-                Free Consultation · Custom Solutions · Ongoing Support
+                Free consultation · AI in the LMS · Ongoing support
               </p>
             </div>
           </div>

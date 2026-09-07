@@ -17,10 +17,10 @@ const CAPABILITIES = [
   },
   {
     icon: BrainCircuit,
-    title: 'Intelligent systems',
-    description: 'Dashboards and automation that turn data into insight.',
+    title: 'AI in the workflow',
+    description: 'Quizzes, lectures, student reports, and video in the LMS.',
     fullDescription:
-      'Data pipelines, dashboards, and automation that turn operations into insight.',
+      'The LMS generates quizzes, authors lectures, reports weaknesses, fetches videos, and talks to rendering tools — the same AI pattern across products.',
   },
   {
     icon: Lock,

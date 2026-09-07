@@ -2,14 +2,14 @@ import { Button } from '@/components/ui/button'
 import BrandLogo from '@/components/BrandLogo'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { cn, scrollToSection as navigateToSection } from '@/lib/utils'
-import { Menu, X } from 'lucide-react'
+import { Menu, Sparkles, X } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
 
 const NAV_ITEMS = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
+  { id: 'ai', label: 'AI' },
+  { id: 'solutions', label: 'Product' },
   { id: 'services', label: 'Services' },
-  { id: 'solutions', label: 'Solutions' },
+  { id: 'about', label: 'About' },
   { id: 'contact', label: 'Contact' },
 ] as const
 
@@ -17,7 +17,7 @@ const HEADER_HEIGHT = 72
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState<(typeof NAV_ITEMS)[number]['id']>('home')
+  const [activeSection, setActiveSection] = useState<(typeof NAV_ITEMS)[number]['id'] | 'home'>('home')
   const [scrolled, setScrolled] = useState(false)
 
   const scrollToSection = useCallback((sectionId: string) => {
@@ -30,7 +30,7 @@ export function Header() {
       setScrolled(window.scrollY > 8)
 
       const marker = window.scrollY + HEADER_HEIGHT + 48
-      let current: (typeof NAV_ITEMS)[number]['id'] = NAV_ITEMS[0].id
+      let current: (typeof NAV_ITEMS)[number]['id'] | 'home' = 'home'
 
       for (const item of NAV_ITEMS) {
         const element = document.getElementById(item.id)
@@ -60,33 +60,36 @@ export function Header() {
         className={cn(
           'sticky top-0 z-50 w-full border-b transition-all duration-300',
           scrolled
-            ? 'border-border/80 bg-background/95 shadow-sm backdrop-blur-md supports-[backdrop-filter]:bg-background/80'
-            : 'border-transparent bg-background/70 backdrop-blur-sm',
+            ? 'border-border/80 bg-background/90 shadow-sm backdrop-blur-md'
+            : 'border-transparent bg-background/60 backdrop-blur-sm',
         )}
       >
         <div className="container mx-auto flex h-[72px] items-center justify-between gap-4 px-4">
-          <button
-            type="button"
-            onClick={() => scrollToSection('home')}
-            className="rounded-lg outline-none ring-offset-background transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-            aria-label="Go to home"
-          >
-            <BrandLogo iconSize={36} compact />
-          </button>
+          <div className="flex min-w-0 items-center gap-3">
+            <button
+              type="button"
+              onClick={() => scrollToSection('home')}
+              className="rounded-lg outline-none ring-offset-background transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              aria-label="Go to home"
+            >
+              <BrandLogo iconSize={36} compact />
+            </button>
+            <span className="hidden items-center gap-1.5 rounded-full border border-border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground md:inline-flex">
+              <Sparkles className="h-3 w-3 text-primary" />
+              AI-native
+            </span>
+          </div>
 
-          <nav
-            className="hidden lg:flex items-center gap-1 rounded-full border border-border/60 bg-muted/40 p-1.5 shadow-sm"
-            aria-label="Primary"
-          >
+          <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
             {NAV_ITEMS.map((item) => (
               <button
                 key={item.id}
                 type="button"
                 onClick={() => scrollToSection(item.id)}
                 className={cn(
-                  'rounded-full px-4 py-2 text-sm font-medium transition-all duration-200',
+                  'text-[13px] font-medium transition-colors',
                   activeSection === item.id
-                    ? 'bg-background text-foreground shadow-sm'
+                    ? 'text-foreground'
                     : 'text-muted-foreground hover:text-foreground',
                 )}
               >
@@ -95,10 +98,10 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden items-center gap-3 lg:flex">
             <ThemeToggle />
-            <Button onClick={() => scrollToSection('contact')} size="sm" className="rounded-full px-5">
-              Get Started
+            <Button onClick={() => scrollToSection('contact')} size="sm" className="rounded-md px-4">
+              Get started
             </Button>
           </div>
 
@@ -106,7 +109,7 @@ export function Header() {
             <ThemeToggle />
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background text-foreground shadow-sm transition-colors hover:bg-muted"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-border bg-background text-foreground"
               onClick={() => setMobileOpen((open) => !open)}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav-panel"
@@ -121,7 +124,7 @@ export function Header() {
       <div
         className={cn(
           'fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 lg:hidden',
-          mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none',
+          mobileOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0',
         )}
         onClick={() => setMobileOpen(false)}
         aria-hidden={!mobileOpen}
@@ -139,7 +142,7 @@ export function Header() {
           <BrandLogo />
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border hover:bg-muted"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border hover:bg-muted"
             onClick={() => setMobileOpen(false)}
             aria-label="Close menu"
           >
@@ -154,7 +157,7 @@ export function Header() {
               type="button"
               onClick={() => scrollToSection(item.id)}
               className={cn(
-                'flex w-full items-center rounded-xl px-4 py-3.5 text-left text-base font-medium transition-colors',
+                'flex w-full items-center rounded-lg px-4 py-3.5 text-left text-base font-medium transition-colors',
                 activeSection === item.id
                   ? 'bg-primary/10 text-primary'
                   : 'text-foreground hover:bg-muted',
@@ -165,13 +168,9 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="space-y-3 border-t p-4">
-          <div className="flex items-center justify-between rounded-xl border border-border px-4 py-3">
-            <span className="text-sm font-medium">Theme</span>
-            <ThemeToggle />
-          </div>
-          <Button onClick={() => scrollToSection('contact')} className="w-full rounded-full" size="lg">
-            Get Started
+        <div className="border-t p-4">
+          <Button onClick={() => scrollToSection('contact')} className="w-full" size="lg">
+            Get started
           </Button>
         </div>
       </aside>
