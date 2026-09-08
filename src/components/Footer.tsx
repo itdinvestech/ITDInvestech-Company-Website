@@ -14,7 +14,6 @@ export function Footer() {
   const links = [
     { id: 'home', label: 'Home' },
     { id: 'how', label: 'How we work' },
-    { id: 'services', label: 'Services' },
     { id: 'solutions', label: 'Offerings' },
     { id: 'apps', label: 'Apps' },
     { id: 'ai', label: 'AI' },
@@ -55,13 +54,12 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 font-semibold">Services</h3>
+            <h3 className="mb-4 font-semibold">What we ship</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Custom software</li>
-              <li>Hosting &amp; delivery</li>
-              <li>AI integration</li>
-              <li>Mobile experiences</li>
-              <li>Digital transformation</li>
+              <li>LMS and school platforms</li>
+              <li>Clinic and practice sites</li>
+              <li>SearchBox hiring</li>
+              <li>MoviesApp and delivery apps</li>
             </ul>
           </div>
 

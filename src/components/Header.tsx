@@ -7,7 +7,6 @@ import { useCallback, useEffect, useState } from 'react'
 
 const NAV_ITEMS = [
   { id: 'how', label: 'How we work' },
-  { id: 'services', label: 'Services' },
   { id: 'solutions', label: 'Offerings' },
   { id: 'apps', label: 'Apps' },
   { id: 'ai', label: 'AI' },

@@ -1,18 +1,18 @@
 const POINTS = [
   {
-    title: 'We build and host custom software',
+    title: 'Since 2019',
     description:
-      'Platforms for education, healthcare, retail, property, hiring, and whatever the client already runs. Design, implementation, cloud, and support — that is the company.',
+      'An independent software company. We sit with operators, ship a live system, and stay on it.',
   },
   {
-    title: 'We deliver working systems',
+    title: 'South Africa to the Netherlands',
     description:
-      'Not a slide deck. Live software, trained teams, and results you can measure. Since 2019, from South Africa to the Netherlands.',
+      'Work happens with the teams who run the product — not as a remote slide deck that never goes live.',
   },
   {
-    title: 'AI is a main ability — used with judgment',
+    title: 'One team after go-live',
     description:
-      'We find the jobs that eat time or hide insight, then wire AI into those steps. It sits inside the product. It is not the whole story.',
+      'The people who built it still host it, support it, and add AI only where the job actually changes.',
   },
 ]
 
@@ -27,12 +27,8 @@ export function About() {
             About ITDInvestech
           </p>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
-            Three things you should know
+            Who is on the other side of the brief.
           </h2>
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            A software company that ships and hosts platforms. AI integration is one of the
-            strongest things we do with those platforms.
-          </p>
         </div>
 
         <div className="mx-auto mt-12 grid max-w-5xl gap-10 sm:mt-16 md:grid-cols-3 md:gap-12">
