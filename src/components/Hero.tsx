@@ -11,7 +11,7 @@ const STATS = [
 
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden pb-16 pt-16 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28">
+    <section id="home" className="relative overflow-hidden pb-2 pt-16 sm:pb-4 sm:pt-24 lg:pb-4 lg:pt-28">
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-x-0 top-[38%] h-40 bg-gradient-to-r from-transparent via-primary/25 to-transparent blur-3xl dark:via-primary/35" />
         <div className="absolute inset-0 grid-pattern opacity-20 dark:opacity-10" />
@@ -57,7 +57,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:mt-20 sm:grid-cols-4">
+        <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:mt-10 sm:grid-cols-4">
           {STATS.map((stat) => (
             <div key={stat.label} className="bg-card px-4 py-5 text-center sm:py-6">
               <div className="text-lg font-bold tracking-tight sm:text-xl">{stat.value}</div>

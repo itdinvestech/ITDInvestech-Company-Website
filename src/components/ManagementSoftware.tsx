@@ -2,9 +2,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { GraduationCap, Stethoscope, Store, Building2, Check, ArrowRight, Users, BookOpen, Calendar, MessageSquare, FileText, DollarSign, ClipboardList, BarChart3, Package, ShoppingCart, TrendingUp, Home, Key, Wrench, Receipt, UserSearch, Briefcase, Target, ClipboardCheck, Sparkles, FileSearch } from "lucide-react"
+import { GraduationCap, Stethoscope, Store, Building2, Check, ArrowRight, Users, BookOpen, Calendar, MessageSquare, FileText, DollarSign, ClipboardList, BarChart3, Package, ShoppingCart, TrendingUp, Home, Key, Wrench, Receipt, UserSearch, Briefcase, Target, ClipboardCheck, Sparkles, FileSearch, ExternalLink } from "lucide-react"
 import { useState } from "react"
 import { scrollToSection } from "@/lib/utils"
+import { SitePreview } from "@/components/SitePreview"
 
 export function ManagementSoftware() {
   const [selectedSolution, setSelectedSolution] = useState<number | null>(null)
@@ -77,13 +78,15 @@ export function ManagementSoftware() {
         }
       ],
       color: "from-blue-500/20 to-indigo-500/20",
-      accentColor: "blue"
+      accentColor: "blue",
+      url: "https://lms-demo.itdinvestech.co.za/",
+      image: "/previews/lms.png",
     },
     {
       icon: Stethoscope,
       title: "Medical Practice Management Software",
       subtitle: "Complete Healthcare Practice Solution",
-      description: "Streamline your medical practice with our proven software solution, successfully deployed across multiple doctors' offices and clinics. Manage patients, appointments, billing, and medical records all in one secure platform.",
+      description: "A live practice website and patient platform — booking, records, and the public face of the clinic. See it in production for Dr Metuse in Sandton, and the same stack behind other doctors’ offices.",
       longDescription: "Our Medical Practice Management Software is specifically designed for healthcare professionals who want to focus on patient care rather than administrative tasks. Successfully implemented across multiple medical practices, our system is compliant with healthcare regulations and provides secure, efficient management of all practice operations.",
       benefits: [
         "Reduce patient wait times with efficient appointment scheduling",
@@ -125,7 +128,9 @@ export function ManagementSoftware() {
         }
       ],
       color: "from-green-500/20 to-emerald-500/20",
-      accentColor: "green"
+      accentColor: "green",
+      url: "https://drmetuseplasticsurgeon.co.za/",
+      image: "/previews/medical.png",
     },
     {
       icon: Store,
@@ -225,9 +230,9 @@ export function ManagementSoftware() {
     },
     {
       icon: UserSearch,
-      title: "Recruitment & Talent Platform",
-      subtitle: "AI-Powered Hiring & Talent Sourcing",
-      description: "An AI-powered recruitment platform that helps recruiters and companies find the right talent faster. Automate CV scoring, candidate ranking, and skills matching while keeping full control of your hiring pipeline for permanent roles, projects, and short-term activities.",
+      title: "SearchBox — Recruitment & Talent",
+      subtitle: "Live hiring platform · AI CV scoring",
+      description: "SearchBox is live: candidates, recruiters, and hiring managers on one workspace. AI reviews CVs, rewrites them for an advert, and screens applicants — while people still run the pipeline.",
       longDescription: "Our Recruitment & Talent Platform uses AI to take the heavy lifting out of hiring. Upload CVs and the system scores them against role requirements, ranks candidates by fit, and surfaces the strongest matches with clear explanations. Recruiters still stay in control — posting roles or activities, reviewing AI shortlists, scheduling interviews, and moving candidates through structured pipelines from first application to signed offer.",
       benefits: [
         "Score and rank CVs automatically against each role’s requirements",
@@ -269,8 +274,10 @@ export function ManagementSoftware() {
         }
       ],
       color: "from-cyan-500/20 to-teal-500/20",
-      accentColor: "cyan"
-    }
+      accentColor: "cyan",
+      url: "https://searchbox.itdinvestech.co.za/",
+      image: "/previews/searchbox.png",
+    },
   ]
 
   return (
@@ -291,8 +298,8 @@ export function ManagementSoftware() {
             Platforms we ship and host
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            These are products in production. Some already have AI in the workflow — the LMS is the
-            clearest example. Others start as custom software we build, host, and deliver.
+            These are products in production. The LMS, the clinic site, and SearchBox are live —
+            open a preview to visit them.
           </p>
         </div>
 
@@ -318,20 +325,12 @@ export function ManagementSoftware() {
                       {solution.subtitle}
                     </Badge>
                   </div>
-                  {index === 0 && (
-                    <div className="overflow-hidden rounded-xl border border-border bg-background">
-                      <div className="flex items-center gap-1.5 border-b border-border px-3 py-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-border" />
-                        <span className="h-1.5 w-1.5 rounded-full bg-border" />
-                        <span className="h-1.5 w-1.5 rounded-full bg-border" />
-                      </div>
-                      <div className="space-y-2 p-3">
-                        <div className="h-2 w-1/3 rounded bg-muted" />
-                        <div className="h-16 rounded-lg bg-muted/70" />
-                        <div className="h-2 w-2/3 rounded bg-muted" />
-                      </div>
-                    </div>
-                  )}
+                  <SitePreview
+                    title={solution.title}
+                    url={'url' in solution ? solution.url : undefined}
+                    image={'image' in solution ? solution.image : undefined}
+                    live={'live' in solution ? Boolean(solution.live) : false}
+                  />
                   <CardDescription className="line-clamp-4 text-sm leading-relaxed sm:line-clamp-5">
                     {solution.description}
                   </CardDescription>
@@ -378,6 +377,16 @@ export function ManagementSoftware() {
                   <p className="text-left text-sm leading-relaxed text-muted-foreground sm:text-base">
                     {solutions[selectedSolution].description}
                   </p>
+                  {'url' in solutions[selectedSolution] && solutions[selectedSolution].url && (
+                    <div className="mt-4">
+                      <SitePreview
+                        title={solutions[selectedSolution].title}
+                        url={solutions[selectedSolution].url}
+                        image={'image' in solutions[selectedSolution] ? solutions[selectedSolution].image : undefined}
+                        live={'live' in solutions[selectedSolution] ? Boolean(solutions[selectedSolution].live) : false}
+                      />
+                    </div>
+                  )}
                   <p className="mt-2 text-left text-sm leading-relaxed text-foreground/90 sm:text-base">
                     {solutions[selectedSolution].longDescription}
                   </p>
@@ -424,7 +433,19 @@ export function ManagementSoftware() {
                     </div>
                   </div>
 
-                  <div className="flex justify-center pt-2 sm:pt-4">
+                  <div className="flex flex-col justify-center gap-3 pt-2 sm:flex-row sm:pt-4">
+                    {'url' in solutions[selectedSolution] && solutions[selectedSolution].url && (
+                      <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
+                        <a
+                          href={solutions[selectedSolution].url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Visit live site
+                          <ExternalLink className="ml-2 h-4 w-4" />
+                        </a>
+                      </Button>
+                    )}
                     <Button
                       onClick={() => {
                         setSelectedSolution(null)

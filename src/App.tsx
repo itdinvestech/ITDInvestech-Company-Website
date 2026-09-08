@@ -2,10 +2,11 @@ import { Header } from "@/components/Header"
 import { Hero } from "@/components/Hero"
 import { IndustryMarquee } from "@/components/IndustryMarquee"
 import { ProcessDiagrams } from "@/components/ProcessDiagrams"
-import { AiWorkflows } from "@/components/AiWorkflows"
-import { About } from "@/components/About"
 import { Services } from "@/components/Services"
 import { ManagementSoftware } from "@/components/ManagementSoftware"
+import { AppsCatalogue } from "@/components/AppsCatalogue"
+import { AiWorkflows } from "@/components/AiWorkflows"
+import { About } from "@/components/About"
 import { TransformShowcase } from "@/components/TransformShowcase"
 import { Contact } from "@/components/Contact"
 import { Footer } from "@/components/Footer"
@@ -23,6 +24,7 @@ function App() {
         <ProcessDiagrams />
         <Services />
         <ManagementSoftware />
+        <AppsCatalogue />
         <AiWorkflows />
         <About />
         <TransformShowcase />
