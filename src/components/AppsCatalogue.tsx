@@ -1,7 +1,6 @@
-import { Bike, Clapperboard, ExternalLink, MapPin, ShoppingBag, Star, Ticket, UtensilsCrossed } from 'lucide-react'
+import { Bike, Clapperboard, MapPin, ShoppingBag, Star, Ticket, UtensilsCrossed } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { Button } from '@/components/ui/button'
-import { SitePreview } from '@/components/SitePreview'
 import { scrollToSection } from '@/lib/utils'
 
 function Phone({ children, caption }: { children: ReactNode; caption: string }) {
@@ -110,6 +109,115 @@ function BitesTrack() {
   )
 }
 
+function MoviesHome() {
+  const films = [
+    { title: 'Night Shift', tag: 'Now · 19:40', tone: 'from-[#9f1239] to-[#1c2230]' },
+    { title: 'Highveld', tag: 'Now · 20:15', tone: 'from-[#1e3a5f] to-[#141820]' },
+    { title: 'Last Reel', tag: 'Tonight · 21:00', tone: 'from-[#7c2d12] to-[#141820]' },
+  ]
+
+  return (
+    <div className="px-3 pb-4 pt-3" style={{ background: '#0b0d12', color: '#f4f6fb' }}>
+      <div className="flex items-center justify-between">
+        <div>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#9aa3b2]">Welcome</p>
+          <p className="text-xs font-semibold">What’s on now</p>
+        </div>
+        <div
+          className="flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-bold"
+          style={{ background: '#e11d48', color: '#fff' }}
+        >
+          MA
+        </div>
+      </div>
+      <div className="mt-3 rounded-lg border px-2.5 py-2 text-[11px] text-[#9aa3b2]" style={{ borderColor: '#252b36', background: '#141820' }}>
+        Search films, cinemas…
+      </div>
+      <div className="relative mt-3 overflow-hidden rounded-xl p-3" style={{ background: '#141820' }}>
+        <p className="text-[10px] font-semibold uppercase tracking-[0.16em]" style={{ color: '#fda4af' }}>
+          Tonight at the movies
+        </p>
+        <p className="mt-1 text-sm font-bold">Stories worth the big screen.</p>
+        <p className="mt-1 text-[10px] text-[#9aa3b2]">3 films now showing · Sandton City</p>
+        <div className="mt-2 flex gap-1.5">
+          <span className="rounded-md px-2 py-1 text-[10px] font-semibold text-white" style={{ background: '#e11d48' }}>
+            Quick Book
+          </span>
+          <span className="rounded-md border px-2 py-1 text-[10px] text-[#9aa3b2]" style={{ borderColor: '#252b36' }}>
+            Browse
+          </span>
+        </div>
+      </div>
+      <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#9aa3b2]">Now showing</p>
+      <div className="mt-2 flex gap-2">
+        {films.map((film) => (
+          <div key={film.title} className="min-w-0 flex-1">
+            <div className={`h-16 rounded-lg bg-gradient-to-b ${film.tone}`} />
+            <p className="mt-1 truncate text-[10px] font-semibold">{film.title}</p>
+            <p className="text-[9px] text-[#9aa3b2]">{film.tag}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function MoviesTicket() {
+  const seats = [
+    [0, 1, 1, 1, 1, 0],
+    [1, 1, 2, 2, 1, 1],
+    [1, 1, 1, 1, 1, 1],
+    [1, 3, 3, 1, 1, 1],
+  ]
+
+  return (
+    <div className="px-3 pb-4 pt-3" style={{ background: '#0b0d12', color: '#f4f6fb' }}>
+      <p className="text-[10px] font-semibold uppercase tracking-[0.16em]" style={{ color: '#fda4af' }}>
+        Pick seats
+      </p>
+      <h4 className="mt-1 text-sm font-bold">Night Shift</h4>
+      <p className="text-[10px] text-[#9aa3b2]">Sandton City · Screen 3 · 19:40</p>
+      <div className="mt-3 rounded-xl border p-3" style={{ borderColor: '#252b36', background: '#141820' }}>
+        <p className="mb-2 text-center text-[9px] uppercase tracking-[0.2em] text-[#9aa3b2]">Screen</p>
+        <div className="mx-auto mb-3 h-1 w-3/4 rounded-full" style={{ background: '#252b36' }} />
+        <div className="space-y-1">
+          {seats.map((row, r) => (
+            <div key={r} className="flex justify-center gap-1">
+              {row.map((cell, c) => (
+                <span
+                  key={c}
+                  className="h-3.5 w-3.5 rounded-[3px]"
+                  style={{
+                    background: cell === 0 ? 'transparent' : cell === 2 ? '#e11d48' : cell === 3 ? '#252b36' : '#1c2230',
+                    outline: cell === 2 ? '1px solid #fda4af' : undefined,
+                  }}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="mt-3 rounded-xl border p-3" style={{ borderColor: '#252b36', background: '#141820' }}>
+        <div className="flex items-start justify-between gap-2">
+          <div>
+            <p className="text-xs font-semibold">Confirmed · MV-1842</p>
+            <p className="text-[10px] text-[#9aa3b2]">Seats F7 · F8 · Adult</p>
+          </div>
+          <div className="grid h-10 w-10 grid-cols-4 gap-px bg-[#f4f6fb] p-0.5">
+            {Array.from({ length: 16 }, (_, i) => (
+              <span key={i} className={i % 3 === 0 ? 'bg-[#0b0d12]' : 'bg-[#f4f6fb]'} />
+            ))}
+          </div>
+        </div>
+        <div className="mt-2 flex justify-between text-[11px]">
+          <span className="text-[#9aa3b2]">Tonight · 19:40</span>
+          <span className="font-semibold">R180</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function AppsCatalogue() {
   return (
     <section id="apps" className="section-pad relative overflow-hidden">
@@ -182,21 +290,21 @@ export function AppsCatalogue() {
               <Clapperboard className="h-5 w-5" />
             </div>
             <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-              Live app
+              Cinema app
             </p>
             <h3 className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">MoviesApp</h3>
             <p className="mt-2 text-sm font-medium text-muted-foreground">
-              Movie tickets · Live demo
+              Movie tickets · Hosted app
             </p>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
-              Book tickets, manage an account, and get into the show. A cinema booking app we built
-              and host — showtimes, seats, and checkout in one place.
+              Book tickets, pick seats, and get into the show. A cinema app we built and host —
+              now showing, showtimes, snacks, and a ticket with a QR at the door.
             </p>
             <ul className="mt-6 space-y-2.5 text-sm">
               {[
-                'Browse films and book seats',
-                'Accounts, tickets, and the night of the show',
-                'Live at moviesapp.itdinvestech.co.za',
+                'Browse what’s on and quick-book a screen',
+                'Seat maps, tickets, and snacks in one stack',
+                'Private demo — the live site is invite-only',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2">
                   <Ticket className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
@@ -204,30 +312,18 @@ export function AppsCatalogue() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button asChild>
-                <a
-                  href="https://moviesapp.itdinvestech.co.za/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Open live app
-                  <ExternalLink className="h-4 w-4" />
-                </a>
-              </Button>
-              <Button variant="outline" onClick={() => scrollToSection('contact')}>
-                Ask about this app
-              </Button>
-            </div>
+            <Button onClick={() => scrollToSection('contact')} className="mt-8">
+              Ask about this app
+            </Button>
           </div>
 
-          <div className="flex items-center bg-muted/25 p-6 sm:p-8 dark:bg-muted/10">
-            <SitePreview
-              className="w-full"
-              title="MoviesApp"
-              url="https://moviesapp.itdinvestech.co.za/"
-              image="/previews/movies.png"
-            />
+          <div className="flex flex-col items-center justify-center gap-8 bg-muted/25 px-4 py-10 sm:flex-row sm:items-end sm:gap-6 sm:px-8 dark:bg-muted/10">
+            <Phone caption="What’s on now">
+              <MoviesHome />
+            </Phone>
+            <Phone caption="Seats & ticket">
+              <MoviesTicket />
+            </Phone>
           </div>
         </div>
         </div>

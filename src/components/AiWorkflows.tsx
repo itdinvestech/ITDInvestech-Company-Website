@@ -47,9 +47,6 @@ const MEANINGS = [
       'Uses the client’s data, documents, and rules — not a blank prompt',
       'Shows up as actions in the workflow: draft, score, fetch, report',
     ],
-    preview: {
-      title: 'Client system',
-    },
   },
   {
     id: 'job',
@@ -62,9 +59,6 @@ const MEANINGS = [
       'Score and rank against the client’s own criteria',
       'Surface gaps and next actions from the data already in the product',
     ],
-    preview: {
-      title: 'In the workflow',
-    },
   },
   {
     id: 'stack',
@@ -77,9 +71,6 @@ const MEANINGS = [
       'Media and documents handed to rendering or production pipelines',
       'One source of truth instead of re-keying between apps',
     ],
-    preview: {
-      title: 'Connected tools',
-    },
   },
   {
     id: 'control',
@@ -92,28 +83,127 @@ const MEANINGS = [
       'Role-based access, same as the host system',
       'Outputs tied back to source records so they can be explained',
     ],
-    preview: {
-      title: 'Review before publish',
-    },
   },
 ] as const
 
 type MeaningId = (typeof MEANINGS)[number]['id']
 
-function EmptyFrame({ title }: { title: string }) {
-  return (
-    <div className="flex min-h-[17rem] flex-col overflow-hidden rounded-2xl border border-border bg-background">
-      <div className="flex items-center gap-2 border-b border-border px-4 py-3">
-        <span className="h-2 w-2 rounded-full bg-border" />
-        <span className="h-2 w-2 rounded-full bg-border" />
-        <span className="h-2 w-2 rounded-full bg-border" />
-        <span className="ml-2 text-xs text-muted-foreground">{title}</span>
+function IntegrationScene({ id }: { id: MeaningId }) {
+  if (id === 'means') {
+    return (
+      <div className="overflow-hidden rounded-2xl border border-border bg-background">
+        <div className="flex items-center justify-between border-b border-border px-4 py-3">
+          <span className="text-sm font-semibold">Client LMS</span>
+          <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-primary">
+            Inside the product
+          </span>
+        </div>
+        <div className="grid gap-3 p-4 sm:grid-cols-[1fr_0.7fr]">
+          <div className="space-y-2">
+            <div className="h-2 w-1/3 rounded bg-muted" />
+            <div className="rounded-lg border border-border p-3">
+              <p className="text-xs font-semibold">Week 4 · Circulation</p>
+              <p className="mt-1 text-[11px] text-muted-foreground">Lecture, quiz, and recap in this screen.</p>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {['Draft quiz', 'Score scripts', 'Fetch video'].map((action) => (
+                  <span
+                    key={action}
+                    className="rounded-md bg-primary px-2 py-1 text-[10px] font-semibold text-primary-foreground"
+                  >
+                    {action}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="rounded-lg border border-dashed border-border bg-muted/30 p-3">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+              Not this
+            </p>
+            <p className="mt-2 text-xs text-muted-foreground">A chatbot parked on the side of the product.</p>
+            <div className="mt-3 rounded-lg border border-border bg-background px-2 py-2 text-[11px] text-muted-foreground">
+              Ask AI anything…
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="flex flex-1 flex-col justify-end gap-3 p-5">
-        <div className="h-3 w-2/5 rounded-md bg-muted" />
-        <div className="h-24 rounded-xl bg-muted/70" />
-        <div className="h-3 w-4/5 rounded-md bg-muted" />
-        <div className="h-3 w-3/5 rounded-md bg-muted" />
+    )
+  }
+
+  if (id === 'job') {
+    return (
+      <div className="overflow-hidden rounded-2xl border border-border bg-background">
+        <div className="border-b border-border px-4 py-3">
+          <p className="text-sm font-semibold">Same screen, next artefact</p>
+          <p className="text-[11px] text-muted-foreground">Lecturer · SearchBox recruiter · clinician</p>
+        </div>
+        <div className="space-y-2 p-4">
+          {[
+            { role: 'Lecturer', action: 'Generate quiz from this week’s lecture', result: '12 items · mapped to outcomes' },
+            { role: 'Recruiter', action: 'Score CVs against the advert', result: '8 ranked · 3 to review' },
+            { role: 'Clinician', action: 'Draft the visit summary', result: 'Ready to edit and sign' },
+          ].map((row) => (
+            <div key={row.role} className="flex items-start justify-between gap-3 rounded-lg border border-border px-3 py-2.5">
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-primary">{row.role}</p>
+                <p className="mt-0.5 text-xs font-medium">{row.action}</p>
+              </div>
+              <p className="shrink-0 text-[11px] text-muted-foreground">{row.result}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  if (id === 'stack') {
+    return (
+      <div className="overflow-hidden rounded-2xl border border-border bg-background p-4">
+        <p className="text-center text-xs font-semibold">The product stays the source of truth</p>
+        <div className="mt-4 grid grid-cols-3 gap-2 text-center text-[11px]">
+          {['Files', 'Identity', 'Billing'].map((item) => (
+            <div key={item} className="rounded-lg border border-border bg-muted/40 px-2 py-3 text-muted-foreground">
+              {item}
+            </div>
+          ))}
+          <div className="col-span-3 rounded-lg border border-primary/40 bg-primary/10 px-3 py-4">
+            <p className="text-sm font-bold">Hosted platform</p>
+            <p className="mt-1 text-[11px] text-muted-foreground">AI output lands back here — not in a dead export.</p>
+          </div>
+          {['Rendering', 'ERP', 'APIs'].map((item) => (
+            <div key={item} className="rounded-lg border border-border bg-muted/40 px-2 py-3 text-muted-foreground">
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="overflow-hidden rounded-2xl border border-border bg-background">
+      <div className="border-b border-border px-4 py-3">
+        <p className="text-sm font-semibold">Review before it ships</p>
+      </div>
+      <div className="space-y-3 p-4">
+        <div className="rounded-lg border border-border p-3">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+            AI draft
+          </p>
+          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+            Quiz on pulmonary circuit — 12 items, two case vignettes.
+          </p>
+        </div>
+        <div className="flex items-center justify-center text-[11px] text-muted-foreground">
+          Lecturer edits · same roles as the host system
+        </div>
+        <div className="rounded-lg border border-primary/40 bg-primary/10 p-3">
+          <div className="flex items-center justify-between">
+            <p className="text-xs font-semibold">Published to week 4</p>
+            <Check className="h-4 w-4 text-primary" />
+          </div>
+          <p className="mt-1 text-[11px] text-muted-foreground">Tied back to the source lecture. Auditable.</p>
+        </div>
       </div>
     </div>
   )
@@ -218,7 +308,7 @@ export function AiWorkflows() {
               </Button>
             </div>
 
-            <EmptyFrame title={active.preview.title} />
+            <IntegrationScene id={active.id} />
           </div>
         </div>
       </div>

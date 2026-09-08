@@ -6,6 +6,7 @@ import { GraduationCap, Stethoscope, Store, Building2, Check, ArrowRight, Users,
 import { useState } from "react"
 import { scrollToSection } from "@/lib/utils"
 import { SitePreview } from "@/components/SitePreview"
+import { LoopCarousel } from "@/components/LoopCarousel"
 
 export function ManagementSoftware() {
   const [selectedSolution, setSelectedSolution] = useState<number | null>(null)
@@ -290,7 +291,7 @@ export function ManagementSoftware() {
       </div>
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="section-intro mb-12 sm:mb-16">
+        <div className="section-intro mb-10 sm:mb-12">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             What we offer
           </p>
@@ -303,22 +304,22 @@ export function ManagementSoftware() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3 xl:gap-10">
+        <LoopCarousel speed={28} gap={24}>
           {solutions.map((solution, index) => {
             const Icon = solution.icon
             return (
               <Card
                 key={solution.title}
-                className="group relative flex flex-col overflow-hidden border border-border/80 bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+                className="group relative flex h-full flex-col overflow-hidden border border-border/80 bg-card transition-colors duration-300 hover:border-primary/40 hover:shadow-lg"
               >
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                <CardHeader className="relative z-10 flex-1 space-y-4 p-6 sm:p-8">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm transition-transform duration-300 group-hover:scale-105">
-                    <Icon className="h-6 w-6" />
+                <CardHeader className="relative z-10 flex-1 space-y-4 p-5 sm:p-6">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
+                    <Icon className="h-5 w-5" />
                   </div>
                   <div>
-                    <CardTitle className="text-lg transition-colors group-hover:text-primary sm:text-xl">
+                    <CardTitle className="text-base transition-colors group-hover:text-primary sm:text-lg">
                       {solution.title}
                     </CardTitle>
                     <Badge variant="secondary" className="mt-2 text-xs font-normal">
@@ -331,12 +332,12 @@ export function ManagementSoftware() {
                     image={'image' in solution ? solution.image : undefined}
                     live={'live' in solution ? Boolean(solution.live) : false}
                   />
-                  <CardDescription className="line-clamp-4 text-sm leading-relaxed sm:line-clamp-5">
+                  <CardDescription className="line-clamp-3 text-sm leading-relaxed">
                     {solution.description}
                   </CardDescription>
                 </CardHeader>
 
-                <CardContent className="relative z-10 pt-0 pb-6 sm:pb-8">
+                <CardContent className="relative z-10 pt-0 pb-5 sm:pb-6">
                   <Button
                     onClick={() => setSelectedSolution(index)}
                     className="w-full group/btn"
@@ -349,7 +350,7 @@ export function ManagementSoftware() {
               </Card>
             )
           })}
-        </div>
+        </LoopCarousel>
 
         <Dialog open={selectedSolution !== null} onOpenChange={() => setSelectedSolution(null)}>
           <DialogContent>

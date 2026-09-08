@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
+import { IndustryMarquee } from '@/components/IndustryMarquee'
 import { scrollToSection } from '@/lib/utils'
 
 const STATS = [
@@ -11,7 +12,7 @@ const STATS = [
 
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden pb-2 pt-16 sm:pb-4 sm:pt-24 lg:pb-4 lg:pt-28">
+    <section id="home" className="relative overflow-hidden pt-16 sm:pt-24 lg:pt-28">
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-x-0 top-[38%] h-40 bg-gradient-to-r from-transparent via-primary/25 to-transparent blur-3xl dark:via-primary/35" />
         <div className="absolute inset-0 grid-pattern opacity-20 dark:opacity-10" />
@@ -66,6 +67,8 @@ export function Hero() {
           ))}
         </div>
       </div>
+
+      <IndustryMarquee />
     </section>
   )
 }
