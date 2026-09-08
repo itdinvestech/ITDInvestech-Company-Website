@@ -1,18 +1,18 @@
 const POINTS = [
   {
-    title: 'We build the software',
+    title: 'We build and host custom software',
     description:
-      'Custom platforms for education, healthcare, retail, property, hiring, and whatever the client already runs. That is the company. AI is how those systems get sharper.',
+      'Platforms for education, healthcare, retail, property, hiring, and whatever the client already runs. Design, implementation, cloud, and support — that is the company.',
   },
   {
-    title: 'We integrate into the work',
+    title: 'We deliver working systems',
     description:
-      'Models sit inside the client’s product and stack — drafting, scoring, fetching, reporting — not in a separate chat that staff have to remember to open.',
+      'Not a slide deck. Live software, trained teams, and results you can measure. Since 2019, from South Africa to the Netherlands.',
   },
   {
-    title: 'We ship it as production software',
+    title: 'AI is a main ability — used with judgment',
     description:
-      'Since 2019 we have delivered platforms from South Africa to the Netherlands — APIs, cloud delivery, roles, and the polish operators expect.',
+      'We find the jobs that eat time or hide insight, then wire AI into those steps. It sits inside the product. It is not the whole story.',
   },
 ]
 
@@ -23,26 +23,26 @@ export function About() {
 
       <div className="container mx-auto px-4">
         <div className="section-intro">
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             About ITDInvestech
           </p>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
             Three things you should know
           </h2>
-          <p className="mt-8 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            A software company first. AI integration is the capability we put into client projects
-            and the products we ship.
+          <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            A software company that ships and hosts platforms. AI integration is one of the
+            strongest things we do with those platforms.
           </p>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-5xl gap-12 sm:mt-24 md:grid-cols-3 md:gap-16">
+        <div className="mx-auto mt-12 grid max-w-5xl gap-10 sm:mt-16 md:grid-cols-3 md:gap-12">
           {POINTS.map((item, index) => (
             <div key={item.title}>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
                 0{index + 1}
               </p>
-              <h3 className="mt-5 text-xl font-bold">{item.title}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
+              <h3 className="mt-4 text-xl font-bold">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
                 {item.description}
               </p>
             </div>

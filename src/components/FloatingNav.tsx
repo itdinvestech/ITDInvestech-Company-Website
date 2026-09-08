@@ -5,7 +5,7 @@ import { scrollToSection } from "@/lib/utils"
 
 export function FloatingNav() {
   const [currentSection, setCurrentSection] = useState(0)
-  const sections = ['home', 'ai', 'solutions', 'services', 'about', 'contact']
+  const sections = ['home', 'how', 'services', 'solutions', 'ai', 'about', 'contact']
 
   useEffect(() => {
     const handleScroll = () => {

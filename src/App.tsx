@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header"
 import { Hero } from "@/components/Hero"
 import { IndustryMarquee } from "@/components/IndustryMarquee"
+import { ProcessDiagrams } from "@/components/ProcessDiagrams"
 import { AiWorkflows } from "@/components/AiWorkflows"
 import { About } from "@/components/About"
 import { Services } from "@/components/Services"
@@ -19,9 +20,10 @@ function App() {
       <main className="relative overflow-x-hidden">
         <Hero />
         <IndustryMarquee />
-        <AiWorkflows />
-        <ManagementSoftware />
+        <ProcessDiagrams />
         <Services />
+        <ManagementSoftware />
+        <AiWorkflows />
         <About />
         <TransformShowcase />
         <Contact />

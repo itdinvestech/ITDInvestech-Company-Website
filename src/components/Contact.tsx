@@ -76,12 +76,12 @@ export function Contact() {
       </div>
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="section-intro mb-16 sm:mb-24">
+        <div className="section-intro mb-12 sm:mb-16">
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
             Talk to us
           </h2>
-          <p className="mt-8 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Have a system that needs AI in the workflow — or a new platform to build? Tell us what
+          <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Need a platform built and hosted — or AI inside a system you already run? Tell us what
             you run today.
           </p>
         </div>

@@ -13,15 +13,15 @@ export function TransformShowcase() {
       </div>
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="grid items-start gap-16 xl:grid-cols-2 xl:gap-20">
-          <div className="relative space-y-10">
+        <div className="grid items-start gap-12 xl:grid-cols-2 xl:gap-16">
+          <div className="relative space-y-8">
             <div className="relative z-10 text-center xl:text-left">
               <h3 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-                Ready to integrate AI into your software?
+                Ready to build, host, and ship?
               </h3>
               <p className="mt-3 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                Bring an existing system, or start a new platform. We build the software and wire
-                intelligence into the work.
+                Bring a new platform or an existing system. We deliver the software — and integrate
+                AI where it earns its place.
               </p>
             </div>
 
@@ -44,7 +44,7 @@ export function TransformShowcase() {
                 </Button>
               </div>
               <p className="mt-4 text-xs text-muted-foreground sm:text-sm">
-                Free consultation · AI integration · Ongoing support
+                Free consultation · Custom software · Hosting · AI when it counts
               </p>
             </div>
           </div>

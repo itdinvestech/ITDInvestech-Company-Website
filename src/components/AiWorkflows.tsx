@@ -133,21 +133,21 @@ export function AiWorkflows() {
 
       <div className="container mx-auto px-4">
         <div className="section-intro">
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-            Finest capability
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+            A core ability
           </p>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
-            AI integration into client software.
-            <span className="mt-3 block text-muted-foreground">That is the work.</span>
+            AI integration, on top of the software.
+            <span className="mt-2 block text-muted-foreground">Not instead of it.</span>
           </h2>
-          <p className="mt-8 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            We are a software company. We build and extend platforms for clients, then put
-            intelligence inside those systems so it drafts, scores, analyses, and talks to the rest
-            of the stack — instead of sitting in a chat window nobody uses.
+          <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            After we build and host the platform, we can put intelligence inside it — drafting,
+            scoring, analysing, fetching — in the screens people already use. It is one of our
+            strongest abilities. It is not the only thing we do.
           </p>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-5xl gap-6 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <div className="mx-auto mt-12 grid max-w-5xl gap-5 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {BENEFITS.map((item) => {
             const Icon = item.icon
             return (
@@ -162,7 +162,7 @@ export function AiWorkflows() {
           })}
         </div>
 
-        <div className="mt-16 overflow-hidden rounded-2xl border border-border bg-card shadow-sm sm:mt-24 lg:grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.35fr)]">
+        <div className="mt-12 overflow-hidden rounded-2xl border border-border bg-card shadow-sm sm:mt-16 lg:grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.35fr)]">
           <div className="border-b border-border lg:border-b-0 lg:border-r">
             <div className="hidden border-b border-border px-6 py-4 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground lg:block">
               What integration covers

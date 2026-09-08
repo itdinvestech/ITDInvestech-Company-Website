@@ -2,34 +2,34 @@ import { BrainCircuit, Cloud, Code, Smartphone, Zap } from 'lucide-react'
 
 const SERVICES = [
   {
+    icon: Code,
+    title: 'Custom software',
+    description:
+      'Platforms built around the client’s work — LMS, clinic, inventory, property, hiring, and systems that do not fit a box.',
+  },
+  {
+    icon: Cloud,
+    title: 'Hosting & delivery',
+    description:
+      'We put it in the cloud, keep it up, and hand over a live system — not a repo and a wish.',
+  },
+  {
     icon: BrainCircuit,
     title: 'AI integration',
     description:
-      'Wire generation, scoring, retrieval, and reporting into the software a client already uses — or into the platform we build for them.',
-  },
-  {
-    icon: Code,
-    title: 'Custom platforms',
-    description:
-      'LMS, clinic, inventory, property, recruitment, and other systems on modern stacks with APIs teams can extend.',
+      'A main ability: wire generation, scoring, retrieval, and reporting into the software we built — or the one you already run.',
   },
   {
     icon: Smartphone,
     title: 'Mobile experiences',
     description:
-      'Operator and customer apps that keep the same workflows — and the same integrations — in someone’s pocket.',
-  },
-  {
-    icon: Cloud,
-    title: 'Cloud delivery',
-    description:
-      'AWS and Azure infrastructure, GraphQL APIs, and migrations so platforms stay fast, private, and cheap enough to run.',
+      'Operator and customer apps that keep the same workflows in someone’s pocket.',
   },
   {
     icon: Zap,
     title: 'Digital transformation',
     description:
-      'Replace paper, spreadsheets, and bolted-on tools with one system. Then put AI where the work already happens.',
+      'Replace paper, spreadsheets, and bolted-on tools with one system. Then add AI only where it pays off.',
   },
 ]
 
@@ -41,19 +41,20 @@ export function Services() {
 
       <div className="container mx-auto px-4">
         <div className="section-intro">
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             Services
           </p>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
-            Build the system. Then make it think.
+            Build. Host. Deliver.
+            <span className="mt-2 block text-muted-foreground">Integrate AI when it counts.</span>
           </h2>
-          <p className="mt-8 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Engineering, cloud, and product — with AI integration as the capability we add to
-            client projects, not a product we sell on its own.
+          <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            The company is custom software in production. AI is a core ability we add to those
+            projects — not a product we sell on its own.
           </p>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-5xl gap-6 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <div className="mx-auto mt-12 grid max-w-5xl gap-5 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {SERVICES.map((service) => {
             const Icon = service.icon
             return (

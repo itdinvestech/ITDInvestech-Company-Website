@@ -283,20 +283,16 @@ export function ManagementSoftware() {
       </div>
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="section-intro mb-16 sm:mb-24">
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+        <div className="section-intro mb-12 sm:mb-16">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             What we offer
           </p>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
-            Platforms we ship —{' '}
-            <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
-              with AI in them
-            </span>
+            Platforms we ship and host
           </h2>
-          <p className="mt-8 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            These are the products. Each one is a place we have already put AI integration to work.
-            The LMS is the clearest example: quizzes, lectures, student reports, video, and
-            rendering tools.
+          <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            These are products in production. Some already have AI in the workflow — the LMS is the
+            clearest example. Others start as custom software we build, host, and deliver.
           </p>
         </div>
 

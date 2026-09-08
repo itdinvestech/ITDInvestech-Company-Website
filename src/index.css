@@ -68,7 +68,7 @@
 
 @layer components {
   .section-pad {
-    @apply py-24 sm:py-32 lg:py-40;
+    @apply py-16 sm:py-24 lg:py-28;
   }
 
   .section-intro {

@@ -2,13 +2,14 @@ import { Button } from '@/components/ui/button'
 import BrandLogo from '@/components/BrandLogo'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { cn, scrollToSection as navigateToSection } from '@/lib/utils'
-import { Menu, Sparkles, X } from 'lucide-react'
+import { Code2, Menu, X } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
 
 const NAV_ITEMS = [
-  { id: 'ai', label: 'AI' },
-  { id: 'solutions', label: 'Offerings' },
+  { id: 'how', label: 'How we work' },
   { id: 'services', label: 'Services' },
+  { id: 'solutions', label: 'Offerings' },
+  { id: 'ai', label: 'AI' },
   { id: 'about', label: 'About' },
   { id: 'contact', label: 'Contact' },
 ] as const
@@ -75,8 +76,8 @@ export function Header() {
               <BrandLogo iconSize={36} compact />
             </button>
             <span className="hidden items-center gap-1.5 rounded-full border border-border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground md:inline-flex">
-              <Sparkles className="h-3 w-3 text-primary" />
-              AI integration
+              <Code2 className="h-3 w-3 text-primary" />
+              Custom software
             </span>
           </div>
 
