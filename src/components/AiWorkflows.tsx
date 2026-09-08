@@ -3,6 +3,7 @@ import {
   Check,
   Link2,
   ShieldCheck,
+  Sparkles,
   Timer,
   UserCheck,
   Workflow,
