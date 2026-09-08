@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { GraduationCap, Stethoscope, Store, Building2, Check, ArrowRight, Users, BookOpen, Calendar, MessageSquare, FileText, DollarSign, ClipboardList, BarChart3, Package, ShoppingCart, TrendingUp, Home, Key, Wrench, Receipt, UserSearch, Briefcase, Target, ClipboardCheck, Sparkles, FileSearch, ExternalLink } from "lucide-react"
+import { GraduationCap, Stethoscope, Store, Building2, Check, ArrowRight, Users, BookOpen, Calendar, MessageSquare, FileText, DollarSign, ClipboardList, BarChart3, Package, ShoppingCart, TrendingUp, Home, Key, Wrench, Receipt, UserSearch, Briefcase, Target, ClipboardCheck, Sparkles, FileSearch, ExternalLink, Factory, Warehouse } from "lucide-react"
 import { useState } from "react"
 import { scrollToSection } from "@/lib/utils"
 import { SitePreview } from "@/components/SitePreview"
@@ -134,11 +134,11 @@ export function ManagementSoftware() {
       image: "/previews/medical.png",
     },
     {
-      icon: Store,
-      title: "Store & Inventory Management System",
-      subtitle: "Complete Retail Operations Platform",
-      description: "Take control of your retail operations with our powerful inventory and store management system. From small boutiques to multi-location chains, our solution scales with your business needs.",
-      longDescription: "Our Store & Inventory Management System provides end-to-end control over your retail operations. Whether you run a single store or manage multiple locations, our system helps you track inventory, process sales, manage suppliers, and gain valuable insights into your business performance. Built to handle high-volume transactions while maintaining accuracy.",
+      icon: Warehouse,
+      title: "Inventory systems",
+      subtitle: "Stock, warehouses, and the shop floor",
+      description: "Inventory we build and host: live stock across locations, reorders, barcodes, suppliers, and a POS that does not drift from the warehouse count.",
+      longDescription: "We build and host inventory as its own product: live counts across warehouses and shops, reorders, barcodes, suppliers, and a POS that stays in sync. One system for stock — not a spreadsheet per branch.",
       benefits: [
         "Never run out of stock with automated reorder alerts",
         "Reduce shrinkage and theft with accurate inventory tracking",
@@ -180,6 +180,54 @@ export function ManagementSoftware() {
       ],
       color: "from-purple-500/20 to-pink-500/20",
       accentColor: "purple"
+    },
+    {
+      icon: Factory,
+      title: "ERP systems",
+      subtitle: "Finance, procurement, and operations in one product",
+      description: "A custom ERP we build and host around how the company already runs — ledgers, purchasing, stock, people, and reports in one system, not five bolted-on tools.",
+      longDescription: "We do not drop a generic ERP on the client and walk away. We map the real jobs — quoting, buying, receiving, invoicing, payroll-adjacent records, and the reports leadership actually opens — then build and host that as one platform. Inventory, finance, and operations share a source of truth. AI can sit in the slow steps later: matching invoices, drafting POs, flagging exceptions.",
+      benefits: [
+        "One system for finance, purchasing, stock, and operations",
+        "Built around the client’s processes, not a template they have to learn around",
+        "Hosted by us — backups, access, uptime, and support after go-live",
+        "Clean edges so POS, banks, and warehouses plug in instead of copy-paste",
+        "Room to add AI on matching, exceptions, and reports when it earns its place"
+      ],
+      features: [
+        {
+          icon: DollarSign,
+          name: "Finance & ledgers",
+          details: "Invoicing, payments, ageing, and the books operators actually close the month on — with roles so only the right people post."
+        },
+        {
+          icon: ClipboardList,
+          name: "Procurement",
+          details: "Requisitions, purchase orders, goods received, and supplier history in one trail, from request to invoice match."
+        },
+        {
+          icon: Package,
+          name: "Stock in the same product",
+          details: "Warehouse and location counts that finance and purchasing can see — no separate inventory spreadsheet drifting off the ERP."
+        },
+        {
+          icon: Users,
+          name: "People & access",
+          details: "Roles for finance, stores, buyers, and managers. The same login model as the rest of the software we host."
+        },
+        {
+          icon: BarChart3,
+          name: "Operations reporting",
+          details: "Dashboards for cash, stock cover, open POs, and exceptions — built from live records, not a weekly export."
+        },
+        {
+          icon: Factory,
+          name: "Hosted and integrated",
+          details: "We keep it in production and wire banks, POS, and warehouse tools at the edges so the ERP stays the source of truth."
+        }
+      ],
+      color: "from-slate-500/20 to-blue-500/20",
+      accentColor: "slate"
     },
     {
       icon: Building2,
@@ -299,8 +347,8 @@ export function ManagementSoftware() {
             Platforms we ship and host
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            These are products in production. The LMS, the clinic site, and SearchBox are live —
-            open a preview to visit them.
+            These are products we build and host. LMS, the clinic site, and SearchBox are live —
+            open a preview. Inventory and ERP sit in the same catalogue.
           </p>
         </div>
 

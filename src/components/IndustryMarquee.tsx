@@ -2,12 +2,14 @@ import {
   Briefcase,
   Building2,
   Clapperboard,
+  Factory,
   Film,
   GraduationCap,
   Layers,
   Stethoscope,
   Store,
   UtensilsCrossed,
+  Warehouse,
 } from 'lucide-react'
 import { useCallback, useEffect, useLayoutEffect, useRef } from 'react'
 
@@ -15,6 +17,8 @@ const ITEMS = [
   { icon: GraduationCap, label: 'Education' },
   { icon: Stethoscope, label: 'Healthcare' },
   { icon: Store, label: 'Retail' },
+  { icon: Warehouse, label: 'Inventory' },
+  { icon: Factory, label: 'ERP' },
   { icon: Building2, label: 'Property' },
   { icon: Briefcase, label: 'Hiring' },
   { icon: UtensilsCrossed, label: 'Food delivery' },
