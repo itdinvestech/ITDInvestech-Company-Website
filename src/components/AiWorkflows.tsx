@@ -4,36 +4,10 @@ import {
   Link2,
   ShieldCheck,
   Sparkles,
-  Timer,
-  UserCheck,
-  Workflow,
   Wrench,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn, scrollToSection } from '@/lib/utils'
-
-const BENEFITS = [
-  {
-    icon: Timer,
-    title: 'Hours back on the job',
-    body: 'Drafts, scores, lookups, and reports happen inside the task — not in a separate tool people forget to open.',
-  },
-  {
-    icon: Workflow,
-    title: 'No new place to work',
-    body: 'Staff keep the screens and processes they already know. AI shows up as a step in that flow.',
-  },
-  {
-    icon: Link2,
-    title: 'Talks to what you already run',
-    body: 'APIs, files, rendering software, ERPs, and the rest of the stack stay in the loop instead of becoming a copy-paste tax.',
-  },
-  {
-    icon: UserCheck,
-    title: 'People stay in charge',
-    body: 'AI proposes. Operators review, edit, and publish. Nothing ships without the team that owns the work.',
-  },
-]
 
 const MEANINGS = [
   {
@@ -230,29 +204,9 @@ export function AiWorkflows() {
             AI integration, on top of the software.
             <span className="mt-2 block text-muted-foreground">Not instead of it.</span>
           </h2>
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            After we build and host the platform, we can put intelligence inside it — drafting,
-            scoring, analysing, fetching — in the screens people already use. It is one of our
-            strongest abilities. It is not the only thing we do.
-          </p>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-5xl gap-5 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-          {BENEFITS.map((item) => {
-            const Icon = item.icon
-            return (
-              <div key={item.title} className="rounded-2xl border border-border bg-card p-6 sm:p-7">
-                <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <Icon className="h-4 w-4" />
-                </div>
-                <h3 className="text-base font-bold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
-              </div>
-            )
-          })}
-        </div>
-
-        <div className="mt-12 overflow-hidden rounded-2xl border border-border bg-card shadow-sm sm:mt-16 lg:grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.35fr)]">
+        <div className="mx-auto mt-10 overflow-hidden rounded-2xl border border-border bg-card shadow-sm sm:mt-12 lg:grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.35fr)]">
           <div className="border-b border-border lg:border-b-0 lg:border-r">
             <div className="hidden border-b border-border px-6 py-4 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground lg:block">
               What integration covers
