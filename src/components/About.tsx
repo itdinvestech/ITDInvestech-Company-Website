@@ -18,25 +18,17 @@ const POINTS = [
 
 export function About() {
   return (
-    <section id="about" className="section-pad relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-
+    <section id="about" className="section-pad relative">
       <div className="container mx-auto px-4">
         <div className="section-intro">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-            About ITDInvestech
-          </p>
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
-            Who is on the other side of the brief.
-          </h2>
+          <p className="eyebrow mb-4">About ITDInvestech</p>
+          <h2 className="display text-3xl sm:text-5xl">Who is on the other side of the brief.</h2>
         </div>
 
         <div className="mx-auto mt-12 grid max-w-5xl gap-10 sm:mt-16 md:grid-cols-3 md:gap-12">
           {POINTS.map((item, index) => (
             <div key={item.title}>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                0{index + 1}
-              </p>
+              <p className="eyebrow text-primary">0{index + 1}</p>
               <h3 className="mt-4 text-xl font-bold">{item.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
                 {item.description}

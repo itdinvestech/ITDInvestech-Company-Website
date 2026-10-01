@@ -69,17 +69,11 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="section-pad relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent" />
-        <div className="absolute inset-0 dot-pattern opacity-25 dark:opacity-10" />
-      </div>
-
+    <section id="contact" className="section-pad relative">
       <div className="container relative z-10 mx-auto px-4">
         <div className="section-intro mb-12 sm:mb-16">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
-            Talk to us
-          </h2>
+          <p className="eyebrow mb-4">Contact</p>
+          <h2 className="display text-3xl sm:text-5xl">Talk to us</h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
             Need a platform built and hosted — or AI inside a system you already run? Tell us what
             you run today.

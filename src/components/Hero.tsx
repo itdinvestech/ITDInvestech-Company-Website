@@ -12,60 +12,52 @@ const STATS = [
 
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden pt-16 sm:pt-24 lg:pt-28">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-x-0 top-[38%] h-40 bg-gradient-to-r from-transparent via-primary/25 to-transparent blur-3xl dark:via-primary/35" />
-        <div className="absolute inset-0 grid-pattern opacity-20 dark:opacity-10" />
-      </div>
+    <section id="home" className="relative overflow-hidden pt-14 sm:pt-20 lg:pt-24">
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[28rem] bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.14),transparent_62%)]" />
 
       <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-[52rem] text-center">
-          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground backdrop-blur-sm sm:text-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            Custom software · Hosting · Delivery
-          </div>
+        <div className="mx-auto max-w-[46rem] text-center">
+          <p className="eyebrow mb-6">Custom software, hosting, and delivery</p>
 
-          <h1 className="text-[2.35rem] font-extrabold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
+          <h1 className="display text-[2.5rem] sm:text-6xl lg:text-[4.5rem]">
             Custom software,
-            <span className="mt-2 block bg-gradient-to-r from-primary via-blue-600 to-blue-500 bg-clip-text text-transparent dark:via-blue-400 dark:to-blue-300">
-              hosted and delivered.
-            </span>
+            <span className="mt-1 block text-primary">hosted and delivered.</span>
           </h1>
 
-          <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-xl">
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-7 sm:text-lg sm:leading-relaxed">
             ITDInvestech designs, builds, and hosts platforms for clients — then keeps them in
             production. One of our main abilities is integrating AI into those systems where it
             actually changes the work.
           </p>
 
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-9 sm:flex-row">
             <Button
               size="lg"
               onClick={() => scrollToSection('contact')}
-              className="h-12 w-full rounded-md px-7 text-sm font-semibold sm:w-auto"
+              className="h-12 w-full px-7 text-[15px] sm:w-auto"
             >
               Get started
-              <ArrowRight className="ml-1 h-4 w-4" />
+              <ArrowRight className="ml-0.5 h-4 w-4" />
             </Button>
             <Button
               size="lg"
-              variant="outline"
+              variant="secondary"
               onClick={() => scrollToSection('how')}
-              className="h-12 w-full rounded-md px-7 text-sm font-semibold sm:w-auto"
+              className="h-12 w-full px-7 text-[15px] sm:w-auto"
             >
               See how we work
             </Button>
           </div>
         </div>
 
-        <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:mt-10 sm:grid-cols-4">
+        <dl className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-x-6 gap-y-8 sm:mt-16 sm:grid-cols-4">
           {STATS.map((stat) => (
-            <div key={stat.label} className="bg-card px-4 py-5 text-center sm:py-6">
-              <div className="text-lg font-bold tracking-tight sm:text-xl">{stat.value}</div>
-              <div className="mt-1 text-xs text-muted-foreground sm:text-sm">{stat.label}</div>
+            <div key={stat.label} className="text-center">
+              <dt className="text-[17px] font-semibold tracking-[-0.02em]">{stat.value}</dt>
+              <dd className="mt-1 text-[13px] leading-snug text-muted-foreground">{stat.label}</dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
 
       <IndustryMarquee />

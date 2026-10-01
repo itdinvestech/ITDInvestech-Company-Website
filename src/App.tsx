@@ -7,13 +7,12 @@ import { AiWorkflows } from "@/components/AiWorkflows"
 import { About } from "@/components/About"
 import { Contact } from "@/components/Contact"
 import { Footer } from "@/components/Footer"
-import { FloatingNav } from "@/components/FloatingNav"
 
 function App() {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 -z-50 bg-background" />
-      
+
       <Header />
       <main className="relative overflow-x-hidden">
         <Hero />
@@ -25,9 +24,6 @@ function App() {
         <Contact />
       </main>
       <Footer />
-      <div className="hidden lg:block">
-        <FloatingNav />
-      </div>
     </div>
   )
 }

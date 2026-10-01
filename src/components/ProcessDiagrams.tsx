@@ -139,15 +139,11 @@ function StepVisual({ index }: { index: number }) {
 
 export function ProcessDiagrams() {
   return (
-    <section id="how" className="section-pad relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-
+    <section id="how" className="section-pad relative">
       <div className="container mx-auto px-4">
         <div className="section-intro">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-            How we work
-          </p>
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
+          <p className="eyebrow mb-4">How we work</p>
+          <h2 className="display text-3xl sm:text-5xl">
             Build the system.
             <span className="mt-2 block text-muted-foreground">Add AI where it earns its place.</span>
           </h2>
@@ -156,8 +152,6 @@ export function ProcessDiagrams() {
         <div className="mx-auto mt-10 max-w-5xl sm:mt-12">
           <div className="overflow-hidden rounded-2xl border border-border bg-card">
             <div className="relative px-5 py-8 sm:px-10 sm:py-12">
-              <div className="pointer-events-none absolute inset-0 grid-pattern opacity-15 dark:opacity-10" />
-
               <ol className="relative space-y-0">
                 <div
                   className="absolute bottom-8 left-[1.15rem] top-8 w-px bg-border sm:left-[1.4rem]"
@@ -205,12 +199,8 @@ export function ProcessDiagrams() {
 
           <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-card sm:mt-8">
             <div className="relative px-5 py-8 sm:px-10 sm:py-12">
-              <div className="pointer-events-none absolute inset-0 grid-pattern opacity-15 dark:opacity-10" />
-
               <div className="relative">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
-                  Once it is live
-                </p>
+                <p className="eyebrow">Once it is live</p>
                 <h3 className="mt-2 text-xl font-bold tracking-tight sm:text-2xl">
                   We map the product. Then we wire AI only where it pays off.
                 </h3>

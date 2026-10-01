@@ -220,16 +220,13 @@ function MoviesTicket() {
 
 export function AppsCatalogue() {
   return (
-    <section id="apps" className="section-pad relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      <div className="absolute inset-0 -z-10 bg-muted/30 dark:bg-muted/10" />
+    <section id="apps" className="section-pad relative">
+      <div className="absolute inset-0 -z-10 bg-muted/40 dark:bg-muted/20" />
 
       <div className="container mx-auto px-4">
         <div className="section-intro">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-            Apps we ship
-          </p>
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
+          <p className="eyebrow mb-4">Apps we ship</p>
+          <h2 className="display text-3xl sm:text-5xl">
             A catalogue of the apps.
             <span className="mt-2 block text-muted-foreground">Not only the websites.</span>
           </h2>
@@ -246,10 +243,8 @@ export function AppsCatalogue() {
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground">
               <UtensilsCrossed className="h-5 w-5" />
             </div>
-            <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-              Featured app
-            </p>
-            <h3 className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">Mzanzi Bites</h3>
+            <p className="eyebrow mt-5 text-primary">Featured app</p>
+            <h3 className="mt-2 text-2xl sm:text-3xl">Mzanzi Bites</h3>
             <p className="mt-2 text-sm font-medium text-muted-foreground">
               Food delivery · South Africa
             </p>
@@ -289,10 +284,8 @@ export function AppsCatalogue() {
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground">
               <Clapperboard className="h-5 w-5" />
             </div>
-            <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-              Cinema app
-            </p>
-            <h3 className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">MoviesApp</h3>
+            <p className="eyebrow mt-5 text-primary">Cinema app</p>
+            <h3 className="mt-2 text-2xl sm:text-3xl">MoviesApp</h3>
             <p className="mt-2 text-sm font-medium text-muted-foreground">
               Movie tickets · Hosted app
             </p>

@@ -12,6 +12,7 @@ import {
   Warehouse,
 } from 'lucide-react'
 import { useCallback, useEffect, useLayoutEffect, useRef } from 'react'
+import { pushSample, readVelocity, type Sample } from '@/lib/motion'
 
 const ITEMS = [
   { icon: GraduationCap, label: 'Education' },
@@ -70,6 +71,9 @@ export function IndustryMarquee() {
   const dragStartOffset = useRef(0)
   const resumeTimer = useRef(0)
   const reduceMotionRef = useRef(false)
+  const samplesRef = useRef<Sample[]>([])
+  const armedRef = useRef(false)
+  const glideFrame = useRef(0)
 
   const wrapOffset = useCallback((value: number) => {
     const width = widthRef.current
@@ -111,6 +115,37 @@ export function IndustryMarquee() {
     }, RESUME_MS)
   }, [apply])
 
+  const stopGlide = useCallback(() => {
+    cancelAnimationFrame(glideFrame.current)
+  }, [])
+
+  const startGlide = useCallback(
+    (velocity: number) => {
+      stopGlide()
+      if (reduceMotionRef.current || Math.abs(velocity) < 40) {
+        if (!hoveringRef.current) scheduleResume()
+        return
+      }
+      pausedRef.current = true
+      let speedNow = velocity
+      let last = performance.now()
+      const step = (now: number) => {
+        const dt = Math.min(now - last, 34)
+        last = now
+        speedNow *= Math.pow(0.998, dt)
+        offsetRef.current += (speedNow * dt) / 1000
+        apply()
+        if (Math.abs(speedNow) < 18) {
+          if (!hoveringRef.current && !draggingRef.current) scheduleResume()
+          return
+        }
+        glideFrame.current = requestAnimationFrame(step)
+      }
+      glideFrame.current = requestAnimationFrame(step)
+    },
+    [apply, scheduleResume, stopGlide],
+  )
+
   useLayoutEffect(() => {
     measure()
     const node = setRef.current
@@ -139,6 +174,7 @@ export function IndustryMarquee() {
     frame = requestAnimationFrame(tick)
     return () => {
       cancelAnimationFrame(frame)
+      cancelAnimationFrame(glideFrame.current)
       window.clearTimeout(resumeTimer.current)
     }
   }, [apply])
@@ -161,18 +197,17 @@ export function IndustryMarquee() {
   }, [apply, pause, scheduleResume])
 
   return (
-    <div aria-label="Industries we build for" className="relative mt-10 overflow-hidden border-t border-border/70 pb-7 pt-8 sm:mt-12 sm:pb-9 sm:pt-10">
+    <div aria-label="Industries we build for" className="relative mt-14 overflow-hidden pb-7 pt-2 sm:mt-16 sm:pb-9">
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent sm:w-24" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent sm:w-24" />
-      <p className="mb-3 text-center text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-        Software we build and host across
-      </p>
+      <p className="eyebrow mb-4 text-center">Software we build and host across</p>
       <div
         ref={viewportRef}
         data-marquee="industries"
         className="cursor-grab select-none overflow-hidden touch-pan-x active:cursor-grabbing"
         onPointerEnter={() => {
           hoveringRef.current = true
+          pause()
         }}
         onPointerLeave={() => {
           hoveringRef.current = false
@@ -180,22 +215,43 @@ export function IndustryMarquee() {
           scheduleResume()
         }}
         onPointerDown={(event) => {
-          draggingRef.current = true
+          stopGlide()
+          draggingRef.current = false
+          armedRef.current = false
           dragStartX.current = event.clientX
           dragStartOffset.current = offsetRef.current
+          samplesRef.current = [{ x: event.clientX, t: performance.now() }]
           pause()
           event.currentTarget.setPointerCapture(event.pointerId)
         }}
         onPointerMove={(event) => {
-          if (draggingRef.current) {
-            offsetRef.current = dragStartOffset.current - (event.clientX - dragStartX.current)
-            apply()
+          if (!event.currentTarget.hasPointerCapture(event.pointerId)) {
+            if (hoveringRef.current) pause()
             return
           }
-          if (hoveringRef.current) pause()
+          pushSample(samplesRef.current, event.clientX, performance.now())
+          const dx = event.clientX - dragStartX.current
+          if (!armedRef.current) {
+            if (Math.abs(dx) < 10) return
+            armedRef.current = true
+            draggingRef.current = true
+          }
+          offsetRef.current = dragStartOffset.current - dx
+          apply()
         }}
         onPointerUp={() => {
+          const wasDrag = armedRef.current
           draggingRef.current = false
+          armedRef.current = false
+          if (wasDrag) {
+            startGlide(-readVelocity(samplesRef.current))
+            return
+          }
+          if (!hoveringRef.current) scheduleResume()
+        }}
+        onPointerCancel={() => {
+          draggingRef.current = false
+          armedRef.current = false
           if (!hoveringRef.current) scheduleResume()
         }}
       >

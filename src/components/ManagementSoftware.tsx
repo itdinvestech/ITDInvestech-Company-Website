@@ -330,22 +330,11 @@ export function ManagementSoftware() {
   ]
 
   return (
-    <section id="solutions" className="section-pad relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-primary/[0.04]" />
-        <div className="absolute inset-0 grid-pattern opacity-20 dark:opacity-10" />
-        <div className="absolute -top-24 left-1/4 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
-      </div>
-
+    <section id="solutions" className="section-pad relative">
       <div className="container relative z-10 mx-auto px-4">
         <div className="section-intro mb-10 sm:mb-12">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-            What we offer
-          </p>
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
-            Platforms we ship and host
-          </h2>
+          <p className="eyebrow mb-4">What we offer</p>
+          <h2 className="display text-3xl sm:text-5xl">Platforms we ship and host</h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
             These are products we build and host. LMS, the clinic site, and SearchBox are live —
             open a preview. Inventory and ERP sit in the same catalogue.
@@ -391,7 +380,7 @@ export function ManagementSoftware() {
                     className="w-full group/btn"
                     size="sm"
                   >
-                    More Info
+                    See what’s included
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </Button>
                 </CardContent>

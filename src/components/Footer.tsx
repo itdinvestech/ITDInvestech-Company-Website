@@ -36,12 +36,8 @@ export function Footer() {
       <div className="container relative z-10 mx-auto px-4 py-16 sm:py-20">
         <div className="flex flex-col gap-8 rounded-2xl border border-border bg-card px-6 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <div className="max-w-xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-              Next step
-            </p>
-            <h2 className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">
-              Bring the system you run today.
-            </h2>
+            <p className="eyebrow">Next step</p>
+            <h2 className="mt-2 text-2xl sm:text-3xl">Bring the system you run today.</h2>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
               New platform or an existing one. We build it, host it, and add AI where it earns its
               place.

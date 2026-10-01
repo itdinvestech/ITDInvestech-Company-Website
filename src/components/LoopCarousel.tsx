@@ -6,6 +6,7 @@ import {
   useRef,
   type ReactNode,
 } from 'react'
+import { pushSample, readVelocity, type Sample } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
 const COPIES = 3
@@ -45,6 +46,9 @@ export function LoopCarousel({
   const dragStartOffset = useRef(0)
   const resumeTimer = useRef(0)
   const reduceMotionRef = useRef(false)
+  const samplesRef = useRef<Sample[]>([])
+  const armedRef = useRef(false)
+  const glideFrame = useRef(0)
 
   const items = Children.toArray(children)
 
@@ -85,6 +89,37 @@ export function LoopCarousel({
     }, RESUME_MS)
   }, [])
 
+  const stopGlide = useCallback(() => {
+    cancelAnimationFrame(glideFrame.current)
+  }, [])
+
+  const startGlide = useCallback(
+    (velocity: number) => {
+      stopGlide()
+      if (reduceMotionRef.current || Math.abs(velocity) < 40) {
+        if (!hoveringRef.current) scheduleResume()
+        return
+      }
+      pausedRef.current = true
+      let speedNow = velocity
+      let last = performance.now()
+      const step = (now: number) => {
+        const dt = Math.min(now - last, 34)
+        last = now
+        speedNow *= Math.pow(0.998, dt)
+        offsetRef.current += (speedNow * dt) / 1000
+        apply()
+        if (Math.abs(speedNow) < 18) {
+          if (!hoveringRef.current && !draggingRef.current) scheduleResume()
+          return
+        }
+        glideFrame.current = requestAnimationFrame(step)
+      }
+      glideFrame.current = requestAnimationFrame(step)
+    },
+    [apply, scheduleResume, stopGlide],
+  )
+
   useLayoutEffect(() => {
     measure()
     const viewport = viewportRef.current
@@ -115,6 +150,7 @@ export function LoopCarousel({
     frame = requestAnimationFrame(tick)
     return () => {
       cancelAnimationFrame(frame)
+      cancelAnimationFrame(glideFrame.current)
       window.removeEventListener('resize', onResize)
       window.clearTimeout(resumeTimer.current)
     }
@@ -147,6 +183,7 @@ export function LoopCarousel({
         )}
         onPointerEnter={() => {
           hoveringRef.current = true
+          pause()
         }}
         onPointerLeave={() => {
           hoveringRef.current = false
@@ -155,22 +192,43 @@ export function LoopCarousel({
         }}
         onPointerDown={(event) => {
           if ((event.target as HTMLElement).closest('button, a, input, textarea')) return
-          draggingRef.current = true
+          stopGlide()
+          draggingRef.current = false
+          armedRef.current = false
           dragStartX.current = event.clientX
           dragStartOffset.current = offsetRef.current
+          samplesRef.current = [{ x: event.clientX, t: performance.now() }]
           pause()
           event.currentTarget.setPointerCapture(event.pointerId)
         }}
         onPointerMove={(event) => {
-          if (draggingRef.current) {
-            offsetRef.current = dragStartOffset.current - (event.clientX - dragStartX.current)
-            apply()
+          if (!event.currentTarget.hasPointerCapture(event.pointerId)) {
+            if (hoveringRef.current) pause()
             return
           }
-          if (hoveringRef.current) pause()
+          pushSample(samplesRef.current, event.clientX, performance.now())
+          const dx = event.clientX - dragStartX.current
+          if (!armedRef.current) {
+            if (Math.abs(dx) < 10) return
+            armedRef.current = true
+            draggingRef.current = true
+          }
+          offsetRef.current = dragStartOffset.current - dx
+          apply()
         }}
         onPointerUp={() => {
+          const wasDrag = armedRef.current
           draggingRef.current = false
+          armedRef.current = false
+          if (wasDrag) {
+            startGlide(-readVelocity(samplesRef.current))
+            return
+          }
+          if (!hoveringRef.current) scheduleResume()
+        }}
+        onPointerCancel={() => {
+          draggingRef.current = false
+          armedRef.current = false
           if (!hoveringRef.current) scheduleResume()
         }}
       >

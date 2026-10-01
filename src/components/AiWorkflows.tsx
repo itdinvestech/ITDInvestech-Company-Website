@@ -189,18 +189,11 @@ export function AiWorkflows() {
   const ActiveIcon = active.icon
 
   return (
-    <section id="ai" className="section-pad relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="absolute left-1/2 top-24 h-64 w-[42rem] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl dark:bg-primary/20" />
-      </div>
-
+    <section id="ai" className="section-pad relative">
       <div className="container mx-auto px-4">
         <div className="section-intro">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-            A core ability
-          </p>
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
+          <p className="eyebrow mb-4">A core ability</p>
+          <h2 className="display text-3xl sm:text-5xl lg:text-[3.25rem]">
             AI integration, on top of the software.
             <span className="mt-2 block text-muted-foreground">Not instead of it.</span>
           </h2>
@@ -221,7 +214,7 @@ export function AiWorkflows() {
                     type="button"
                     onClick={() => setActiveId(item.id)}
                     className={cn(
-                      'flex min-w-[11.5rem] items-center gap-3 rounded-xl px-3.5 py-3 text-left transition-colors lg:min-w-0 lg:w-full',
+                      'flex min-w-[11.5rem] items-center gap-3 rounded-xl px-3.5 py-3 text-left transition-[transform,background-color,color] duration-150 ease-out active:scale-[0.98] motion-reduce:active:scale-100 lg:min-w-0 lg:w-full',
                       selected
                         ? 'bg-primary text-primary-foreground shadow-sm'
                         : 'text-muted-foreground hover:bg-muted hover:text-foreground',
