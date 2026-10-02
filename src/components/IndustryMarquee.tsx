@@ -68,11 +68,14 @@ export function IndustryMarquee() {
   const draggingRef = useRef(false)
   const hoveringRef = useRef(false)
   const dragStartX = useRef(0)
+  const dragStartY = useRef(0)
   const dragStartOffset = useRef(0)
   const resumeTimer = useRef(0)
   const reduceMotionRef = useRef(false)
   const samplesRef = useRef<Sample[]>([])
   const armedRef = useRef(false)
+  const axisLocked = useRef(false)
+  const pointerIdRef = useRef<number | null>(null)
   const glideFrame = useRef(0)
 
   const wrapOffset = useCallback((value: number) => {
@@ -204,45 +207,56 @@ export function IndustryMarquee() {
       <div
         ref={viewportRef}
         data-marquee="industries"
-        className="cursor-grab select-none overflow-hidden touch-pan-x active:cursor-grabbing"
+        className="cursor-grab select-none overflow-hidden overscroll-x-contain touch-pan-y active:cursor-grabbing"
         onPointerEnter={() => {
           hoveringRef.current = true
           pause()
         }}
         onPointerLeave={() => {
           hoveringRef.current = false
-          draggingRef.current = false
+          if (draggingRef.current) return
           scheduleResume()
         }}
         onPointerDown={(event) => {
+          if (event.button !== 0) return
           stopGlide()
           draggingRef.current = false
           armedRef.current = false
           dragStartX.current = event.clientX
+          dragStartY.current = event.clientY
           dragStartOffset.current = offsetRef.current
           samplesRef.current = [{ x: event.clientX, t: performance.now() }]
-          pause()
-          event.currentTarget.setPointerCapture(event.pointerId)
+          pointerIdRef.current = event.pointerId
         }}
         onPointerMove={(event) => {
-          if (!event.currentTarget.hasPointerCapture(event.pointerId)) {
-            if (hoveringRef.current) pause()
-            return
-          }
-          pushSample(samplesRef.current, event.clientX, performance.now())
+          if (pointerIdRef.current !== event.pointerId) return
           const dx = event.clientX - dragStartX.current
-          if (!armedRef.current) {
-            if (Math.abs(dx) < 10) return
+          const dy = event.clientY - dragStartY.current
+          if (!armedRef.current && !axisLocked.current) {
+            if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return
+            if (Math.abs(dy) > Math.abs(dx)) {
+              pointerIdRef.current = null
+              axisLocked.current = false
+              return
+            }
+            axisLocked.current = true
             armedRef.current = true
             draggingRef.current = true
+            pause()
+            event.currentTarget.setPointerCapture(event.pointerId)
           }
+          if (!armedRef.current) return
+          pushSample(samplesRef.current, event.clientX, performance.now())
           offsetRef.current = dragStartOffset.current - dx
           apply()
         }}
-        onPointerUp={() => {
+        onPointerUp={(event) => {
+          if (pointerIdRef.current !== null && pointerIdRef.current !== event.pointerId) return
           const wasDrag = armedRef.current
           draggingRef.current = false
           armedRef.current = false
+          axisLocked.current = false
+          pointerIdRef.current = null
           if (wasDrag) {
             startGlide(-readVelocity(samplesRef.current))
             return
@@ -252,6 +266,8 @@ export function IndustryMarquee() {
         onPointerCancel={() => {
           draggingRef.current = false
           armedRef.current = false
+          axisLocked.current = false
+          pointerIdRef.current = null
           if (!hoveringRef.current) scheduleResume()
         }}
       >
