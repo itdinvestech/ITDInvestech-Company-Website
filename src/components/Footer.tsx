@@ -6,7 +6,6 @@ import { scrollToSection } from '@/lib/utils'
 const NAV = [
   { id: 'how', label: 'How we work' },
   { id: 'solutions', label: 'Offerings' },
-  { id: 'apps', label: 'Apps' },
   { id: 'ai', label: 'AI' },
   { id: 'about', label: 'About' },
   { id: 'contact', label: 'Contact' },
@@ -18,7 +17,6 @@ const PLATFORMS = [
   { id: 'solutions', label: 'Inventory systems' },
   { id: 'solutions', label: 'ERP systems' },
   { id: 'solutions', label: 'SearchBox hiring' },
-  { id: 'apps', label: 'MoviesApp & delivery' },
 ]
 
 export function Footer() {
