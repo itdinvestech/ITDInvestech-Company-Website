@@ -2,9 +2,12 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { useSiteTabs } from '@/components/SiteTabs'
 import { submitContactForm } from '@/lib/contactApi'
+import { NEED_OPTIONS, WHATSAPP_HREF } from '@/lib/site'
+import { cn } from '@/lib/utils'
 import { Loader2, Mail, Phone } from 'lucide-react'
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 
 const EMAIL_ADDRESSES = [
   { label: 'General enquiries', address: 'info@itdinvestech.co.za' },
@@ -12,20 +15,35 @@ const EMAIL_ADDRESSES = [
 ] as const
 
 export function Contact() {
+  const { intent, intentKey } = useSiteTabs()
+  const [need, setNeed] = useState('')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
-    subject: '',
     message: '',
     honeypot: '',
   })
   const [submitting, setSubmitting] = useState(false)
   const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
 
+  useEffect(() => {
+    if (intent) setNeed(intent)
+  }, [intent, intentKey])
+
+  const needOptions = need && !(NEED_OPTIONS as readonly string[]).includes(need)
+    ? [need, ...NEED_OPTIONS]
+    : [...NEED_OPTIONS]
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setFeedback(null)
+
+    if (!need) {
+      setFeedback({ type: 'error', text: 'Choose what you need.' })
+      return
+    }
+
     setSubmitting(true)
 
     try {
@@ -33,7 +51,7 @@ export function Contact() {
         name: formData.name,
         email: formData.email,
         company: formData.company || undefined,
-        subject: formData.subject,
+        subject: need,
         message: formData.message,
         honeypot: formData.honeypot,
       })
@@ -41,9 +59,10 @@ export function Contact() {
       if (result.success) {
         setFeedback({
           type: 'success',
-          text: 'Thank you for your message. We will get back to you soon.',
+          text: 'We reply the same business day to set a time.',
         })
-        setFormData({ name: '', email: '', company: '', subject: '', message: '', honeypot: '' })
+        setNeed('')
+        setFormData({ name: '', email: '', company: '', message: '', honeypot: '' })
         return
       }
 
@@ -73,10 +92,9 @@ export function Contact() {
       <div className="container relative z-10 mx-auto px-4">
         <div className="section-intro mb-12 sm:mb-16">
           <p className="eyebrow mb-4">Contact</p>
-          <h2 className="display text-3xl sm:text-5xl">Talk to us</h2>
+          <h2 className="display text-3xl sm:text-5xl">Book a 20-minute call</h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Need a platform built and hosted — or AI inside a system you already run? Tell us what
-            you run today.
+            Tell us what you run. We reply the same business day.
           </p>
         </div>
 
@@ -117,6 +135,15 @@ export function Contact() {
                     +27 64 784 8610
                   </a>
                   <br />
+                  <a
+                    href={WHATSAPP_HREF}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground transition-colors hover:text-primary"
+                  >
+                    WhatsApp
+                  </a>
+                  <br />
                   Mon-Fri, 9am-6pm SAST
                 </CardDescription>
               </CardContent>
@@ -125,10 +152,8 @@ export function Contact() {
 
           <Card className="border border-border/80 bg-card lg:col-span-2">
             <CardHeader className="p-5 pb-4 sm:p-6">
-              <CardTitle>Send us a Message</CardTitle>
-              <CardDescription>
-                Fill out the form below and we&apos;ll get back to you as soon as possible.
-              </CardDescription>
+              <CardTitle>Book a 20-minute call</CardTitle>
+              <CardDescription>Tell us what you run. We reply the same business day.</CardDescription>
             </CardHeader>
             <CardContent className="px-5 pb-5 sm:px-6 sm:pb-6">
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -174,34 +199,43 @@ export function Contact() {
                   </div>
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <label htmlFor="company" className="block text-sm font-medium">
-                      Company <span className="text-muted-foreground">(optional)</span>
-                    </label>
-                    <Input
-                      id="company"
-                      name="company"
-                      placeholder="Your company"
-                      value={formData.company}
-                      onChange={handleChange}
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="block text-sm font-medium">
-                      Subject
-                    </label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      placeholder="How can we help?"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
+                <div className="space-y-2">
+                  <label htmlFor="company" className="block text-sm font-medium">
+                    Company <span className="text-muted-foreground">(optional)</span>
+                  </label>
+                  <Input
+                    id="company"
+                    name="company"
+                    placeholder="Your company"
+                    value={formData.company}
+                    onChange={handleChange}
+                  />
                 </div>
+
+                <fieldset className="space-y-2">
+                  <legend className="text-sm font-medium">What do you need?</legend>
+                  <div className="flex flex-wrap gap-2">
+                    {needOptions.map((option) => {
+                      const selected = need === option
+                      return (
+                        <button
+                          key={option}
+                          type="button"
+                          aria-pressed={selected}
+                          onClick={() => setNeed(option)}
+                          className={cn(
+                            'rounded-full border px-3 py-1.5 text-left text-[13px] font-medium transition-[transform,background-color,color,border-color] duration-150 ease-out active:scale-[0.97] motion-reduce:active:scale-100',
+                            selected
+                              ? 'border-primary bg-primary text-primary-foreground'
+                              : 'border-border bg-background text-foreground hover:border-primary/40',
+                          )}
+                        >
+                          {option}
+                        </button>
+                      )
+                    })}
+                  </div>
+                </fieldset>
 
                 <div className="space-y-2">
                   <label htmlFor="message" className="block text-sm font-medium">
@@ -240,7 +274,7 @@ export function Contact() {
                       Sending...
                     </>
                   ) : (
-                    'Send Message'
+                    'Request the call'
                   )}
                 </Button>
               </form>

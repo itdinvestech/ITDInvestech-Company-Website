@@ -1,30 +1,32 @@
 import { Mail, Phone, Linkedin, ArrowRight, MapPin } from 'lucide-react'
 import BrandLogo from '@/components/BrandLogo'
 import { Button } from '@/components/ui/button'
-import { scrollToSection } from '@/lib/utils'
+import { type TabId, useSiteTabs } from '@/components/SiteTabs'
+import { WHATSAPP_HREF, intentForProduct } from '@/lib/site'
 
-const NAV = [
+const NAV: { id: TabId; label: string }[] = [
   { id: 'how', label: 'How we work' },
-  { id: 'solutions', label: 'Offerings' },
+  { id: 'platforms', label: 'Platforms' },
   { id: 'ai', label: 'AI' },
   { id: 'about', label: 'About' },
   { id: 'contact', label: 'Contact' },
 ]
 
 const PLATFORMS = [
-  { id: 'solutions', label: 'LMS & school platforms' },
-  { id: 'solutions', label: 'Clinic sites' },
-  { id: 'solutions', label: 'Inventory systems' },
-  { id: 'solutions', label: 'ERP systems' },
-  { id: 'solutions', label: 'SearchBox hiring' },
+  'LMS & school platforms',
+  'Clinic sites',
+  'Inventory systems',
+  'ERP systems',
+  'SearchBox hiring',
 ]
 
 export function Footer() {
+  const { openTab } = useSiteTabs()
   const currentYear = new Date().getFullYear()
 
-  const go = (event: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+  const go = (event: React.MouseEvent<HTMLAnchorElement>, tab: TabId, intent?: string) => {
     event.preventDefault()
-    scrollToSection(sectionId)
+    openTab(tab, intent)
   }
 
   return (
@@ -41,8 +43,8 @@ export function Footer() {
               place.
             </p>
           </div>
-          <Button size="lg" className="h-12 shrink-0 px-6" onClick={() => scrollToSection('contact')}>
-            Talk to us
+          <Button size="lg" className="h-12 shrink-0 px-6" onClick={() => openTab('contact')}>
+            Book a 20-minute call
             <ArrowRight className="ml-1 h-4 w-4" />
           </Button>
         </div>
@@ -76,6 +78,15 @@ export function Footer() {
                 <Phone className="h-4 w-4 shrink-0 text-primary" />
                 +27 64 784 8610
               </a>
+              <a
+                href={WHATSAPP_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
+              >
+                <Phone className="h-4 w-4 shrink-0 text-primary" />
+                WhatsApp
+              </a>
               <p className="flex items-start gap-2 text-muted-foreground">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 South Africa · Netherlands
@@ -90,7 +101,7 @@ export function Footer() {
                 <li key={link.id}>
                   <a
                     href={`#${link.id}`}
-                    onClick={(e) => go(e, link.id)}
+                    onClick={(event) => go(event, link.id)}
                     className="text-muted-foreground transition-colors hover:text-primary"
                   >
                     {link.label}
@@ -103,14 +114,14 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold">Platforms we ship</h3>
             <ul className="mt-4 space-y-2.5 text-sm">
-              {PLATFORMS.map((item) => (
-                <li key={item.label}>
+              {PLATFORMS.map((label) => (
+                <li key={label}>
                   <a
-                    href={`#${item.id}`}
-                    onClick={(e) => go(e, item.id)}
+                    href="#platforms"
+                    onClick={(event) => go(event, 'platforms', intentForProduct(label))}
                     className="text-muted-foreground transition-colors hover:text-primary"
                   >
-                    {item.label}
+                    {label}
                   </a>
                 </li>
               ))}

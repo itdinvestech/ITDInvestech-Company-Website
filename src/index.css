@@ -88,7 +88,19 @@
 
 @layer components {
   .section-pad {
-    @apply py-16 sm:py-24 lg:py-28;
+    @apply py-8 sm:py-12;
+  }
+
+  .tab-panel {
+    animation: tab-in 180ms ease-out;
+  }
+
+  #how,
+  #platforms,
+  #ai,
+  #about,
+  #contact {
+    scroll-margin-top: 7.5rem;
   }
 
   .section-intro {
@@ -111,14 +123,14 @@
   }
 
   .material-bar {
-    background: hsl(var(--background) / 0.84);
+    background: hsl(var(--background) / 0.94);
     -webkit-backdrop-filter: saturate(180%) blur(24px);
     backdrop-filter: saturate(180%) blur(24px);
     box-shadow: inset 0 0.5px 0 hsl(0 0% 100% / 0.55);
   }
 
   .dark .material-bar {
-    background: hsl(0 0% 0% / 0.8);
+    background: hsl(0 0% 0% / 0.94);
     box-shadow: inset 0 0.5px 0 hsl(0 0% 100% / 0.14);
   }
 
@@ -398,6 +410,15 @@
   }
 
   /* Shimmer effect */
+  @keyframes tab-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   @keyframes shimmer {
     0% {
       transform: translateX(-100%);

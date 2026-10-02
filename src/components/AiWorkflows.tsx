@@ -7,7 +7,8 @@ import {
   Wrench,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { cn, scrollToSection } from '@/lib/utils'
+import { useSiteTabs } from '@/components/SiteTabs'
+import { cn } from '@/lib/utils'
 
 const MEANINGS = [
   {
@@ -184,6 +185,7 @@ function IntegrationScene({ id }: { id: MeaningId }) {
 }
 
 export function AiWorkflows() {
+  const { openTab } = useSiteTabs()
   const [activeId, setActiveId] = useState<MeaningId>('means')
   const active = MEANINGS.find((item) => item.id === activeId) ?? MEANINGS[0]
   const ActiveIcon = active.icon
@@ -249,7 +251,7 @@ export function AiWorkflows() {
               <Button
                 className="mt-8"
                 variant="outline"
-                onClick={() => scrollToSection('solutions')}
+                onClick={() => openTab('platforms')}
               >
                 See platforms we ship
               </Button>

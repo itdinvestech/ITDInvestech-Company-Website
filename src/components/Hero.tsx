@@ -1,16 +1,27 @@
 import { Button } from '@/components/ui/button'
-import { ArrowRight } from 'lucide-react'
 import { IndustryMarquee } from '@/components/IndustryMarquee'
-import { scrollToSection } from '@/lib/utils'
+import { useSiteTabs } from '@/components/SiteTabs'
+import { WHATSAPP_HREF } from '@/lib/site'
+import { ArrowRight, ExternalLink } from 'lucide-react'
 
-const STATS = [
-  { value: 'Build', label: 'Custom software for operators' },
-  { value: 'Host', label: 'Cloud, security, uptime' },
-  { value: 'Deliver', label: 'Live systems, real results' },
-  { value: 'AI', label: 'Integrated where it pays off' },
+const PROOF = [
+  {
+    href: 'https://lms-demo.itdinvestech.co.za/',
+    label: 'Live school platform',
+  },
+  {
+    href: 'https://drmetuseplasticsurgeon.co.za/',
+    label: 'Live clinic site, Sandton',
+  },
+  {
+    href: 'https://searchbox.itdinvestech.co.za/',
+    label: 'Live hiring platform',
+  },
 ]
 
 export function Hero() {
+  const { openTab } = useSiteTabs()
+
   return (
     <section id="home" className="relative overflow-hidden pt-14 sm:pt-20 lg:pt-24">
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[28rem] bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.14),transparent_62%)]" />
@@ -30,34 +41,39 @@ export function Hero() {
             actually changes the work.
           </p>
 
+          <ul className="mx-auto mt-8 flex max-w-3xl flex-col items-center gap-2 sm:flex-row sm:flex-wrap sm:justify-center">
+            {PROOF.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/80 px-3.5 py-2 text-[13px] font-medium transition-[transform,background-color] duration-150 ease-out hover:bg-card active:scale-[0.97] motion-reduce:active:scale-100"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
+                  {item.label}
+                  <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
+                </a>
+              </li>
+            ))}
+          </ul>
+
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-9 sm:flex-row">
             <Button
               size="lg"
-              onClick={() => scrollToSection('contact')}
+              onClick={() => openTab('contact')}
               className="h-12 w-full px-7 text-[15px] sm:w-auto"
             >
-              Get started
+              Book a 20-minute call
               <ArrowRight className="ml-0.5 h-4 w-4" />
             </Button>
-            <Button
-              size="lg"
-              variant="secondary"
-              onClick={() => scrollToSection('how')}
-              className="h-12 w-full px-7 text-[15px] sm:w-auto"
-            >
-              See how we work
+            <Button asChild size="lg" variant="secondary" className="h-12 w-full px-7 text-[15px] sm:w-auto">
+              <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer">
+                WhatsApp
+              </a>
             </Button>
           </div>
         </div>
-
-        <dl className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-x-6 gap-y-8 sm:mt-16 sm:grid-cols-4">
-          {STATS.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <dt className="text-[17px] font-semibold tracking-[-0.02em]">{stat.value}</dt>
-              <dd className="mt-1 text-[13px] leading-snug text-muted-foreground">{stat.label}</dd>
-            </div>
-          ))}
-        </dl>
       </div>
 
       <IndustryMarquee />

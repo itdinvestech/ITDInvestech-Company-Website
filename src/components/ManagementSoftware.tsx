@@ -4,11 +4,13 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { GraduationCap, Stethoscope, Store, Building2, Check, ArrowRight, Users, BookOpen, Calendar, MessageSquare, FileText, DollarSign, ClipboardList, BarChart3, Package, ShoppingCart, TrendingUp, Home, Key, Wrench, Receipt, UserSearch, Briefcase, Target, ClipboardCheck, Sparkles, FileSearch, ExternalLink, Factory, Warehouse } from "lucide-react"
 import { useState } from "react"
-import { scrollToSection } from "@/lib/utils"
+import { useSiteTabs } from "@/components/SiteTabs"
+import { intentForProduct } from "@/lib/site"
 import { SitePreview } from "@/components/SitePreview"
 import { LoopCarousel } from "@/components/LoopCarousel"
 
 export function ManagementSoftware() {
+  const { openTab } = useSiteTabs()
   const [selectedSolution, setSelectedSolution] = useState<number | null>(null)
 
   const solutions = [
@@ -330,7 +332,7 @@ export function ManagementSoftware() {
   ]
 
   return (
-    <section id="solutions" className="section-pad relative">
+    <section id="platforms" className="section-pad relative">
       <div className="container relative z-10 mx-auto px-4">
         <div className="section-intro mb-10 sm:mb-12">
           <p className="eyebrow mb-4">What we offer</p>
@@ -374,15 +376,33 @@ export function ManagementSoftware() {
                   </CardDescription>
                 </CardHeader>
 
-                <CardContent className="relative z-10 pt-0 pb-5 sm:pb-6">
+                <CardContent className="relative z-10 space-y-2 pt-0 pb-5 sm:pb-6">
                   <Button
-                    onClick={() => setSelectedSolution(index)}
-                    className="w-full group/btn"
+                    onClick={() => openTab('contact', intentForProduct(solution.title))}
+                    className="h-auto min-h-9 w-full whitespace-normal py-2 text-center group/btn"
                     size="sm"
                   >
-                    See what’s included
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                    Talk about a system like this
                   </Button>
+                  <div className="flex items-center justify-between gap-2">
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setSelectedSolution(index)}
+                      className="h-9 px-2 text-[13px] text-muted-foreground"
+                    >
+                      See what’s included
+                    </Button>
+                    {'url' in solution && solution.url && (
+                      <Button asChild variant="ghost" size="sm" className="h-9 px-2 text-[13px] text-muted-foreground">
+                        <a href={solution.url} target="_blank" rel="noopener noreferrer">
+                          Visit live site
+                          <ExternalLink className="h-3.5 w-3.5" />
+                        </a>
+                      </Button>
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             )
@@ -486,13 +506,14 @@ export function ManagementSoftware() {
                     )}
                     <Button
                       onClick={() => {
+                        const title = solutions[selectedSolution].title
                         setSelectedSolution(null)
-                        scrollToSection('contact')
+                        openTab('contact', intentForProduct(title))
                       }}
                       size="lg"
                       className="w-full group/btn sm:w-auto"
                     >
-                      Request a Demo
+                      Book a 20-minute call
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                     </Button>
                   </div>
